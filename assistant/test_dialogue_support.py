@@ -84,17 +84,16 @@ class DialogueSupportTests(SimpleTestCase):
         self.assertEqual(result['status'],'answer')
         self.assertIn('не гарантируется',result['answer'])
 
-    def test_support_looks_at_full_sources_not_only_wrong_draft_selection(self):
+    def test_evidence_selected_before_writer_without_discarded_primary_generation(self):
         class Stub:
             calls=0;last_request={};last_raw_response='';last_chat_metadata={}
             def fits(self,*args):return True
             def chat(self,system,messages,structured):
                 self.calls+=1
                 if self.calls==1:
-                    return {'status':'answer','claims':[{'text':'Соседнее правило','proof_ids':['E1']}],'message':'','conflict_reason':''}
-                self.packet=json.loads(messages[0]['content'])
-                # Текст объяснения не обрывается ограничением символов JSON-схемы.
-                return {'reason':'Прямое правило о питании. '*20,'proof_ids':['E2']}
+                    self.packet=json.loads(messages[0]['content'])
+                    return {'finding':'Прямое правило о питании. '*20,'proof_ids':['E2'],'sufficient':True,'missing':[],'clarification':''}
+                return {'status':'answer','claims':[{'text':'Для питания прикладывают чек.','proof_ids':['E2']}],'message':'','conflict_reason':''}
         source={'id':'s','document_id':'d','title':'Регламент','location':'раздел',
                 'text':'Для обучения создают заявку. Для питания прикладывают чек.'}
         model=Stub()
@@ -103,7 +102,7 @@ class DialogueSupportTests(SimpleTestCase):
         self.assertIn('Для питания прикладывают чек.',result['answer'])
         self.assertNotIn('Для обучения',result['answer'])
         self.assertEqual(len(model.packet['documents'][0]['excerpts']),2)
-        self.assertEqual(audit['model_result']['claims'][0]['text'],'Соседнее правило')
+        self.assertEqual(model.calls,2)
 
 
 class TopicContextTests(TestCase):

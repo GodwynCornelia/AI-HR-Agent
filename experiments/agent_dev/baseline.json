@@ -1,0 +1,22 @@
+{
+  "historical_main_commit": "bcc502d06771306d7e32a74e6a9544ec947a0ad2",
+  "mandatory_numeric_fix_commit": "f6e868a",
+  "historical_available_results": ["experiments/series_112", "experiments/holdout_22"],
+  "historical_results_are_not_current_code_baseline": true,
+  "comparison_baseline": "Ordinary dense conversational RAG with final mandatory checks and shared evidence-first response generation",
+  "agent_difference": "LangGraph model-selected tools and optional additional searches; same underlying model/retriever/corpus/answer checks",
+  "langgraph_version": "1.2.24",
+  "model": "qwen3:4b",
+  "embedding": "embeddinggemma",
+  "num_ctx": 4096,
+  "num_predict": 700,
+  "top_k": 8,
+  "temperature": 0,
+  "seed": 116,
+  "max_searches": 3,
+  "max_actions": 8,
+  "agent_timeout_seconds": 600,
+  "telemetry": "disabled; no hosted LangSmith or external agent services",
+  "memory": "Existing PostgreSQL conversations; no LangGraph checkpointer or second memory store",
+  "numeric_regression": "Selected generic refund-request quote cannot become an answer about an unspecified numeric refund duration"
+}

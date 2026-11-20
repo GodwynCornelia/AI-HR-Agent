@@ -194,7 +194,7 @@ def apply_grounding_check(result, plan, check, proofs):
     return result
 
 
-def generate_grounded_answer(model, question, sources, evaluation_date, diagnostic=None, current_user_message=None):
+def generate_grounded_answer_legacy(model, question, sources, evaluation_date, diagnostic=None, current_user_message=None):
     """Проверка ограничивает пересказ; её вердикт не является оценкой качества."""
     selected = sources.copy()
     context = {'question': question, 'today': str(evaluation_date), 'documents': []}
@@ -290,3 +290,8 @@ def generate_grounded_answer(model, question, sources, evaluation_date, diagnost
     diagnostic['grounding_seconds'] = grounding_seconds
     result,diagnostic['final_mandatory_checks']=enforce(question,result)
     return result, diagnostic
+
+
+def generate_grounded_answer(model,question,sources,evaluation_date,diagnostic=None,current_user_message=None):
+    from .grounded import answer_from_sources
+    return answer_from_sources(model,question,sources,evaluation_date,diagnostic,current_user_message)

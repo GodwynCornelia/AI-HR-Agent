@@ -85,8 +85,8 @@ class AccessTests(TestCase):
             model.return_value.last_raw_response='{}'
             model.return_value.chat.side_effect=[
                 {'status':'search','query':'Куда подать запрос на кадровую справку?','clarification':''},
-                {'status':'answer','claims':[{'text':'Запрос подают в Кадры.','proof_ids':['E1']}],'message':'','conflict_reason':''},
-                {'reason':'Процедура прямо указана.','proof_ids':['E1']}]
+                {'finding':'Процедура прямо указана.','proof_ids':['E1'],'sufficient':True,'missing':[],'clarification':''},
+                {'status':'answer','claims':[{'text':'Запрос подают в Кадры.','proof_ids':['E1']}],'message':'','conflict_reason':''}]
             result=ask(self.alice,self.conversation.id,'Куда подать запрос на кадровую справку?')
             self.assertEqual(result.status,'answer')
             self.assertEqual(result.diagnostics['result']['sources'][0]['id'],identifier)

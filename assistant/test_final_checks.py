@@ -9,14 +9,14 @@ class FinalChecksTests(SimpleTestCase):
             def fits(self,*args):return True
             def chat(self,*args,**kwargs):
                 self.calls+=1
-                return ({'status':'answer','claims':[{'text':text,'proof_ids':['E1']}],'message':'','conflict_reason':''}
-                        if self.calls==1 else {'reason':'Выбран фрагмент','proof_ids':['E1']})
+                return ({'finding':'Выбран фрагмент','proof_ids':['E1'],'sufficient':True,'missing':[],'clarification':''}
+                        if self.calls==1 else {'status':'answer','claims':[{'text':text,'proof_ids':['E1']}],'message':'','conflict_reason':''})
         source={'id':'s','document_id':'d','title':'Расходы','location':'раздел','text':text}
         with patch('assistant.evidence.check_policy_relations',return_value=None):
             return generate_grounded_answer(Model(),'Какой единый срок перечисления возврата установлен?',[source],'2026-11-17')
     def test_support_cannot_undo_numeric_rejection(self):
         result,trace=self.run_pipeline('Заявка на возврат оформляется в портале Расходы.')
-        self.assertEqual(trace['grounding_check']['status'],'answer')
+        self.assertTrue(trace['assessment']['sufficient'])
         self.assertEqual(result['status'],'refuse')
         self.assertFalse(trace['final_mandatory_checks']['numeric']['explicit_value_or_boundary_in_selected_proof'])
     def test_actual_numeric_value_or_explicit_boundary_passes(self):

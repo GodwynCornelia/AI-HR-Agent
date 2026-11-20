@@ -3,8 +3,8 @@ from qdrant_client import QdrantClient, models
 
 
 class VectorIndex:
-    def __init__(self):
-        self.client = QdrantClient(url=os.getenv('QDRANT_URL', 'http://127.0.0.1:6333'), timeout=60)
+    def __init__(self,timeout=60):
+        self.client = QdrantClient(url=os.getenv('QDRANT_URL', 'http://127.0.0.1:6333'), timeout=timeout)
         self.collection = os.getenv('QDRANT_COLLECTION', 'hr_dense_v1')
 
     def ensure(self, dimension):
