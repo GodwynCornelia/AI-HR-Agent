@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}<div class="workspace">
-<aside><form method="post" action="{% url 'new_conversation' %}">{% csrf_token %}<button class="button-md" type="submit">Новый диалог</button></form>
+<aside><form method="post" action="{% url 'new_conversation' %}">{% csrf_token %}<label>Режим <select name="mode"><option value="rag">Обычный RAG</option><option value="agent">LangGraph Agent</option></select></label><button class="button-md" type="submit">Новый диалог</button></form>
 <h2 class="title-3">Ваши диалоги</h2><ul class="history">{% for conversation in conversations %}<li><a {% if selected.id == conversation.id %}aria-current="page"{% endif %} href="{% url 'chat' conversation.id %}">{{ conversation.title }}</a></li>{% empty %}<li class="caption-2">История появится после первого вопроса.</li>{% endfor %}</ul></aside>
 <section aria-label="Диалог">
 {% if selected %}<h1 class="heading-5">{{ selected.title }}</h1>
-<p class="caption-2">Ответы по документам компании · {{ user.username }}</p>
+<p class="caption-2">{{ selected.get_mode_display }} · {{ user.username }}</p>
 {% for turn in turns %}<article class="turn">
 <h2 class="title-3">{{ turn.original }}</h2>
 <p class="answer">{{ turn.answer|linebreaksbr }}</p>
 {% if turn.status == 'conflict' %}<p class="notice">Обнаружено противоречие в документах</p>{% endif %}
 {% for source in turn.diagnostics.result.sources %}<details><summary><a href="{% url 'source' source.document_id %}">{{ source.title }}</a> · {{ source.location }}</summary><blockquote>{{ source.quote }}</blockquote></details>{% endfor %}
-<p class="caption-2">Запрос {{ turn.id }} · {{ turn.get_status_display }}</p>
+{% if turn.public_events %}<details><summary>События обработки</summary><ol>{% for event in turn.public_events %}<li>{{ event }}</li>{% endfor %}</ol></details>{% endif %}<p class="caption-2">Запрос {{ turn.id }} · {{ turn.get_status_display }}</p>
 </article>{% empty %}<p>Спросите о льготах, отпуске, командировках или внутренних процедурах. Укажите существенные условия, например формат работы.</p>{% endfor %}
 <form method="post" action="{% url 'send' selected.id %}" data-busy>{% csrf_token %}<label class="title-3" for="message">Ваш вопрос</label><textarea id="message" name="message" rows="3" maxlength="4000" required placeholder="Как оформить отпуск?"></textarea><button class="button-md" type="submit">Задать вопрос</button><p role="status" hidden>Готовим ответ по базе знаний. На локальном ПК это может занять время.</p></form>
-{% else %}<div class="empty"><p class="caption-2">БАЗА ЗНАНИЙ КОМПАНИИ</p><h1 class="heading-3">Правила и процедуры<br>с подтверждающими источниками</h1><p>Создайте диалог, чтобы задать вопрос. Если документов недостаточно, ассистент сообщит об этом или попросит уточнение.</p><form method="post" action="{% url 'new_conversation' %}">{% csrf_token %}<button class="button-md" type="submit">Начать диалог</button></form></div>{% endif %}
+{% else %}<div class="empty"><p class="caption-2">БАЗА ЗНАНИЙ КОМПАНИИ</p><h1 class="heading-3">Правила и процедуры<br>с подтверждающими источниками</h1><p>Создайте диалог, чтобы задать вопрос. Если документов недостаточно, ассистент сообщит об этом или попросит уточнение.</p><form method="post" action="{% url 'new_conversation' %}">{% csrf_token %}<label>Режим <select name="mode"><option value="rag">Обычный RAG</option><option value="agent">LangGraph Agent</option></select></label><button class="button-md" type="submit">Начать диалог</button></form></div>{% endif %}
 </section></div>{% endblock %}

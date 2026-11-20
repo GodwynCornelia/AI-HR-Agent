@@ -28,14 +28,26 @@ def api_call(user, path, body=None, files=None):
 def index(request, conversation_id=None):
     conversations = Conversation.objects.filter(owner=request.user).order_by('-created_at')
     selected = get_object_or_404(Conversation, id=conversation_id, owner=request.user) if conversation_id else None
-    turns = selected.turns.order_by('created_at', 'id') if selected else []
+    turns = list(selected.turns.order_by('created_at', 'id')) if selected else []
+    for turn in turns:
+        labels=[];searches=0
+        for event in turn.diagnostics.get('agent',{}).get('events',[]):
+            if event.get('tool')=='search_policies':
+                searches+=1;labels.append('Поиск источников' if searches==1 else 'Дополнительный поиск')
+            elif event.get('tool')=='read_policy_fragment':labels.append('Чтение найденного фрагмента')
+            elif event.get('node')=='assess':labels.append('Проверка найденных подтверждений')
+            elif event.get('node')=='finalize':labels.append('Финальная проверка источников')
+        turn.public_events=labels
     return render(request, 'assistant/chat.html', {'conversations': conversations, 'selected': selected, 'turns': turns})
 
 
 @login_required
 @require_POST
 def new_conversation(request):
-    conversation = Conversation.objects.create(owner=request.user)
+    mode=request.POST.get('mode','rag')
+    if mode not in Conversation.Mode.values:
+        messages.error(request,'Неизвестный режим диалога.');return redirect('index')
+    conversation = Conversation.objects.create(owner=request.user,mode=mode)
     return redirect('chat', conversation_id=conversation.id)
 
 

@@ -2,6 +2,7 @@ import uuid
 
 from django.conf import settings
 from django.db import models
+from django.core.exceptions import ValidationError
 
 
 class Document(models.Model):
@@ -53,10 +54,20 @@ class Job(models.Model):
 
 
 class Conversation(models.Model):
+    class Mode(models.TextChoices):
+        RAG='rag','Обычный RAG'
+        AGENT='agent','LangGraph Agent'
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=120, default='Новый диалог')
+    mode = models.CharField(max_length=16,choices=Mode.choices,default=Mode.RAG)
     created_at = models.DateTimeField(auto_now_add=True)
+
+    def save(self,*args,**kwargs):
+        if not self._state.adding:
+            previous=type(self).objects.filter(pk=self.pk).values_list('mode',flat=True).first()
+            if previous is not None and previous!=self.mode:raise ValidationError('Режим существующего диалога менять нельзя; создайте новый диалог.')
+        return super().save(*args,**kwargs)
 
 
 class Turn(models.Model):

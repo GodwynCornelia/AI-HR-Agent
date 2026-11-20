@@ -1,4 +1,5 @@
 import hashlib
+import os
 import json
 import re
 import time
@@ -180,7 +181,7 @@ def retrieve(query, model):
     started=time.perf_counter()
     vector=model.embed([query], query=True)[0]
     embedded=time.perf_counter()
-    points = VectorIndex().search(vector, integer('TOP_K', 8) * 3)
+    points = VectorIndex(timeout=getattr(model,'request_timeout',lambda value:value)(60)).search(vector, integer('TOP_K', 8) * 3)
     searched=time.perf_counter()
     valid = {str(chunk.id): chunk for chunk in Chunk.objects.select_related('document').filter(
         id__in=[point.id for point in points], document__state=Document.State.READY)}
@@ -240,6 +241,7 @@ def ask(user, conversation_id, message, *, as_of=None):
         raise ValueError('Вопрос должен содержать от 1 до 4000 символов')
     # Отказ при занятости не создаёт незавершённую реплику.
     conversation = owned_conversation(user, conversation_id)
+    if conversation.mode not in Conversation.Mode.values:raise ValueError('Неизвестный режим диалога')
     with heavy_operation():
         history_turns = list(conversation.turns.exclude(status__in=['pending', 'error']).order_by('-created_at', '-id')[:integer('HISTORY_TURNS', 6)])
         history = []
@@ -262,6 +264,8 @@ def ask(user, conversation_id, message, *, as_of=None):
         model=None
         try:
             model = Ollama()
+            if conversation.mode=='agent':
+                model.deadline=time.monotonic()+max(1,min(840,float(os.getenv('AGENT_TIMEOUT_SECONDS','600'))))
             before = time.perf_counter()
             def rewrite_message():
                 # Предыдущие ответы сохраняются в журнале, но их факты не нужны
@@ -307,7 +311,11 @@ def ask(user, conversation_id, message, *, as_of=None):
             diagnostic['rewrite'] = rewrite
             diagnostic['rewrite_model_metadata'] = getattr(model, 'last_chat_metadata', {})
             diagnostic['rewrite_model_request'] = getattr(model, 'last_request', {})
-            if rewrite.get('status') == 'clarify':
+            if conversation.mode=='agent':
+                from .agent_graph import run_agent
+                result,agent_diagnostic=run_agent(user,conversation,message,turn.rewritten,history,model,evaluation_date.isoformat(),clarification=rewrite.get('clarification','') if rewrite['status']=='clarify' else '')
+                diagnostic.update(agent_diagnostic)
+            elif rewrite.get('status') == 'clarify':
                 result = {'status': 'clarify', 'answer': str(rewrite.get('clarification') or 'Уточните, к какому правилу относится вопрос.'), 'sources': []}
             else:
                 if rewrite.get('status') != 'search' or not turn.rewritten.strip():
@@ -333,6 +341,11 @@ def ask(user, conversation_id, message, *, as_of=None):
                         id__in=[s['document_id'] for s in result['sources']], state=Document.State.READY).values_list('id', flat=True))
                     if any(s['document_id'] not in active_ids for s in result['sources']):
                         result = {'status': 'refuse', 'answer': 'База знаний изменилась во время ответа. Повторите вопрос.', 'sources': []}
+            from .final_checks import enforce
+            result,diagnostic['server_final_checks']=enforce(turn.rewritten or message,result)
+            source_ids=[s['document_id'] for s in result.get('sources',[])]
+            active={str(i) for i in Document.objects.filter(id__in=source_ids,state=Document.State.READY).values_list('id',flat=True)}
+            if any(i not in active for i in source_ids):result={'status':'refuse','answer':'Источники изменились во время ответа. Повторите вопрос.','sources':[]}
             turn.status = result['status']
             turn.answer = result['answer']
             diagnostic['result'] = result
@@ -341,8 +354,14 @@ def ask(user, conversation_id, message, *, as_of=None):
             turn.answer = 'Не удалось обработать вопрос. Повторите позже или сообщите администратору номер запроса.'
             diagnostic['error'] = {'type': type(exc).__name__, 'message': str(exc)[:1000]}
             diagnostic['raw_model_response']=getattr(model,'last_raw_response','')
+            if conversation.mode=='agent' and 'agent' not in diagnostic:
+                diagnostic['agent']={'graph_version':'hr-agent-graph-v1','stop_reason':'preparation_unavailable','events':[{'node':'rewrite','error':type(exc).__name__}],'searches':0,'actions':0}
         stages['total_seconds'] = time.perf_counter() - started
         diagnostic['timings'] = stages
+        if model is not None:
+            diagnostic['model_usage']={'llm_calls':getattr(model,'chat_calls',0) if isinstance(getattr(model,'chat_calls',None),int) else None,
+                'events':getattr(model,'chat_events',[]) if isinstance(getattr(model,'chat_events',None),list) else []}
+        diagnostic['mode']=conversation.mode
         turn.diagnostics = diagnostic
         turn.save()
         if conversation.title == 'Новый диалог':
