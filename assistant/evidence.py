@@ -5,6 +5,7 @@ import time
 from typing import Literal
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 from .answer_checks import check_policy_relations, numeric_requirement_check
+from .final_checks import enforce
 from .answer_support import SUPPORT_PROMPT, AnswerSupport, ExcerptSelection, support_schema, apply_answer_support, requested_value_check
 
 
@@ -287,4 +288,5 @@ def generate_grounded_answer(model, question, sources, evaluation_date, diagnost
         result['answer'] += '\nОднозначный ответ по базе невозможен; уточните применимое правило у HR.'
     diagnostic['answer_generation_seconds'] = answer_seconds
     diagnostic['grounding_seconds'] = grounding_seconds
+    result,diagnostic['final_mandatory_checks']=enforce(question,result)
     return result, diagnostic
