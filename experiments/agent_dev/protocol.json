@@ -1,0 +1,22 @@
+{
+  "purpose": "development_diagnostics_not_independent_final_test",
+  "historical_main": "bcc502d06771306d7e32a74e6a9544ec947a0ad2",
+  "numeric_fix_commit": "f6e868a",
+  "baseline": "corrected_conversational_dense_RAG_shared_evidence_writer_and_final_checks",
+  "agent": "LangGraph_same_model_embeddings_retriever_corpus_and_shared_answer_pipeline",
+  "question_ids": [
+    "v4.onboarding_plan.mentor", "cross.learning_trip", "v4.absent.library_after",
+    "v4.replaced.learning", "v4.conflict.cowork",
+    "v4.dialogue.equipment_scope.1", "v4.dialogue.equipment_scope.2", "v4.dialogue.equipment_scope.3", "v4.dialogue.equipment_scope.4",
+    "v4.dialogue.cowork_to_hotel.1", "v4.dialogue.cowork_to_hotel.2", "v4.dialogue.cowork_to_hotel.3", "v4.dialogue.cowork_to_hotel.4"
+  ],
+  "split": "dev",
+  "mode_order": "alternates_per_question_with_separate_conversations_and_own_history",
+  "max_searches": 3,
+  "max_actions": 8,
+  "agent_timeout_seconds": 600,
+  "new_final_test": false,
+  "semantic_assessment": "local_LLM_preliminary_only_not_calibrated",
+  "metrics": ["retrieved_reference_coverage", "provided_reference_coverage", "cited_reference_coverage", "action_label_proxy", "searches", "additional_search_gain", "repeated_tools", "latency", "LLM_calls", "prompt_and_output_tokens"],
+  "limits": ["13 targeted old dev turns; not a population estimate", "matching citations/actions does not prove semantic correctness", "historical comparisons in other directories use earlier code", "additional searches count as useful only when required reference coverage increases"]
+}
