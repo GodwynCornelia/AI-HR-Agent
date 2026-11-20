@@ -1,0 +1,6 @@
+* text=auto eol=lf
+data/** -text
+experiments/** -text
+*.png binary
+*.pdf binary
+*.docx binary

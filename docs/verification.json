@@ -1,0 +1,19 @@
+{
+  "fresh_database_migrations": "passed",
+  "fresh_admin_creation": "passed",
+  "corpus_seed_and_index": "passed",
+  "counts_stdout": "12 objects imported automatically (use -v 2 for details).\n\n{\"ready\": 41, \"chunks\": 286, \"vectors\": 286}\n",
+  "browser_login": "passed",
+  "historical_numbers_regenerated": false,
+  "full_clean_machine": "not_claimed",
+  "scope": "Отдельная пустая БД/коллекция, существующие локальные модели и установленное окружение; исходные сервисы не изменены.",
+  "public_unit_tests": 39,
+  "unit_test_status": "passed",
+  "ready_documents": 41,
+  "sql_chunks": 286,
+  "vectors": 286,
+  "current_browser_demo": "single_known_development_question_not_experiment",
+  "demo_sources": 1,
+  "mobile_horizontal_overflow": false,
+  "screenshots": "current_publication_code_clean_demo_history_no_passwords"
+}

@@ -1,0 +1,10 @@
+{
+  "archival_classes_not_published": [
+    "AcceptedReviewTests",
+    "V4_1ReviewCorrectionsTests",
+    "V4DataTests",
+    "EvaluationIsolationTests",
+    "BenchmarkTests"
+  ],
+  "reason": "Зависят от закрытых архивных версий, согласований или прежнего evaluation CLI. Публичные тесты проверяются отдельно; число исходных проверок не обещается для отобранного набора."
+}

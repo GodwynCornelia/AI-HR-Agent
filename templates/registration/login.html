@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}<section class="login">
+<p class="caption-2">ЛОКАЛЬНЫЙ HR СПРАВОЧНИК</p>
+<h1 class="heading-4">Войти в рабочее пространство</h1>
+<p>Задавайте вопросы по регламентам и возвращайтесь к своим диалогам.</p>
+<form method="post">{% csrf_token %}{{ form.as_p }}<input type="hidden" name="next" value="{{ next }}"><button class="button-md" type="submit">Войти</button></form>
+<p class="caption-2">Учётную запись создаёт администратор.</p>
+</section>{% endblock %}

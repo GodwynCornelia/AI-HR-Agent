@@ -1,0 +1,40 @@
+{
+  "no_rag": {
+    "model": "qwen3:4b",
+    "embed_model": "embeddinggemma",
+    "model_digests": {
+      "qwen3:4b": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+      "embeddinggemma:latest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1"
+    },
+    "ollama_version": "0.40.14",
+    "num_ctx": 4096,
+    "num_predict": 700,
+    "temperature": 0,
+    "seed": 116,
+    "top_k": 8,
+    "num_gpu": 99,
+    "embed_num_gpu": 0,
+    "code_tree_sha256": "7552b0224276842ce6eb75a28252448f51eb815d7f0d0f3bbb975c0cc581ebfb",
+    "prompts_sha256": "ff2b0a13c2e833ae18e3eb067a209e47145d3e9931697e7c88c8ab7fcb836a9d",
+    "tokenizer_sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4"
+  },
+  "rag": {
+    "model": "qwen3:4b",
+    "embed_model": "embeddinggemma",
+    "model_digests": {
+      "qwen3:4b": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+      "embeddinggemma:latest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1"
+    },
+    "ollama_version": "0.40.14",
+    "num_ctx": 4096,
+    "num_predict": 700,
+    "temperature": 0,
+    "seed": 116,
+    "top_k": 8,
+    "num_gpu": 99,
+    "embed_num_gpu": 0,
+    "code_tree_sha256": "7552b0224276842ce6eb75a28252448f51eb815d7f0d0f3bbb975c0cc581ebfb",
+    "prompts_sha256": "ff2b0a13c2e833ae18e3eb067a209e47145d3e9931697e7c88c8ab7fcb836a9d",
+    "tokenizer_sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4"
+  }
+}

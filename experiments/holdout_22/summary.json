@@ -1,0 +1,4779 @@
+{
+  "by_category": [
+    {
+      "mode": "no_rag",
+      "category": "all",
+      "cache_regime": "keep_alive_enabled_verify_load_duration",
+      "examples": 22,
+      "families": 16,
+      "errors": 0,
+      "latency_seconds": {
+        "n": 22,
+        "p50": 6.2283889499958605,
+        "p95": 8.605027905019233
+      },
+      "human_assessed": 0,
+      "llm_assessed": 0,
+      "fact_coverage_0_1": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "critical_error_present": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "grounding_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "citation_validity_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "action_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_conditions_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_clarification_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "recall_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "ndcg_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "span_recall_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "all_required_evidence_covered": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "stages": {},
+      "system_peak_ram_bytes": 16058204160
+    },
+    {
+      "mode": "no_rag",
+      "category": "compound",
+      "cache_regime": "keep_alive_enabled_verify_load_duration",
+      "examples": 2,
+      "families": 2,
+      "errors": 0,
+      "latency_seconds": {
+        "n": 2,
+        "p50": 6.138845199951902,
+        "p95": 7.191905139922165
+      },
+      "human_assessed": 0,
+      "llm_assessed": 0,
+      "fact_coverage_0_1": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "critical_error_present": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "grounding_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "citation_validity_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "action_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_conditions_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_clarification_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "recall_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "ndcg_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "span_recall_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "all_required_evidence_covered": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "stages": {},
+      "system_peak_ram_bytes": 15840460800
+    },
+    {
+      "mode": "no_rag",
+      "category": "conditions",
+      "cache_regime": "keep_alive_enabled_verify_load_duration",
+      "examples": 6,
+      "families": 6,
+      "errors": 0,
+      "latency_seconds": {
+        "n": 6,
+        "p50": 6.883739249955397,
+        "p95": 7.884970500017516
+      },
+      "human_assessed": 0,
+      "llm_assessed": 0,
+      "fact_coverage_0_1": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "critical_error_present": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "grounding_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "citation_validity_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "action_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_conditions_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_clarification_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "recall_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "ndcg_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "span_recall_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "all_required_evidence_covered": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "stages": {},
+      "system_peak_ram_bytes": 15948124160
+    },
+    {
+      "mode": "no_rag",
+      "category": "dialogue",
+      "cache_regime": "keep_alive_enabled_verify_load_duration",
+      "examples": 8,
+      "families": 2,
+      "errors": 0,
+      "latency_seconds": {
+        "n": 8,
+        "p50": 6.0404808999737725,
+        "p95": 6.531141595018562
+      },
+      "human_assessed": 0,
+      "llm_assessed": 0,
+      "fact_coverage_0_1": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "critical_error_present": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "grounding_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "citation_validity_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "action_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_conditions_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_clarification_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "recall_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "ndcg_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "span_recall_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "all_required_evidence_covered": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "stages": {},
+      "system_peak_ram_bytes": 15974326272
+    },
+    {
+      "mode": "no_rag",
+      "category": "direct",
+      "cache_regime": "keep_alive_enabled_verify_load_duration",
+      "examples": 3,
+      "families": 3,
+      "errors": 0,
+      "latency_seconds": {
+        "n": 3,
+        "p50": 5.926969400024973,
+        "p95": 30.343883630004708
+      },
+      "human_assessed": 0,
+      "llm_assessed": 0,
+      "fact_coverage_0_1": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "critical_error_present": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "grounding_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "citation_validity_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "action_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_conditions_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_clarification_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "recall_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "ndcg_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "span_recall_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "all_required_evidence_covered": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "stages": {},
+      "system_peak_ram_bytes": 16058204160
+    },
+    {
+      "mode": "no_rag",
+      "category": "explicit_limit",
+      "cache_regime": "keep_alive_enabled_verify_load_duration",
+      "examples": 1,
+      "families": 1,
+      "errors": 0,
+      "latency_seconds": {
+        "n": 1,
+        "p50": 5.505535600008443,
+        "p95": 5.505535600008443
+      },
+      "human_assessed": 0,
+      "llm_assessed": 0,
+      "fact_coverage_0_1": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "critical_error_present": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "grounding_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "citation_validity_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "action_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_conditions_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_clarification_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "recall_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "ndcg_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "span_recall_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "all_required_evidence_covered": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "stages": {},
+      "system_peak_ram_bytes": 15816081408
+    },
+    {
+      "mode": "no_rag",
+      "category": "knowledge:clarification",
+      "cache_regime": "keep_alive_enabled_verify_load_duration",
+      "examples": 1,
+      "families": 1,
+      "errors": 0,
+      "latency_seconds": {
+        "n": 1,
+        "p50": 5.996065599960275,
+        "p95": 5.996065599960275
+      },
+      "human_assessed": 0,
+      "llm_assessed": 0,
+      "fact_coverage_0_1": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "critical_error_present": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "grounding_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "citation_validity_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "action_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_conditions_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_clarification_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "recall_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "ndcg_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "span_recall_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "all_required_evidence_covered": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "stages": {},
+      "system_peak_ram_bytes": 15937011712
+    },
+    {
+      "mode": "no_rag",
+      "category": "knowledge:explicit_limitation",
+      "cache_regime": "keep_alive_enabled_verify_load_duration",
+      "examples": 2,
+      "families": 2,
+      "errors": 0,
+      "latency_seconds": {
+        "n": 2,
+        "p50": 5.782931199995801,
+        "p95": 6.032587239984423
+      },
+      "human_assessed": 0,
+      "llm_assessed": 0,
+      "fact_coverage_0_1": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "critical_error_present": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "grounding_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "citation_validity_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "action_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_conditions_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_clarification_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "recall_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "ndcg_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "span_recall_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "all_required_evidence_covered": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "stages": {},
+      "system_peak_ram_bytes": 15918686208
+    },
+    {
+      "mode": "no_rag",
+      "category": "knowledge:missing_information",
+      "cache_regime": "keep_alive_enabled_verify_load_duration",
+      "examples": 2,
+      "families": 2,
+      "errors": 0,
+      "latency_seconds": {
+        "n": 2,
+        "p50": 7.876717449980788,
+        "p95": 8.55516881501535
+      },
+      "human_assessed": 0,
+      "llm_assessed": 0,
+      "fact_coverage_0_1": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "critical_error_present": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "grounding_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "citation_validity_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "action_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_conditions_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_clarification_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "recall_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "ndcg_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "span_recall_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "all_required_evidence_covered": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "stages": {},
+      "system_peak_ram_bytes": 15833063424
+    },
+    {
+      "mode": "no_rag",
+      "category": "knowledge:supported_answer",
+      "cache_regime": "keep_alive_enabled_verify_load_duration",
+      "examples": 17,
+      "families": 13,
+      "errors": 0,
+      "latency_seconds": {
+        "n": 17,
+        "p50": 6.26664070005063,
+        "p95": 13.107426340016518
+      },
+      "human_assessed": 0,
+      "llm_assessed": 0,
+      "fact_coverage_0_1": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "critical_error_present": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "grounding_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "citation_validity_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "action_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_conditions_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_clarification_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "recall_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "ndcg_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "span_recall_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "all_required_evidence_covered": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "stages": {},
+      "system_peak_ram_bytes": 16058204160
+    },
+    {
+      "mode": "no_rag",
+      "category": "no_answer",
+      "cache_regime": "keep_alive_enabled_verify_load_duration",
+      "examples": 2,
+      "families": 2,
+      "errors": 0,
+      "latency_seconds": {
+        "n": 2,
+        "p50": 7.876717449980788,
+        "p95": 8.55516881501535
+      },
+      "human_assessed": 0,
+      "llm_assessed": 0,
+      "fact_coverage_0_1": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "critical_error_present": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "grounding_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "citation_validity_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "action_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_conditions_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_clarification_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "recall_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "ndcg_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "span_recall_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "all_required_evidence_covered": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "stages": {},
+      "system_peak_ram_bytes": 15833063424
+    },
+    {
+      "mode": "rag",
+      "category": "all",
+      "cache_regime": "keep_alive_enabled_verify_load_duration",
+      "examples": 22,
+      "families": 16,
+      "errors": 0,
+      "latency_seconds": {
+        "n": 22,
+        "p50": 58.18987450003624,
+        "p95": 70.65839510002988
+      },
+      "human_assessed": 0,
+      "llm_assessed": 0,
+      "fact_coverage_0_1": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "critical_error_present": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "grounding_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "citation_validity_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "action_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_conditions_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_clarification_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "recall_at_k": {
+        "n": 19,
+        "mean": 0.8947368421052632,
+        "family_estimate": {
+          "mean_over_families": 0.9107142857142857,
+          "interval": [
+            0.7678571428571429,
+            1.0
+          ],
+          "families": 14,
+          "method": "percentile bootstrap по группам разметки, не по отдельным ходам",
+          "assumption_limit": "Группировка не доказывает независимость; межгрупповая смысловая зависимость может сужать интервал.",
+          "resamples": 1000,
+          "seed": 116
+        }
+      },
+      "ndcg_at_k": {
+        "n": 19,
+        "mean": 0.8453477006128869,
+        "family_estimate": {
+          "mean_over_families": 0.8436861651174893,
+          "interval": [
+            0.6873723302349787,
+            0.9821428571428571
+          ],
+          "families": 14,
+          "method": "percentile bootstrap по группам разметки, не по отдельным ходам",
+          "assumption_limit": "Группировка не доказывает независимость; межгрупповая смысловая зависимость может сужать интервал.",
+          "resamples": 1000,
+          "seed": 116
+        }
+      },
+      "span_recall_at_k": {
+        "n": 19,
+        "mean": 0.8947368421052632,
+        "family_estimate": {
+          "mean_over_families": 0.9107142857142857,
+          "interval": [
+            0.7678571428571429,
+            1.0
+          ],
+          "families": 14,
+          "method": "percentile bootstrap по группам разметки, не по отдельным ходам",
+          "assumption_limit": "Группировка не доказывает независимость; межгрупповая смысловая зависимость может сужать интервал.",
+          "resamples": 1000,
+          "seed": 116
+        }
+      },
+      "all_required_evidence_covered": {
+        "n": 19,
+        "mean": 0.8947368421052632,
+        "family_estimate": {
+          "mean_over_families": 0.9107142857142857,
+          "interval": [
+            0.7678571428571429,
+            1.0
+          ],
+          "families": 14,
+          "method": "percentile bootstrap по группам разметки, не по отдельным ходам",
+          "assumption_limit": "Группировка не доказывает независимость; межгрупповая смысловая зависимость может сужать интервал.",
+          "resamples": 1000,
+          "seed": 116
+        }
+      },
+      "stages": {
+        "rewrite_seconds": {
+          "n": 22,
+          "p50": 4.85376600001473,
+          "p95": 8.004887475009308
+        },
+        "retrieval_seconds": {
+          "n": 22,
+          "p50": 1.4993266999954358,
+          "p95": 4.03570968491258
+        },
+        "generation_seconds": {
+          "n": 22,
+          "p50": 48.60631594998995,
+          "p95": 63.84717817000928
+        },
+        "answer_generation_seconds": {
+          "n": 22,
+          "p50": 29.846424749994185,
+          "p95": 35.97538772005355
+        },
+        "grounding_seconds": {
+          "n": 22,
+          "p50": 19.368541149946395,
+          "p95": 27.9479494500265
+        },
+        "policy_relation_seconds": {
+          "n": 22,
+          "p50": 0.03157889994326979,
+          "p95": 0.05179127993178554
+        },
+        "total_seconds": {
+          "n": 22,
+          "p50": 58.06935830001021,
+          "p95": 69.62386186004733
+        }
+      },
+      "system_peak_ram_bytes": 17151832064
+    },
+    {
+      "mode": "rag",
+      "category": "compound",
+      "cache_regime": "keep_alive_enabled_verify_load_duration",
+      "examples": 2,
+      "families": 2,
+      "errors": 0,
+      "latency_seconds": {
+        "n": 2,
+        "p50": 57.06390609999653,
+        "p95": 60.95486521006096
+      },
+      "human_assessed": 0,
+      "llm_assessed": 0,
+      "fact_coverage_0_1": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "critical_error_present": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "grounding_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "citation_validity_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "action_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_conditions_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_clarification_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "recall_at_k": {
+        "n": 2,
+        "mean": 1.0,
+        "family_estimate": {
+          "mean_over_families": 1.0,
+          "observations": 2,
+          "interval": null,
+          "families": 2,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "ndcg_at_k": {
+        "n": 2,
+        "mean": 1.0,
+        "family_estimate": {
+          "mean_over_families": 1.0,
+          "observations": 2,
+          "interval": null,
+          "families": 2,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "span_recall_at_k": {
+        "n": 2,
+        "mean": 1.0,
+        "family_estimate": {
+          "mean_over_families": 1.0,
+          "observations": 2,
+          "interval": null,
+          "families": 2,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "all_required_evidence_covered": {
+        "n": 2,
+        "mean": 1.0,
+        "family_estimate": {
+          "mean_over_families": 1.0,
+          "observations": 2,
+          "interval": null,
+          "families": 2,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "stages": {
+        "rewrite_seconds": {
+          "n": 2,
+          "p50": 4.881256349966861,
+          "p95": 4.925444594956934
+        },
+        "retrieval_seconds": {
+          "n": 2,
+          "p50": 1.5227931499830447,
+          "p95": 1.626308044983307
+        },
+        "generation_seconds": {
+          "n": 2,
+          "p50": 50.61435499996878,
+          "p95": 54.57164293997921
+        },
+        "answer_generation_seconds": {
+          "n": 2,
+          "p50": 31.30067319999216,
+          "p95": 33.031508289981865
+        },
+        "grounding_seconds": {
+          "n": 2,
+          "p50": 19.244327050051652,
+          "p95": 21.470504095067735
+        },
+        "policy_relation_seconds": {
+          "n": 2,
+          "p50": 0.03861329995561391,
+          "p95": 0.03964901998406276
+        },
+        "total_seconds": {
+          "n": 2,
+          "p50": 57.023352649994195,
+          "p95": 60.919908994983416
+        }
+      },
+      "system_peak_ram_bytes": 16748662784
+    },
+    {
+      "mode": "rag",
+      "category": "conditions",
+      "cache_regime": "keep_alive_enabled_verify_load_duration",
+      "examples": 6,
+      "families": 6,
+      "errors": 0,
+      "latency_seconds": {
+        "n": 6,
+        "p50": 55.743112699943595,
+        "p95": 68.70452560001286
+      },
+      "human_assessed": 0,
+      "llm_assessed": 0,
+      "fact_coverage_0_1": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "critical_error_present": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "grounding_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "citation_validity_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "action_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_conditions_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_clarification_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "recall_at_k": {
+        "n": 6,
+        "mean": 0.8333333333333334,
+        "family_estimate": {
+          "mean_over_families": 0.8333333333333334,
+          "interval": [
+            0.5,
+            1.0
+          ],
+          "families": 6,
+          "method": "percentile bootstrap по группам разметки, не по отдельным ходам",
+          "assumption_limit": "Группировка не доказывает независимость; межгрупповая смысловая зависимость может сужать интервал.",
+          "resamples": 1000,
+          "seed": 116
+        }
+      },
+      "ndcg_at_k": {
+        "n": 6,
+        "mean": 0.6769343852741417,
+        "family_estimate": {
+          "mean_over_families": 0.6769343852741417,
+          "interval": [
+            0.3763988891744308,
+            0.9384882922619097
+          ],
+          "families": 6,
+          "method": "percentile bootstrap по группам разметки, не по отдельным ходам",
+          "assumption_limit": "Группировка не доказывает независимость; межгрупповая смысловая зависимость может сужать интервал.",
+          "resamples": 1000,
+          "seed": 116
+        }
+      },
+      "span_recall_at_k": {
+        "n": 6,
+        "mean": 0.8333333333333334,
+        "family_estimate": {
+          "mean_over_families": 0.8333333333333334,
+          "interval": [
+            0.5,
+            1.0
+          ],
+          "families": 6,
+          "method": "percentile bootstrap по группам разметки, не по отдельным ходам",
+          "assumption_limit": "Группировка не доказывает независимость; межгрупповая смысловая зависимость может сужать интервал.",
+          "resamples": 1000,
+          "seed": 116
+        }
+      },
+      "all_required_evidence_covered": {
+        "n": 6,
+        "mean": 0.8333333333333334,
+        "family_estimate": {
+          "mean_over_families": 0.8333333333333334,
+          "interval": [
+            0.5,
+            1.0
+          ],
+          "families": 6,
+          "method": "percentile bootstrap по группам разметки, не по отдельным ходам",
+          "assumption_limit": "Группировка не доказывает независимость; межгрупповая смысловая зависимость может сужать интервал.",
+          "resamples": 1000,
+          "seed": 116
+        }
+      },
+      "stages": {
+        "rewrite_seconds": {
+          "n": 6,
+          "p50": 4.383340600004885,
+          "p95": 10.379740625008708
+        },
+        "retrieval_seconds": {
+          "n": 6,
+          "p50": 1.57517954998184,
+          "p95": 1.831111100007547
+        },
+        "generation_seconds": {
+          "n": 6,
+          "p50": 49.08904774999246,
+          "p95": 62.098779250023654
+        },
+        "answer_generation_seconds": {
+          "n": 6,
+          "p50": 29.677583149983548,
+          "p95": 34.85748197505018
+        },
+        "grounding_seconds": {
+          "n": 6,
+          "p50": 21.040054799988866,
+          "p95": 27.149139725021087
+        },
+        "policy_relation_seconds": {
+          "n": 6,
+          "p50": 0.03565424995031208,
+          "p95": 0.05149719995097257
+        },
+        "total_seconds": {
+          "n": 6,
+          "p50": 55.43031409999821,
+          "p95": 67.8802987250383
+        }
+      },
+      "system_peak_ram_bytes": 16831090688
+    },
+    {
+      "mode": "rag",
+      "category": "dialogue",
+      "cache_regime": "keep_alive_enabled_verify_load_duration",
+      "examples": 8,
+      "families": 2,
+      "errors": 0,
+      "latency_seconds": {
+        "n": 8,
+        "p50": 55.326227999990806,
+        "p95": 64.69029904003256
+      },
+      "human_assessed": 0,
+      "llm_assessed": 0,
+      "fact_coverage_0_1": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "critical_error_present": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "grounding_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "citation_validity_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "action_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_conditions_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_clarification_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "recall_at_k": {
+        "n": 7,
+        "mean": 0.8571428571428571,
+        "family_estimate": {
+          "mean_over_families": 0.875,
+          "observations": 7,
+          "interval": null,
+          "families": 2,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "ndcg_at_k": {
+        "n": 7,
+        "mean": 0.8571428571428571,
+        "family_estimate": {
+          "mean_over_families": 0.875,
+          "observations": 7,
+          "interval": null,
+          "families": 2,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "span_recall_at_k": {
+        "n": 7,
+        "mean": 0.8571428571428571,
+        "family_estimate": {
+          "mean_over_families": 0.875,
+          "observations": 7,
+          "interval": null,
+          "families": 2,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "all_required_evidence_covered": {
+        "n": 7,
+        "mean": 0.8571428571428571,
+        "family_estimate": {
+          "mean_over_families": 0.875,
+          "observations": 7,
+          "interval": null,
+          "families": 2,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "stages": {
+        "rewrite_seconds": {
+          "n": 8,
+          "p50": 5.1389541500248015,
+          "p95": 7.148770030034939
+        },
+        "retrieval_seconds": {
+          "n": 8,
+          "p50": 1.5692238999763504,
+          "p95": 3.5184753949171856
+        },
+        "generation_seconds": {
+          "n": 8,
+          "p50": 48.60631594998995,
+          "p95": 55.30722909498727
+        },
+        "answer_generation_seconds": {
+          "n": 8,
+          "p50": 30.208349699969403,
+          "p95": 32.19897594999638
+        },
+        "grounding_seconds": {
+          "n": 8,
+          "p50": 18.782236049999483,
+          "p95": 24.77042849003337
+        },
+        "policy_relation_seconds": {
+          "n": 8,
+          "p50": 0.027854049985762686,
+          "p95": 0.03889815002912655
+        },
+        "total_seconds": {
+          "n": 8,
+          "p50": 55.181749449984636,
+          "p95": 64.04340880502714
+        }
+      },
+      "system_peak_ram_bytes": 16870739968
+    },
+    {
+      "mode": "rag",
+      "category": "direct",
+      "cache_regime": "keep_alive_enabled_verify_load_duration",
+      "examples": 3,
+      "families": 3,
+      "errors": 0,
+      "latency_seconds": {
+        "n": 3,
+        "p50": 59.3029080000706,
+        "p95": 61.95000564010115
+      },
+      "human_assessed": 0,
+      "llm_assessed": 0,
+      "fact_coverage_0_1": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "critical_error_present": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "grounding_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "citation_validity_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "action_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_conditions_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_clarification_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "recall_at_k": {
+        "n": 3,
+        "mean": 1.0,
+        "family_estimate": {
+          "mean_over_families": 1.0,
+          "observations": 3,
+          "interval": null,
+          "families": 3,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "ndcg_at_k": {
+        "n": 3,
+        "mean": 1.0,
+        "family_estimate": {
+          "mean_over_families": 1.0,
+          "observations": 3,
+          "interval": null,
+          "families": 3,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "span_recall_at_k": {
+        "n": 3,
+        "mean": 1.0,
+        "family_estimate": {
+          "mean_over_families": 1.0,
+          "observations": 3,
+          "interval": null,
+          "families": 3,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "all_required_evidence_covered": {
+        "n": 3,
+        "mean": 1.0,
+        "family_estimate": {
+          "mean_over_families": 1.0,
+          "observations": 3,
+          "interval": null,
+          "families": 3,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "stages": {
+        "rewrite_seconds": {
+          "n": 3,
+          "p50": 6.031703500077128,
+          "p95": 7.841244760015979
+        },
+        "retrieval_seconds": {
+          "n": 3,
+          "p50": 1.345012600068003,
+          "p95": 5.613094569987151
+        },
+        "generation_seconds": {
+          "n": 3,
+          "p50": 45.0800820000004,
+          "p95": 53.78950241999701
+        },
+        "answer_generation_seconds": {
+          "n": 3,
+          "p50": 28.210715100052767,
+          "p95": 30.7049211900332
+        },
+        "grounding_seconds": {
+          "n": 3,
+          "p50": 16.710775700048544,
+          "p95": 23.030793500028082
+        },
+        "policy_relation_seconds": {
+          "n": 3,
+          "p50": 0.03420640004333109,
+          "p95": 0.06028102004202082
+        },
+        "total_seconds": {
+          "n": 3,
+          "p50": 59.214775800006464,
+          "p95": 61.84440804000478
+        }
+      },
+      "system_peak_ram_bytes": 16753065984
+    },
+    {
+      "mode": "rag",
+      "category": "explicit_limit",
+      "cache_regime": "keep_alive_enabled_verify_load_duration",
+      "examples": 1,
+      "families": 1,
+      "errors": 0,
+      "latency_seconds": {
+        "n": 1,
+        "p50": 61.29201490001287,
+        "p95": 61.29201490001287
+      },
+      "human_assessed": 0,
+      "llm_assessed": 0,
+      "fact_coverage_0_1": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "critical_error_present": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "grounding_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "citation_validity_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "action_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_conditions_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_clarification_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "recall_at_k": {
+        "n": 1,
+        "mean": 1.0,
+        "family_estimate": {
+          "mean_over_families": 1.0,
+          "observations": 1,
+          "interval": null,
+          "families": 1,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "ndcg_at_k": {
+        "n": 1,
+        "mean": 1.0,
+        "family_estimate": {
+          "mean_over_families": 1.0,
+          "observations": 1,
+          "interval": null,
+          "families": 1,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "span_recall_at_k": {
+        "n": 1,
+        "mean": 1.0,
+        "family_estimate": {
+          "mean_over_families": 1.0,
+          "observations": 1,
+          "interval": null,
+          "families": 1,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "all_required_evidence_covered": {
+        "n": 1,
+        "mean": 1.0,
+        "family_estimate": {
+          "mean_over_families": 1.0,
+          "observations": 1,
+          "interval": null,
+          "families": 1,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "stages": {
+        "rewrite_seconds": {
+          "n": 1,
+          "p50": 5.1999216000549495,
+          "p95": 5.1999216000549495
+        },
+        "retrieval_seconds": {
+          "n": 1,
+          "p50": 1.7238434000173584,
+          "p95": 1.7238434000173584
+        },
+        "generation_seconds": {
+          "n": 1,
+          "p50": 54.003709199954756,
+          "p95": 54.003709199954756
+        },
+        "answer_generation_seconds": {
+          "n": 1,
+          "p50": 30.270948100020178,
+          "p95": 30.270948100020178
+        },
+        "grounding_seconds": {
+          "n": 1,
+          "p50": 23.66813380003441,
+          "p95": 23.66813380003441
+        },
+        "policy_relation_seconds": {
+          "n": 1,
+          "p50": 0.030490099918097258,
+          "p95": 0.030490099918097258
+        },
+        "total_seconds": {
+          "n": 1,
+          "p50": 60.93063540000003,
+          "p95": 60.93063540000003
+        }
+      },
+      "system_peak_ram_bytes": 15911186432
+    },
+    {
+      "mode": "rag",
+      "category": "knowledge:clarification",
+      "cache_regime": "keep_alive_enabled_verify_load_duration",
+      "examples": 1,
+      "families": 1,
+      "errors": 0,
+      "latency_seconds": {
+        "n": 1,
+        "p50": 65.40558480005711,
+        "p95": 65.40558480005711
+      },
+      "human_assessed": 0,
+      "llm_assessed": 0,
+      "fact_coverage_0_1": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "critical_error_present": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "grounding_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "citation_validity_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "action_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_conditions_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_clarification_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "recall_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "ndcg_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "span_recall_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "all_required_evidence_covered": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "stages": {
+        "rewrite_seconds": {
+          "n": 1,
+          "p50": 5.206043199985288,
+          "p95": 5.206043199985288
+        },
+        "retrieval_seconds": {
+          "n": 1,
+          "p50": 4.121915399911813,
+          "p95": 4.121915399911813
+        },
+        "generation_seconds": {
+          "n": 1,
+          "p50": 55.522554100025445,
+          "p95": 55.522554100025445
+        },
+        "answer_generation_seconds": {
+          "n": 1,
+          "p50": 29.88226250000298,
+          "p95": 29.88226250000298
+        },
+        "grounding_seconds": {
+          "n": 1,
+          "p50": 25.59858330001589,
+          "p95": 25.59858330001589
+        },
+        "policy_relation_seconds": {
+          "n": 1,
+          "p50": 0.01280549995135516,
+          "p95": 0.01280549995135516
+        },
+        "total_seconds": {
+          "n": 1,
+          "p50": 64.85386170004494,
+          "p95": 64.85386170004494
+        }
+      },
+      "system_peak_ram_bytes": 16870739968
+    },
+    {
+      "mode": "rag",
+      "category": "knowledge:explicit_limitation",
+      "cache_regime": "keep_alive_enabled_verify_load_duration",
+      "examples": 2,
+      "families": 2,
+      "errors": 0,
+      "latency_seconds": {
+        "n": 2,
+        "p50": 56.02903979999246,
+        "p95": 60.765717390010835
+      },
+      "human_assessed": 0,
+      "llm_assessed": 0,
+      "fact_coverage_0_1": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "critical_error_present": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "grounding_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "citation_validity_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "action_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_conditions_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_clarification_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "recall_at_k": {
+        "n": 2,
+        "mean": 1.0,
+        "family_estimate": {
+          "mean_over_families": 1.0,
+          "observations": 2,
+          "interval": null,
+          "families": 2,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "ndcg_at_k": {
+        "n": 2,
+        "mean": 1.0,
+        "family_estimate": {
+          "mean_over_families": 1.0,
+          "observations": 2,
+          "interval": null,
+          "families": 2,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "span_recall_at_k": {
+        "n": 2,
+        "mean": 1.0,
+        "family_estimate": {
+          "mean_over_families": 1.0,
+          "observations": 2,
+          "interval": null,
+          "families": 2,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "all_required_evidence_covered": {
+        "n": 2,
+        "mean": 1.0,
+        "family_estimate": {
+          "mean_over_families": 1.0,
+          "observations": 2,
+          "interval": null,
+          "families": 2,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "stages": {
+        "rewrite_seconds": {
+          "n": 2,
+          "p50": 4.528573350049555,
+          "p95": 5.13278677505441
+        },
+        "retrieval_seconds": {
+          "n": 2,
+          "p50": 1.7051423000521027,
+          "p95": 1.7219732900208329
+        },
+        "generation_seconds": {
+          "n": 2,
+          "p50": 49.49904735002201,
+          "p95": 53.55324301496148
+        },
+        "answer_generation_seconds": {
+          "n": 2,
+          "p50": 28.69866809999803,
+          "p95": 30.113720100017964
+        },
+        "grounding_seconds": {
+          "n": 2,
+          "p50": 20.720845250063576,
+          "p95": 23.37340494503733
+        },
+        "policy_relation_seconds": {
+          "n": 2,
+          "p50": 0.03635119996033609,
+          "p95": 0.041626189998351035
+        },
+        "total_seconds": {
+          "n": 2,
+          "p50": 55.735705099999905,
+          "p95": 60.411142370000015
+        }
+      },
+      "system_peak_ram_bytes": 16427143168
+    },
+    {
+      "mode": "rag",
+      "category": "knowledge:missing_information",
+      "cache_regime": "keep_alive_enabled_verify_load_duration",
+      "examples": 2,
+      "families": 2,
+      "errors": 0,
+      "latency_seconds": {
+        "n": 2,
+        "p50": 62.81744474999141,
+        "p95": 73.7017184550059
+      },
+      "human_assessed": 0,
+      "llm_assessed": 0,
+      "fact_coverage_0_1": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "critical_error_present": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "grounding_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "citation_validity_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "action_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_conditions_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_clarification_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "recall_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "ndcg_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "span_recall_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "all_required_evidence_covered": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "stages": {
+        "rewrite_seconds": {
+          "n": 2,
+          "p50": 3.939588150009513,
+          "p95": 4.105353974970058
+        },
+        "retrieval_seconds": {
+          "n": 2,
+          "p50": 1.3238557999720797,
+          "p95": 1.3896662299521267
+        },
+        "generation_seconds": {
+          "n": 2,
+          "p50": 57.4876900499803,
+          "p95": 68.62526110499748
+        },
+        "answer_generation_seconds": {
+          "n": 2,
+          "p50": 33.17179644998396,
+          "p95": 38.61762917497545
+        },
+        "grounding_seconds": {
+          "n": 2,
+          "p50": 24.26380265003536,
+          "p95": 29.95819647500757
+        },
+        "policy_relation_seconds": {
+          "n": 2,
+          "p50": 0.01233739999588579,
+          "p95": 0.023314699972979722
+        },
+        "total_seconds": {
+          "n": 2,
+          "p50": 62.75442685006419,
+          "p95": 73.66027553502354
+        }
+      },
+      "system_peak_ram_bytes": 17151832064
+    },
+    {
+      "mode": "rag",
+      "category": "knowledge:supported_answer",
+      "cache_regime": "keep_alive_enabled_verify_load_duration",
+      "examples": 17,
+      "families": 13,
+      "errors": 0,
+      "latency_seconds": {
+        "n": 17,
+        "p50": 57.07684100000188,
+        "p95": 64.87650071999524
+      },
+      "human_assessed": 0,
+      "llm_assessed": 0,
+      "fact_coverage_0_1": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "critical_error_present": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "grounding_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "citation_validity_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "action_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_conditions_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_clarification_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "recall_at_k": {
+        "n": 17,
+        "mean": 0.8823529411764706,
+        "family_estimate": {
+          "mean_over_families": 0.9038461538461539,
+          "interval": [
+            0.75,
+            1.0
+          ],
+          "families": 13,
+          "method": "percentile bootstrap по группам разметки, не по отдельным ходам",
+          "assumption_limit": "Группировка не доказывает независимость; межгрупповая смысловая зависимость может сужать интервал.",
+          "resamples": 1000,
+          "seed": 116
+        }
+      },
+      "ndcg_at_k": {
+        "n": 17,
+        "mean": 0.827153312449697,
+        "family_estimate": {
+          "mean_over_families": 0.8316620239726807,
+          "interval": [
+            0.6532148810602021,
+            0.9716099810439582
+          ],
+          "families": 13,
+          "method": "percentile bootstrap по группам разметки, не по отдельным ходам",
+          "assumption_limit": "Группировка не доказывает независимость; межгрупповая смысловая зависимость может сужать интервал.",
+          "resamples": 1000,
+          "seed": 116
+        }
+      },
+      "span_recall_at_k": {
+        "n": 17,
+        "mean": 0.8823529411764706,
+        "family_estimate": {
+          "mean_over_families": 0.9038461538461539,
+          "interval": [
+            0.75,
+            1.0
+          ],
+          "families": 13,
+          "method": "percentile bootstrap по группам разметки, не по отдельным ходам",
+          "assumption_limit": "Группировка не доказывает независимость; межгрупповая смысловая зависимость может сужать интервал.",
+          "resamples": 1000,
+          "seed": 116
+        }
+      },
+      "all_required_evidence_covered": {
+        "n": 17,
+        "mean": 0.8823529411764706,
+        "family_estimate": {
+          "mean_over_families": 0.9038461538461539,
+          "interval": [
+            0.75,
+            1.0
+          ],
+          "families": 13,
+          "method": "percentile bootstrap по группам разметки, не по отдельным ходам",
+          "assumption_limit": "Группировка не доказывает независимость; межгрупповая смысловая зависимость может сужать интервал.",
+          "resamples": 1000,
+          "seed": 116
+        }
+      },
+      "stages": {
+        "rewrite_seconds": {
+          "n": 17,
+          "p50": 4.8753737000515684,
+          "p95": 8.87674984000623
+        },
+        "retrieval_seconds": {
+          "n": 17,
+          "p50": 1.491541099967435,
+          "p95": 3.1357060599373625
+        },
+        "generation_seconds": {
+          "n": 17,
+          "p50": 46.65372079994995,
+          "p95": 57.29068222006317
+        },
+        "answer_generation_seconds": {
+          "n": 17,
+          "p50": 29.81058699998539,
+          "p95": 33.80310001999605
+        },
+        "grounding_seconds": {
+          "n": 17,
+          "p50": 18.946166899986565,
+          "p95": 25.119726460007946
+        },
+        "policy_relation_seconds": {
+          "n": 17,
+          "p50": 0.03274330007843673,
+          "p95": 0.05412747994996606
+        },
+        "total_seconds": {
+          "n": 17,
+          "p50": 56.92394080001395,
+          "p95": 64.00560850000474
+        }
+      },
+      "system_peak_ram_bytes": 16831090688
+    },
+    {
+      "mode": "rag",
+      "category": "no_answer",
+      "cache_regime": "keep_alive_enabled_verify_load_duration",
+      "examples": 2,
+      "families": 2,
+      "errors": 0,
+      "latency_seconds": {
+        "n": 2,
+        "p50": 62.81744474999141,
+        "p95": 73.7017184550059
+      },
+      "human_assessed": 0,
+      "llm_assessed": 0,
+      "fact_coverage_0_1": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "critical_error_present": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "grounding_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "citation_validity_0_2": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "action_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_semantic_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_conditions_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "rewrite_clarification_correct": {
+        "human": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        },
+        "llm": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "recall_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "ndcg_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "span_recall_at_k": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "all_required_evidence_covered": {
+        "n": 0,
+        "mean": null,
+        "family_estimate": {
+          "mean_over_families": null,
+          "observations": 0,
+          "interval": null,
+          "families": 0,
+          "reason": "Меньше пяти групп разметки; интервал не заявляется. Смысловая независимость групп не доказана."
+        }
+      },
+      "stages": {
+        "rewrite_seconds": {
+          "n": 2,
+          "p50": 3.939588150009513,
+          "p95": 4.105353974970058
+        },
+        "retrieval_seconds": {
+          "n": 2,
+          "p50": 1.3238557999720797,
+          "p95": 1.3896662299521267
+        },
+        "generation_seconds": {
+          "n": 2,
+          "p50": 57.4876900499803,
+          "p95": 68.62526110499748
+        },
+        "answer_generation_seconds": {
+          "n": 2,
+          "p50": 33.17179644998396,
+          "p95": 38.61762917497545
+        },
+        "grounding_seconds": {
+          "n": 2,
+          "p50": 24.26380265003536,
+          "p95": 29.95819647500757
+        },
+        "policy_relation_seconds": {
+          "n": 2,
+          "p50": 0.01233739999588579,
+          "p95": 0.023314699972979722
+        },
+        "total_seconds": {
+          "n": 2,
+          "p50": 62.75442685006419,
+          "p95": 73.66027553502354
+        }
+      },
+      "system_peak_ram_bytes": 17151832064
+    }
+  ],
+  "dialogue_scenarios": [
+    {
+      "mode": "no_rag",
+      "dialogue_id": "holdout.feedback_followup",
+      "evaluation_kind": "human",
+      "evaluator": "",
+      "turns": 4,
+      "expected_turns": 4,
+      "whole_dialogue": true,
+      "success": null
+    },
+    {
+      "mode": "no_rag",
+      "dialogue_id": "holdout.feedback_followup",
+      "evaluation_kind": "llm",
+      "evaluator": "",
+      "turns": 4,
+      "expected_turns": 4,
+      "whole_dialogue": true,
+      "success": null
+    },
+    {
+      "mode": "no_rag",
+      "dialogue_id": "holdout.workplace_test",
+      "evaluation_kind": "human",
+      "evaluator": "",
+      "turns": 4,
+      "expected_turns": 4,
+      "whole_dialogue": true,
+      "success": null
+    },
+    {
+      "mode": "no_rag",
+      "dialogue_id": "holdout.workplace_test",
+      "evaluation_kind": "llm",
+      "evaluator": "",
+      "turns": 4,
+      "expected_turns": 4,
+      "whole_dialogue": true,
+      "success": null
+    },
+    {
+      "mode": "rag",
+      "dialogue_id": "holdout.feedback_followup",
+      "evaluation_kind": "human",
+      "evaluator": "",
+      "turns": 4,
+      "expected_turns": 4,
+      "whole_dialogue": true,
+      "success": null
+    },
+    {
+      "mode": "rag",
+      "dialogue_id": "holdout.feedback_followup",
+      "evaluation_kind": "llm",
+      "evaluator": "",
+      "turns": 4,
+      "expected_turns": 4,
+      "whole_dialogue": true,
+      "success": null
+    },
+    {
+      "mode": "rag",
+      "dialogue_id": "holdout.workplace_test",
+      "evaluation_kind": "human",
+      "evaluator": "",
+      "turns": 4,
+      "expected_turns": 4,
+      "whole_dialogue": true,
+      "success": null
+    },
+    {
+      "mode": "rag",
+      "dialogue_id": "holdout.workplace_test",
+      "evaluation_kind": "llm",
+      "evaluator": "",
+      "turns": 4,
+      "expected_turns": 4,
+      "whole_dialogue": true,
+      "success": null
+    }
+  ],
+  "limits": [
+    "Нет результата качества без фактического прогона и соответствующей оценки.",
+    "Совпадение метки действия не является смысловой корректностью.",
+    "Системная RAM включает другие процессы; это не точная память модели.",
+    "p95 на малом числе наблюдений носит описательный характер."
+  ],
+  "experiment_phase": "unused_questions_after_corrections",
+  "semantic_evaluation_status": {
+    "human_complete_answer_scores": 0,
+    "accepted_llm_answer_scores": 0,
+    "reason": "Человеческая проверка эталонов не оценивает ответы. Локальные судьи не прошли dev-калибровку.",
+    "runtime_guards_are_not_quality_judges": true
+  },
+  "diagnostics": {
+    "no_rag": {
+      "n": 22,
+      "statuses": {
+        "clarify": 21,
+        "refuse": 1
+      },
+      "fatal_errors": [],
+      "optional_guard_errors": [],
+      "latency_seconds": {
+        "p50": 6.2283889499958605,
+        "p95": 8.605027905019233
+      },
+      "provided_reference_units_complete": {
+        "n": 0,
+        "count": 0
+      },
+      "literal_citation_check": {
+        "quotes": 0,
+        "valid": 0,
+        "limit": "В значительной части обеспечено конструкцией; не подтверждает все утверждения ответа."
+      },
+      "action_label_match": {
+        "count": 2,
+        "is_semantic_accuracy": false
+      },
+      "generation_load_seconds": {
+        "n_calls": 22,
+        "p50": 0.00507285,
+        "p95": 0.03630236499999999,
+        "calls_over_1s": 1
+      }
+    },
+    "rag": {
+      "n": 22,
+      "statuses": {
+        "answer": 22
+      },
+      "fatal_errors": [],
+      "optional_guard_errors": [],
+      "latency_seconds": {
+        "p50": 58.18987450003624,
+        "p95": 70.65839510002988
+      },
+      "provided_reference_units_complete": {
+        "n": 19,
+        "count": 17
+      },
+      "literal_citation_check": {
+        "quotes": 56,
+        "valid": 56,
+        "limit": "В значительной части обеспечено конструкцией; не подтверждает все утверждения ответа."
+      },
+      "action_label_match": {
+        "count": 20,
+        "is_semantic_accuracy": false
+      },
+      "generation_load_seconds": {
+        "n_calls": 66,
+        "p50": 0.0052943,
+        "p95": 0.017213950000000002,
+        "calls_over_1s": 0
+      }
+    }
+  },
+  "series_status": "historical_offline_comparison_later_used_for_diagnostics"
+}

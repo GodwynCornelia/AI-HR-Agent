@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow"><meta name="description" content="Учебный помощник по внутренним правилам компании">
+  <title>{% block title %}HR · Справочник сотрудника{% endblock %}</title>
+  {% load static %}<link rel="stylesheet" href="{% static 'assistant/app.css' %}">
+</head>
+<body class="body-3">
+  <a class="skip" href="#content">К содержимому</a>
+  <header><a class="title-2 brand" href="{% url 'index' %}">HR / Справочник сотрудника</a>
+    <nav aria-label="Основная навигация">
+    {% if user.is_authenticated %}
+      <a href="{% url 'index' %}">Диалоги</a>
+      {% if user.is_staff %}<a href="{% url 'documents' %}">Документы</a><a href="/admin/">Администрирование</a>{% endif %}
+      <form method="post" action="{% url 'logout' %}">{% csrf_token %}<button class="button-sm secondary" type="submit">Выйти: {{ user.username }}</button></form>
+    {% endif %}</nav>
+  </header>
+  <main id="content">{% for message in messages %}<p role="status" class="notice">{{ message }}</p>{% endfor %}{% block content %}{% endblock %}</main>
+  <footer class="caption-2">Учебная база вымышленной компании. Корпоративные правила не являются юридической консультацией. Диалоги сохраняются локально.</footer>
+  <script>
+  document.querySelectorAll('form[data-busy]').forEach(form => form.addEventListener('submit', () => {
+    const button = form.querySelector('button[type="submit"]');
+    if (button) { button.disabled = true; button.textContent = 'Обработка…'; }
+    const status = form.querySelector('[role="status"]');
+    if (status) status.hidden = false;
+  }));
+  </script>
+</body>
+</html>

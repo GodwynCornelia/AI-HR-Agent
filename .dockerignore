@@ -1,0 +1,16 @@
+.git
+.venv
+.codex-tools
+.codex
+.agents
+.aws
+reports
+.env
+media
+runtime
+__pycache__
+*.pdf
+!data/v4/corpus/*.pdf
+!data/**/corpus/*.pdf
+RES.txt
+requirements_pdf.txt

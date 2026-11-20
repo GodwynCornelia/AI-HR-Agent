@@ -1,0 +1,24 @@
+{
+  "reviewed_answers": 6,
+  "reviewed_pairs": 3,
+  "scales": [
+    "fact_coverage_0_1",
+    "action_semantic_correct"
+  ],
+  "coverage_disagreements": 3,
+  "action_disagreements": 2,
+  "per_mode": {
+    "no_rag": {
+      "n": 3,
+      "coverage_mean": 0.3333333333333333,
+      "action_mean": 0.3333333333333333
+    },
+    "rag": {
+      "n": 3,
+      "coverage_mean": 0.3333333333333333,
+      "action_mean": 0.3333333333333333
+    }
+  },
+  "judge_calibrated": false,
+  "population_inference": false
+}

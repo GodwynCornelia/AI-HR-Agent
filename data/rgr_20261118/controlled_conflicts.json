@@ -1,0 +1,37 @@
+{
+  "purpose": "Только проверяющему; не индексируется и не передаётся в LLM.",
+  "unresolved": [
+    {
+      "id": "cowork",
+      "documents": [
+        "coworking_operations",
+        "coworking_finance"
+      ],
+      "scope": "Постоянный удалённый, индивидуальное обычное место, свой город",
+      "contradiction": "До 3000 в месяц / компенсация не предоставляется",
+      "priority_basis": null
+    },
+    {
+      "id": "mobile",
+      "documents": [
+        "roaming_operations",
+        "roaming_finance"
+      ],
+      "scope": "Согласованная служебная поездка по России, дополнительный рабочий пакет, предварительное согласие",
+      "contradiction": "До 800 за поездку / не возмещается, включая одобренное",
+      "priority_basis": null
+    }
+  ],
+  "replacements": [
+    {
+      "old": "sport_2025",
+      "current": "sport",
+      "effective": "2026-01-01"
+    },
+    {
+      "old": "learning_2025",
+      "current": "learning",
+      "effective": "2026-01-01"
+    }
+  ]
+}

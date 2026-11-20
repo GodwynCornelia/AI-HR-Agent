@@ -1,0 +1,24 @@
+{
+  "tokenizer": "Qwen2.5-1.5B-Instruct local tokenizer.json",
+  "tokenizer_sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+  "conclusion_scope": "Только указанная модель, данный токенизатор и настроенное окно; не все возможные локальные конфигурации.",
+  "count_method": "Tokenizer.encode(full_corpus_input, add_special_tokens=False)",
+  "tokenizer_alignment_limit": "Официальный tokenizer.json Qwen2.5-1.5B-Instruct; совпадение с токенизатором конкретного GGUF отдельно не проверялось.",
+  "corpus_tokens": 53431,
+  "configured_context": 4096,
+  "reserve_history_tokens": 2000,
+  "reserve_instructions_tokens": 1200,
+  "reserve_question_tokens": 600,
+  "reserve_answer_tokens": 700,
+  "reserve_template_tokens": 256,
+  "required_context_tokens": 58187,
+  "full_corpus_fits": false,
+  "configuration_C": "not_feasible_in_configured_context",
+  "reason": "По данному токенизатору корпус занимает 53431 токенов и не помещается в настроенное окно 4096 с резервом. Другие модели и расширенные настройки окна по ресурсам не проверялись; общий запрет на них не утверждается. Метаданные этой модели сообщают окно 32768; это не доказательство невозможности всех альтернативных расширений.",
+  "hardware_reference": "PLAN.md: i7-3770, RAM около 16 GiB, CPU inference; RX 570 не используется как подтверждённое ускорение.",
+  "resource_probe_required_if_fits": true,
+  "mass_experiment_performed": false,
+  "local_model_context_limits": {
+    "qwen2.context_length": 32768
+  }
+}
