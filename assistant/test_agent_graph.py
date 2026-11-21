@@ -118,3 +118,8 @@ class AgentGraphTests(TestCase):
             result,trace=run_agent(self.user,self.conversation,'Какой единый срок перечисления возврата установлен?','Какой единый срок перечисления возврата установлен?',[],model,'2026-11-17',search_tool=lambda q,m:[self.source(self.a)])
         self.assertEqual(result['status'],'refuse');self.assertEqual(result['sources'],[])
         self.assertEqual(trace['agent']['stop_reason'],'final_guard_or_evidence_rejection')
+    def test_soft_recovery_cannot_search_with_unresolved_reference(self):
+        model=FakeModel([('search_policies','Нужный вариант дороже этой суммы.')])
+        result,trace=run_agent(self.user,self.conversation,'Нужный вариант дороже этой суммы.','',[{'question':'Какой лимит услуги?','search_query':'Какой лимит услуги?'}],model,'2026-11-17',clarification='О каком варианте речь?')
+        self.assertEqual(result['status'],'clarify');self.assertEqual(trace['agent']['searches'],0)
+        self.assertEqual(trace['agent']['stop_reason'],'unresolved_reference_query')
