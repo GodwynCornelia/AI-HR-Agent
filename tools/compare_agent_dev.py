@@ -41,11 +41,17 @@ with (directory/'answers.jsonl').open('w',encoding='utf-8') as f:
    key=(mode,q.get('dialogue_id') or q['id'])
    if key not in conversations:conversations[key]=Conversation.objects.create(owner=user,mode=mode,title='Dev comparison')
    sampler=ResourceSampler();sampler.start();start=time.perf_counter()
-   turn=ask(user,conversations[key].id,q['question'],as_of=q['evaluation_as_of'])
+   busy_retries=0
+   while True:
+    try:
+     turn=ask(user,conversations[key].id,q['question'],as_of=q['evaluation_as_of']);break
+    except RuntimeError as exc:
+     if 'занята' not in str(exc) or busy_retries>=10:raise
+     busy_retries+=1;time.sleep(1)
    row={'run_id':directory.name,'question_id':q['id'],'group_id':q['group_id'],'mode':mode,'question':q['question'],
         'status':turn.status,'answer':turn.answer,'rewritten':turn.rewritten,'history':turn.diagnostics.get('history',[]),
         'result':turn.diagnostics.get('result',{}),'diagnostics':turn.diagnostics,'seconds':time.perf_counter()-start,
-        'phase':'dev_diagnostic','independent_evaluation':False,**sampler.stop()}
+        'phase':'dev_diagnostic','independent_evaluation':False,'busy_retries':busy_retries,**sampler.stop()}
    refs=[{**ref,'sha256':hashes[ref['document']]} for ref in q.get('evidence',[])]
    candidates=Chunk.objects.select_related('document').filter(document__state='ready',document__sha256__in=[r['sha256'] for r in refs])
    relevant=sum(any(chunk_relevant({'document_id':str(c.document_id),'text':c.text},ref,documents) for ref in refs) for c in candidates)
