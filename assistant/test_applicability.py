@@ -23,6 +23,7 @@ class ApplicabilityTests(SimpleTestCase):
         self.assertIsNone(self.relation('Какой лимит другой услуги?',question_matches_service=False))
         self.assertIsNone(self.relation('Я постоянный удалённый. Какой лимит?',same_service=False))
         self.assertIsNone(self.relation('Я постоянный удалённый. Какой лимит?',same_conditions=False))
+        self.assertIsNone(self.relation('Я постоянный удалённый. Какой лимит?',same_conditions=False,relation='explicit_precedence'))
     def test_inapplicable_metadata_not_used_as_user_rule(self):
         self.assertFalse(compatible('Я офисный сотрудник. Как получить компенсацию?','Постоянные удалённые сотрудники'))
         self.assertTrue(compatible('Как получить компенсацию?','Постоянные удалённые сотрудники'))

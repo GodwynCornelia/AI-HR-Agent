@@ -187,6 +187,8 @@ def run_agent(user,conversation,original,query,history,model,evaluation_date,*,c
             value,sources,proofs,documents=assess(traced,state['query'],state['sources'],trace)
             assessment_cache.update(sources=sources,proofs=proofs,value=value)
             state['assessment']=value
+            if trace.get('context_budget_exhausted'):
+                state['stop_reason']='context_budget';return event(state,'assess',t,sufficient=False)
             policy=check_policy_relations(traced,state['query'],proofs,evaluation_date,trace)
             assessment_cache['policy_checked']=True
             if policy:state.update(result=policy,stop_reason='document_conflict' if policy['status']=='conflict' else 'document_scope_clarification')

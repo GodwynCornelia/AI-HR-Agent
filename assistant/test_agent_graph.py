@@ -111,3 +111,10 @@ class AgentGraphTests(TestCase):
         with patch('assistant.agent_graph.check_policy_relations',return_value=None),patch('assistant.grounded.check_policy_relations',return_value=None):
             result,trace=run_agent(self.user,self.conversation,'А заявка?','',[],model,'2026-11-17',clarification='Что означает заявка?',search_tool=lambda q,m:[self.source(self.a)])
         self.assertEqual(result['status'],'answer');self.assertEqual(trace['resolved_query'],'Как оформить заявку?')
+    def test_numeric_final_guard_also_applies_inside_graph(self):
+        self.a.text='Заявка на возврат оформляется в портале Расходы.';self.a.save()
+        model=FakeModel([('search_policies','возврат'),('answer','')])
+        with patch('assistant.agent_graph.check_policy_relations',return_value=None):
+            result,trace=run_agent(self.user,self.conversation,'Какой единый срок перечисления возврата установлен?','Какой единый срок перечисления возврата установлен?',[],model,'2026-11-17',search_tool=lambda q,m:[self.source(self.a)])
+        self.assertEqual(result['status'],'refuse');self.assertEqual(result['sources'],[])
+        self.assertEqual(trace['agent']['stop_reason'],'final_guard_or_evidence_rejection')

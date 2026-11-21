@@ -121,6 +121,8 @@ def check_policy_relations(model, question, proofs, today, diagnostic):
                         'reason': 'Для выбора одной из несовместимых норм нет подтверждённых метаданных замены или различающихся дат действия.'}
             audit['validation_action'] = 'reject_unsupported_source_priority'
         audit['result'] = relation
+        if relation['relation']=='unresolved_conflict' and not relation['same_conditions']:
+            audit['validation_action']='different_conditions_after_priority_validation';continue
         if relation['relation'] == 'unresolved_conflict':
             diagnostic['policy_relation_seconds'] = time.perf_counter()-started
             diagnostic['context_sent_to_answer_model'] = False

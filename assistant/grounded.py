@@ -33,6 +33,7 @@ class Assessment(BaseModel):
 def assess(model,question,sources,diagnostic):
     started=time.perf_counter();selected=[s for s in sources if compatible(question,s.get('scope',''))];documents,proofs=excerpts_from_sources(selected)
     diagnostic['excluded_inapplicable_sources']=[s['id'] for s in sources if s not in selected]
+    diagnostic['applicable_source_count']=len(selected)
     budget=integer('CONTEXT_CHARS',12000);bounded=[]
     for source in selected:
         if len(source['text'])<=budget:bounded.append(source);budget-=len(source['text'])
@@ -41,7 +42,8 @@ def assess(model,question,sources,diagnostic):
     while selected and not model.fits(ASSESS_PROMPT,messages()):
         selected.pop();documents,proofs=excerpts_from_sources(selected)
     if not selected:
-        cause='Нет применимых доступных фрагментов' if not sources or diagnostic['excluded_inapplicable_sources'] else 'Контекст не помещается'
+        diagnostic['context_budget_exhausted']=diagnostic['applicable_source_count']>0
+        cause='Контекст не помещается' if diagnostic['context_budget_exhausted'] else 'Нет применимых доступных фрагментов'
         return {'finding':cause,'proof_ids':[],'sufficient':False,'missing':['применимые подтверждения'],'clarification':''},[],{},[]
     schema=Assessment.model_json_schema();schema['properties']['proof_ids']['items']={'type':'string','enum':list(proofs)}
     raw=model.chat(ASSESS_PROMPT,messages(),structured=schema);value=Assessment.model_validate(raw).model_dump()
@@ -102,6 +104,7 @@ def compose(model,question,sources,proofs,assessment,evaluation_date,diagnostic,
 def answer_from_sources(model,question,sources,evaluation_date,diagnostic=None,current_user_message=None):
     diagnostic=diagnostic if diagnostic is not None else {};started=time.perf_counter()
     value,selected,proofs,_=assess(model,question,sources,diagnostic)
-    result=compose(model,question,selected,proofs,value,evaluation_date,diagnostic)
+    result=({'status':'refuse','answer':'Недостаточно окна модели для проверки контекста. Сократите вопрос или настройки контекста; это не означает отсутствия правила.','sources':[],'conflict_reason':''}
+            if diagnostic.get('context_budget_exhausted') else compose(model,question,selected,proofs,value,evaluation_date,diagnostic))
     diagnostic.update(answer_generation_seconds=time.perf_counter()-started,grounding_seconds=0.,generation_attempts=[])
     return result,diagnostic
