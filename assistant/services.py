@@ -178,6 +178,7 @@ answer — краткий русский ответ, обычно 2–4 пред
 ANSWER_PROMPT = CLAIM_PROMPT
 
 REFERENCE_REPAIR_PROMPT='''Восстанови самостоятельный поисковый вопрос. current — новое сообщение, previous_question — последний раскрытый вопрос, не фактический ответ.
+previous_evidence содержит только выдержки из ещё доступных источников предыдущего ответа. Используй их для определения объекта отсылки, например к лимиту или сроку. Сформулируй вопрос о названном объекте и применимой процедуре. Не считай прошлую норму действующей и не отвечай по этим выдержкам: нужно заново найти документы.
 Сначала subject: явно названный новый предмет из current, либо последний однозначный предмет из previous_question.
 requested_action: что нужно узнать о новом предмете. Затем query: полный вопрос, соединяющий действие, новый предмет и актуальные условия.
 Не отвечай на вопрос, не решай корпоративное правило и не проси повторять уже установленную тему.
@@ -323,6 +324,15 @@ def ask(user, conversation_id, message, *, as_of=None):
             if needs_reference_repair(message,rewrite.get('query',''),rewrite['status'],history):
                 previous=next((h.get('search_query') for h in reversed(history) if h.get('search_query')),history[-1]['question'])
                 packet={'current':message,'previous_question':previous,'proposed_query':rewrite.get('query','')}
+                if history_turns and history_turns[0].original==history[-1]['question']:
+                    prior=history_turns[0]
+                    cited=prior.diagnostics.get('result',{}).get('sources',[]) if prior.status=='answer' else []
+                    ready={str(c.id):c for c in Chunk.objects.filter(pk__in=[s['id'] for s in cited],document__state=Document.State.READY)}
+                    packet['previous_evidence']=[
+                        {'title':s['title'],'quote':s['quote'][:280]} for s in cited[:3]
+                        if s['id'] in ready and s['quote'] and s['quote'] in ready[s['id']].text
+                        and str(ready[s['id']].document_id)==s['document_id']
+                    ]
                 repair_messages=[{'role':'user','content':json.dumps(packet,ensure_ascii=False)}]
                 if model.fits(REFERENCE_REPAIR_PROMPT,repair_messages):
                     repaired_result=StandaloneQuery.model_validate(model.chat(REFERENCE_REPAIR_PROMPT,repair_messages,structured=StandaloneQuery.model_json_schema()))

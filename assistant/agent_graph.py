@@ -20,7 +20,7 @@ PLAN_PROMPT='''Ты управляешь локальным HR-поиском. �
 Выбери одно разрешённое действие; не отвечай корпоративными фактами из памяти.
 search_policies: dense-поиск, query — самостоятельный вопрос с актуальными условиями. Повтор того же запроса запрещён.
 Для первого поиска используй непустой resolved_question без изменения: его подготовка общая с обычным RAG. Последующие запросы выбирай по недостающим доказательствам.
-read_policy_fragment: прочитать полный фрагмент, fragment_id только из показанных результатов.
+read_policy_fragment: прочитать соседние фрагменты того же документа, fragment_id только из результатов поиска. Используй, если условие может продолжаться рядом с найденным текстом.
 answer: завершить по найденным доказательствам, когда assessment.sufficient=true. При неполноте можно выбрать новый поиск с другим запросом.
 clarify: уточнить существенное неизвестное условие пользователя. Не спрашивай его повторно, если оно уже явно названо.
 refuse: остановиться, если подтверждений нет и нового полезного поиска не видишь.
@@ -58,6 +58,7 @@ class AgentState(TypedDict,total=False):
     events:list[dict]
     steps:int
     searches:int
+    reads:int
     decision:dict
     assessment:dict
     stop_reason:str
@@ -95,9 +96,24 @@ def read_policy_fragment(fragment_id,allowed):
     if fragment_id not in allowed:raise PermissionError('Фрагмент не был возвращён поиском')
     row=Chunk.objects.select_related('document').filter(id=fragment_id,document__state=Document.State.READY).first()
     if not row:return None
-    doc=row.document
-    return {'id':str(row.id),'document_id':str(doc.id),'title':doc.title,'location':row.location,'ordinal':row.ordinal,
-            'text':row.text,'scope':doc.scope,'effective_from':str(doc.effective_from or ''),'supersedes':str(doc.supersedes_id or '')}
+    neighbors=Chunk.objects.select_related('document').filter(
+        document_id=row.document_id, document__state=Document.State.READY,
+        ordinal__in=[n for n in (row.ordinal-1,row.ordinal+1) if n>=0],
+    ).order_by('ordinal')
+    result=[]
+    remaining=4000
+    for neighbor in neighbors:
+        if len(neighbor.text)>remaining:
+            continue
+        doc=neighbor.document
+        result.append({'id':str(neighbor.id),'document_id':str(doc.id),'title':doc.title,
+                       'location':neighbor.location,'ordinal':neighbor.ordinal,'text':neighbor.text,
+                       'scope':doc.scope,'effective_from':str(doc.effective_from or ''),
+                       'supersedes':str(doc.supersedes_id or '')})
+        remaining-=len(neighbor.text)
+    if not Chunk.objects.filter(pk=row.pk,document__state=Document.State.READY).exists():
+        return None
+    return result
 
 def run_agent(user,conversation,original,query,history,model,evaluation_date,*,clarification='',force_clarification=False,search_tool=None,read_tool=None):
     owned_conversation(user,conversation.id)
@@ -107,7 +123,8 @@ def run_agent(user,conversation,original,query,history,model,evaluation_date,*,c
     if old_deadline is not None:deadline=min(deadline,old_deadline)
     model.deadline=deadline;traced=TraceModel(model)
     search=search_tool or search_policies;read=read_tool or read_policy_fragment
-    seen=set();seen_source_ids=set();assessment_cache={};trace={};max_documents=max(1,min(8,int(os.getenv('AGENT_MAX_DOCUMENTS','8'))))
+    seen=set();seen_source_ids=set();search_ids=set();assessment_cache={};trace={};max_documents=max(1,min(8,int(os.getenv('AGENT_MAX_DOCUMENTS','8'))))
+    max_reads=max(1,min(2,int(os.getenv('AGENT_MAX_READS','2'))))
     no_progress_limit=max(1,min(3,int(os.getenv('AGENT_MAX_NO_PROGRESS','3'))));known_proofs=set()
     def event(state,name,begin,**data):
         nonlocal latest
@@ -130,6 +147,8 @@ def run_agent(user,conversation,original,query,history,model,evaluation_date,*,c
                  'retrieval_state':state.get('retrieval_state','not_searched'),'no_progress_attempts':state['no_progress'],
                  'queries':state['queries'],'results':previews,'assessment':{k:v for k,v in state.get('assessment',{}).items() if k!='proof_ids'},
                  'remaining_searches':max_searches-state['searches'],'remaining_actions':max_steps-state['steps']}
+        payload['remaining_reads']=max_reads-state['reads']
+        payload['readable_anchors']=[p['id'] for p in previews if p['id'] in search_ids]
         allowed=['search_policies','clarify','refuse'] if not state['sources'] else ['search_policies','read_policy_fragment','answer','clarify','refuse']
         schema=Decision.model_json_schema();schema['properties']['action']['enum']=allowed
         if state['searches']==0 and state['query']:schema['properties']['query']['enum']=[state['query'],'']
@@ -173,6 +192,7 @@ def run_agent(user,conversation,original,query,history,model,evaluation_date,*,c
                 available={str(i) for i in Chunk.objects.filter(id__in=[s['id'] for s in found],document__state=Document.State.READY).values_list('id',flat=True)}
                 unavailable=[s['id'] for s in found if s['id'] not in available]
                 found=[s for s in found if s['id'] in available]
+                search_ids.update(s['id'] for s in found)
                 new=[s for s in found if s['id'] not in seen_source_ids];seen_source_ids.update(s['id'] for s in found)
                 by_id={s['id']:s for s in [*state['sources'],*new]}
                 # Новая выдача получает контекст первой; стабильные ID не меняются.
@@ -187,14 +207,29 @@ def run_agent(user,conversation,original,query,history,model,evaluation_date,*,c
                 if unavailable and not found:state['stop_reason']='source_unavailable'
                 return event(state,'tool',t,tool=action,arguments={'query':d['query']},result_ids=[s['id'] for s in found],
                     results=[{'id':s['id'],'document_id':s['document_id'],'text_sha256':hashlib.sha256(s['text'].encode()).hexdigest(),'characters':len(s['text'])} for s in found],new_chunks=len(new),retrieval_state=state['retrieval_state'])
-            full=read(d['fragment_id'],{s['id'] for s in state['sources']})
-            if full is None:state['stop_reason']='source_unavailable'
+            if state['reads']>=max_reads:
+                state['stop_reason']='read_budget'
+                return event(state,'tool',t,tool=action,blocked='read_budget')
+            allowed=search_ids.intersection(s['id'] for s in state['sources'])
+            if args not in allowed:
+                raise PermissionError('Фрагмент не был возвращён поиском')
+            state['reads']+=1
+            neighbors=read(args,allowed)
+            new=[s for s in neighbors or [] if s['id'] not in seen_source_ids]
+            if neighbors is None:
+                state['stop_reason']='source_unavailable'
+            elif new:
+                seen_source_ids.update(s['id'] for s in new)
+                state['sources']=[*new,*state['sources']][:16]
+                state['expanded'].extend(s['id'] for s in new)
             else:
-                previous=next((s for s in state['sources'] if s['id']==full['id']),None)
-                state['sources']=[full if s['id']==full['id'] else s for s in state['sources']];state['expanded'].append(full['id'])
-                if previous and all(previous.get(k)==full.get(k) for k in ['text','scope','effective_from','supersedes','title']):
-                    state['feedback']='Полный фрагмент прочитан; оценка неизменённых доказательств сохранена. Выбери следующий шаг.'
-            return event(state,'tool',t,tool=action,arguments={'fragment_id':d['fragment_id']},available=full is not None)
+                state['retrieval_state']='repeated_sources'
+                state['feedback']='Соседние фрагменты не добавили нового текста. Выбери другой способ проверить недостающее.'
+                state['no_progress']+=1
+                if state['no_progress']>=no_progress_limit:
+                    state['stop_reason']='no_progress_budget'
+            return event(state,'tool',t,tool=action,arguments={'fragment_id':args},
+                         available=neighbors is not None,result_ids=[s['id'] for s in neighbors or []],new_chunks=len(new))
         except Exception as exc:state['stop_reason']='timeout' if isinstance(exc,TimeoutError) or time.monotonic()>=deadline else 'tool_error';trace['tool_error']=type(exc).__name__;return event(state,'tool',t,tool=action,arguments={'query' if action=='search_policies' else 'fragment_id':args},error=type(exc).__name__)
     def evaluate(state):
         t=time.monotonic()
@@ -237,6 +272,15 @@ def run_agent(user,conversation,original,query,history,model,evaluation_date,*,c
         active={str(i) for i in Document.objects.filter(id__in=ids,state=Document.State.READY).values_list('id',flat=True)}
         if any(i not in active for i in ids):
             state['result']={'status':'refuse','answer':'Источник был удалён во время обработки. Повторите запрос.','sources':[],'conflict_reason':''};reason='source_deleted'
+        elif ids:
+            citations=state['result']['sources']
+            current_chunks={str(row.id):row for row in Chunk.objects.filter(
+                pk__in=[s['id'] for s in citations],document__state=Document.State.READY)}
+            if any(s['id'] not in current_chunks or
+                   str(current_chunks[s['id']].document_id)!=s['document_id'] or
+                   s['quote'] not in current_chunks[s['id']].text for s in citations):
+                state['result']={'status':'refuse','answer':'Источник изменился во время обработки. Повторите запрос.','sources':[],'conflict_reason':''}
+                reason='source_changed'
         state['stop_reason']=reason;return event(state,'finalize',t,stop_reason=reason)
     graph=StateGraph(AgentState)
     for name,node in [('prepare',prepare),('plan',plan),('tool',tool),('assess',evaluate),('finalize',finish)]:graph.add_node(name,node)
@@ -244,7 +288,7 @@ def run_agent(user,conversation,original,query,history,model,evaluation_date,*,c
     graph.add_conditional_edges('plan',lambda s:'finalize' if s.get('stop_reason') else 'tool',{'finalize':'finalize','tool':'tool'})
     graph.add_conditional_edges('tool',lambda s:'finalize' if s.get('stop_reason') else 'plan' if s.get('feedback') else 'assess',{'finalize':'finalize','assess':'assess','plan':'plan'});graph.add_conditional_edges('assess',lambda s:'finalize' if s.get('stop_reason') else 'plan',{'finalize':'finalize','plan':'plan'});graph.add_edge('finalize',END)
     initial={'original':original,'query':query,'topic':query,'conditions':[h['question'] for h in history][-6:]+[original],
-             'sources':[],'queries':[],'expanded':[],'events':[],'steps':0,'searches':0,'no_progress':0,'retrieval_state':'not_searched','suggested_clarification':clarification,'feedback':'','duplicate_repairs':0}
+             'sources':[],'queries':[],'expanded':[],'events':[],'steps':0,'searches':0,'reads':0,'no_progress':0,'retrieval_state':'not_searched','suggested_clarification':clarification,'feedback':'','duplicate_repairs':0}
     latest=initial.copy()
     try:state=graph.compile(name=VERSION).invoke(initial,config={'recursion_limit':max_steps*4+10,'callbacks':[]})
     except Exception as exc:
@@ -254,7 +298,7 @@ def run_agent(user,conversation,original,query,history,model,evaluation_date,*,c
         'langgraph_version':version('langgraph'),'memory':'postgres_conversation_no_checkpointer','topic':state['topic'],
         'model':model.model,'num_ctx':int(os.getenv('MODEL_CONTEXT','4096')),'events':state['events'],'queries':state['queries'],
         'searches':state['searches'],'actions':state['steps'],'no_progress':state['no_progress'],'no_progress_limit':no_progress_limit,'retrieval_state':state.get('retrieval_state'),'llm_calls_graph':len(traced.calls),'llm_calls':getattr(model,'chat_calls',len(traced.calls)),'llm_events':traced.calls,
-        'stop_reason':state['stop_reason'],'seconds':time.monotonic()-started,'budgets':{'searches':max_searches,'actions':max_steps,'seconds':timeout},
+        'stop_reason':state['stop_reason'],'reads':state['reads'],'seconds':time.monotonic()-started,'budgets':{'searches':max_searches,'reads':max_reads,'actions':max_steps,'seconds':timeout},
         'evidence_ids':[s['id'] for s in state['sources']]}
     code=hashlib.sha256()
     for path in sorted(Path(__file__).parent.rglob('*.py')):

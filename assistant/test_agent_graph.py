@@ -81,10 +81,22 @@ class AgentGraphTests(TestCase):
         result,trace=self.run_graph(FakeModel([('search_policies','заявка')]),broken)
         self.assertEqual(trace['agent']['stop_reason'],'tool_error');self.assertIn('технической',result['answer'])
     def test_read_only_seen_fragment(self):
-        result,trace=self.run_graph(FakeModel([('search_policies','заявка'),('read_policy_fragment',str(self.a.id)),('answer','')]))
-        self.assertEqual(result['status'],'answer');self.assertTrue(any(e.get('tool')=='read_policy_fragment' for e in trace['agent']['events']))
+        result,trace=self.run_graph(FakeModel([('search_policies','заявка'),('read_policy_fragment',str(self.a.id)),('answer','')],[False,True]))
+        self.assertEqual(result['status'],'answer')
+        self.assertIn(self.b.text,result['answer'])
+        self.assertEqual(trace['agent']['reads'],1)
         with self.assertRaises(PermissionError):read_policy_fragment(str(self.b.id),{str(self.a.id)})
         with self.assertRaises(PermissionError):read_policy_fragment('../../.env',set())
+    def test_neighbor_from_other_document_is_excluded(self):
+        other=Document.objects.create(title='Другое правило',file='other.txt',sha256='other',state='ready')
+        Chunk.objects.create(document=other,ordinal=1,location='раздел',text='Чужое условие.')
+        neighbors=read_policy_fragment(str(self.a.id),{str(self.a.id)})
+        self.assertEqual([n['id'] for n in neighbors],[str(self.b.id)])
+    def test_neighbor_read_budget(self):
+        with patch.dict(os.environ,{'AGENT_MAX_READS':'1'}):
+            _,trace=self.run_graph(FakeModel([('search_policies','заявка'),('read_policy_fragment',str(self.a.id)),('read_policy_fragment',str(self.b.id))],[False]),lambda q,m:[self.source(self.a),self.source(self.b)])
+        self.assertEqual(trace['agent']['reads'],1)
+        self.assertEqual(trace['agent']['stop_reason'],'read_budget')
     def test_read_deleted_source_returns_none(self):
         self.doc.state='deleting';self.doc.save()
         self.assertIsNone(read_policy_fragment(str(self.a.id),{str(self.a.id)}))

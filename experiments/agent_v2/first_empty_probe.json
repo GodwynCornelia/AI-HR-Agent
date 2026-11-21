@@ -1,0 +1,44 @@
+{
+  "run": "41a5b693-d986-48d7-a864-ba266f729c26",
+  "source_commit": "dd16477",
+  "case": "controlled_first_empty",
+  "model": "qwen3:4b",
+  "rows": [
+    {
+      "mode": "rag",
+      "question": "Кто назначает наставника и где посмотреть, кто это?",
+      "status": "refuse",
+      "answer": "В базе знаний не найдено информации для ответа. Уточните вопрос или обратитесь к HR.",
+      "seconds": 36.142859499988845,
+      "calls": [
+        {
+          "query": "Кто назначает наставника и где посмотреть, кто это?",
+          "original_count": 8,
+          "returned_count": 0
+        }
+      ],
+      "stop_reason": null,
+      "decisions": []
+    },
+    {
+      "mode": "agent",
+      "question": "Кто назначает наставника и где посмотреть, кто это?",
+      "status": "refuse",
+      "answer": "В найденных фрагментах недостаточно сведений для ответа. Уточните правило у HR.",
+      "seconds": 25.82975129999977,
+      "calls": [
+        {
+          "query": "Кто назначает наставника и где посмотреть, кто это?",
+          "original_count": 8,
+          "returned_count": 0
+        }
+      ],
+      "stop_reason": "refuse",
+      "decisions": [
+        "search_policies",
+        "search_policies",
+        "refuse"
+      ]
+    }
+  ]
+}
