@@ -4,7 +4,9 @@ from django.test import TestCase
 from django.contrib.auth import get_user_model
 import httpx
 from .models import Conversation,Document,Chunk
-from .agent_graph import run_agent,read_policy_fragment
+from .agent_graph import run_agent,read_policy_fragment,preserve_search_focus
+from .grounded import retain_part_evidence
+
 
 class FakeModel:
     model='local-test';deadline=None
@@ -31,6 +33,26 @@ class FakeModel:
         raise AssertionError('Неожиданный вызов модели')
 
 class AgentGraphTests(TestCase):
+    def test_followup_search_keeps_subject_and_missing_part(self):
+        query=preserve_search_focus('Где проверить его имя?',{'subject':'наставник','procedure':'адаптация'},'Исходный вопрос')
+        self.assertIn('наставник',query)
+        self.assertIn('Где проверить его имя?',query)
+
+    def test_missing_selection_keeps_partial_proof_but_explicit_rejection_removes_it(self):
+        ledger={}
+        source={'id':'stable','quote':'Заявку подают в портале.'}
+        def assessment(first, rejected=None):
+            return {'parts':[{'need':'Куда подать заявку','proof_ids':first,'remaining':'covered' if first else 'search'},
+                             {'need':'Какой срок','proof_ids':[],'remaining':'search'}],
+                    'rejected_proof_ids':rejected or []}
+        retain_part_evidence(assessment(['E1']),{'E1':source},ledger)
+        partial=retain_part_evidence(assessment([]),{'E9':source},ledger)
+        self.assertEqual(partial['proof_ids'],['E9'])
+        self.assertEqual(partial['missing'],['Какой срок'])
+        self.assertFalse(partial['sufficient'])
+        rejected=retain_part_evidence(assessment([],['E9']),{'E9':source},ledger)
+        self.assertEqual(rejected['proof_ids'],[])
+
     def setUp(self):
         self.user=get_user_model().objects.create_user('agent-owner');self.other=get_user_model().objects.create_user('agent-other')
         self.conversation=Conversation.objects.create(owner=self.user)

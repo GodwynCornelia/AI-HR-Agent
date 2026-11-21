@@ -9,7 +9,7 @@ os.environ['LANGCHAIN_TRACING_V2']='false'
 from langgraph.graph import StateGraph,START,END
 from .models import Chunk,Document
 from .security import owned_conversation
-from .grounded import assess,compose,quote_result
+from .grounded import assess,compose,quote_result,retain_part_evidence
 from .final_checks import enforce
 from .answer_checks import check_policy_relations
 from .trace_utils import redact
@@ -94,6 +94,16 @@ def query_signature(query):
     filler={'пожалуйста','подскажите','расскажите','прошу','скажите'}
     return tuple(sorted(w for w in re.findall(r'[\w]+',query.casefold()) if w not in filler))
 
+
+def preserve_search_focus(query, dialogue_state, resolved):
+    subject=(dialogue_state or {}).get('subject','').strip()
+    if not subject and re.search(r'\b(?:его|её|их|это|этот|этой)\b',query,re.I):
+        subject=resolved.strip()
+    if subject and not set(query_signature(subject)).issubset(query_signature(query)):
+        context=': '.join(dict.fromkeys(x for x in (subject,(dialogue_state or {}).get('procedure','').strip()) if x))
+        return context[:350]+' — '+query[:547]
+    return query
+
 def read_policy_fragment(fragment_id,allowed):
     if fragment_id not in allowed:raise PermissionError('Фрагмент не был возвращён поиском')
     row=Chunk.objects.select_related('document').filter(id=fragment_id,document__state=Document.State.READY).first()
@@ -127,7 +137,7 @@ def run_agent(user,conversation,original,query,history,model,evaluation_date,*,d
     search=search_tool or search_policies;read=read_tool or read_policy_fragment
     seen=set();seen_source_ids=set();search_ids=set();assessment_cache={};trace={};max_documents=max(1,min(8,int(os.getenv('AGENT_MAX_DOCUMENTS','8'))))
     max_reads=max(1,min(2,int(os.getenv('AGENT_MAX_READS','2'))))
-    no_progress_limit=max(1,min(3,int(os.getenv('AGENT_MAX_NO_PROGRESS','3'))));known_proofs=set()
+    no_progress_limit=max(1,min(3,int(os.getenv('AGENT_MAX_NO_PROGRESS','3'))));known_proofs=set();part_evidence={}
     def event(state,name,begin,**data):
         nonlocal latest
         state['events']=[*state['events'],{'node':name,'seconds':time.monotonic()-begin,**data}];latest=state.copy();return state
@@ -169,6 +179,8 @@ def run_agent(user,conversation,original,query,history,model,evaluation_date,*,d
                 return event(state,'plan',t,action=decision['action'],blocked='query_not_standalone')
             if decision['action']=='search_policies' and state['searches']==0 and state['query'] and decision['query']!=state['query']:
                 trace['initial_proposed_query']=decision['query'];state['decision']['query']=state['query']
+            elif decision['action']=='search_policies' and state['searches']:
+                state['decision']['query']=preserve_search_focus(decision['query'],dialogue_state,state['query'])
             state['topic']=state['query'] or decision['focus'] or state['topic']
             if decision['action'] in {'answer','clarify','refuse'}:
                 state['stop_reason']=decision['action']
@@ -242,6 +254,7 @@ def run_agent(user,conversation,original,query,history,model,evaluation_date,*,d
         t=time.monotonic()
         try:
             value,sources,proofs,documents=assess(traced,state['query'],state['sources'],trace)
+            value=retain_part_evidence(value,proofs,part_evidence)
             if not state['sources']:
                 value['missing']=['Ни одна часть вопроса не проверена: '+state['query']]
             evidence={(proofs[k]['document_id'],proofs[k]['quote']) for k in value['proof_ids'] if k in proofs}

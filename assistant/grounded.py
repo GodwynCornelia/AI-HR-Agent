@@ -14,6 +14,7 @@ ASSESS_PROMPT='''Определи, хватает ли приведённых д
 proof_ids — только выдержки, прямо отвечающие на вопрос, а не просто близкие по теме.
 Для составного вопроса нужны все части. sufficient=true только если все существенные части подтверждены.
 В parts перечисли существенные части вопроса. Для каждой укажи прямые proof_ids и remaining: covered, search (нужен документ), context (условие может быть рядом), user (не хватает условия пользователя).
+В rejected_proof_ids укажи выдержки, которые явно неприменимы или противоречат условию пользователя. Не включай выдержку только потому, что не выбрал её повторно.
 Явный отрицательный ответ или отсутствие гарантии в документе — ответ; отсутствие нужной детали в контексте — не запрет.
 missing — чего конкретно не хватает. clarification — вопрос, только если неизвестно существенное условие пользователя; иначе пусто.
 Не добавляй условия соседних программ. Сохраняй категорию, период, сумму, срок, отрицания и роль плательщика.'''
@@ -38,6 +39,33 @@ class Assessment(BaseModel):
     missing:list[str]=Field(max_length=4)
     clarification:str
     parts:list[EvidencePart]=Field(default_factory=list,max_length=5)
+    rejected_proof_ids:list[str]=Field(default_factory=list,max_length=5)
+
+
+def retain_part_evidence(value, proofs, ledger):
+    """Keep citations by source and literal quote, independently of temporary E IDs."""
+    def key(source):
+        return source['id'],source['quote']
+    available={key(source):alias for alias,source in proofs.items()}
+    rejected={key(proofs[a]) for a in value.get('rejected_proof_ids',[]) if a in proofs}
+    for part in value.get('parts',[]):
+        need=' '.join(part['need'].casefold().split())
+        old=ledger.get(need,set())-rejected
+        selected=({key(proofs[a]) for a in part['proof_ids'] if a in proofs}-rejected
+                  if part['remaining']=='covered' else set())
+        ledger[need]=old|selected
+        if part['remaining']=='user':
+            continue
+        aliases=[available[k] for k in sorted(ledger[need]) if k in available][:5]
+        if aliases:
+            part.update(proof_ids=aliases,remaining='covered')
+    for need in ledger:
+        ledger[need]-=rejected
+    if value.get('parts'):
+        value['proof_ids']=list(dict.fromkeys(a for part in value['parts'] if part['remaining']=='covered' for a in part['proof_ids']))
+        value['missing']=[part['need'] for part in value['parts'] if part['remaining']!='covered']
+        value['sufficient']=bool(value['proof_ids'] and not value['missing'])
+    return value
 
 def assess(model,question,sources,diagnostic):
     started=time.perf_counter();selected=[s for s in sources if compatible(question,s.get('scope',''))];documents,proofs=excerpts_from_sources(selected)
@@ -57,7 +85,22 @@ def assess(model,question,sources,diagnostic):
     schema=Assessment.model_json_schema();schema['properties']['proof_ids']['items']={'type':'string','enum':list(proofs)}
     schema['$defs']['EvidencePart']['properties']['proof_ids']['items']={'type':'string','enum':list(proofs)}
     schema['required'].append('parts')
+    schema['properties']['rejected_proof_ids']['items']={'type':'string','enum':list(proofs)}
     raw=model.chat(ASSESS_PROMPT,messages(),structured=schema);value=Assessment.model_validate(raw).model_dump()
+    if value['parts'] and not value['proof_ids'] and not value['clarification']:
+        # A weak structured verdict can overlook direct evidence. Make one bounded
+        # selection pass with the simpler schema shared by both modes.
+        simple_schema=Assessment.model_json_schema()
+        for field in ('parts','rejected_proof_ids'):
+            simple_schema['properties'].pop(field)
+        simple_schema.pop('$defs',None)
+        simple_schema['properties']['proof_ids']['items']={'type':'string','enum':list(proofs)}
+        simple_prompt='\n'.join(line for line in ASSESS_PROMPT.splitlines()
+                                if not line.startswith(('В parts','В rejected_proof_ids')))
+        diagnostic['assessment_initial_empty']=value
+        retry=Assessment.model_validate(model.chat(simple_prompt,messages(),structured=simple_schema)).model_dump()
+        if retry['proof_ids'] and not set(retry['proof_ids'])&set(value['rejected_proof_ids']):
+            value=retry
     if value['clarification'] and not safe_clarification(value['clarification']):
         diagnostic['invalid_assessment_clarification']=value['clarification'];value['clarification']=''
     if any(i not in proofs for i in value['proof_ids']):raise ValueError('Неизвестное доказательство')
