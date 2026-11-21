@@ -8,11 +8,27 @@
   "compact_results": "five separate runs, 76 records; 41 corpus hashes, 286 catalog chunks; 34 preliminary LLM grades verified",
   "live_model_runs": "see experiments/agent_dev; actual local inference, not mocks",
   "ui": "docs/agent-ui-verification.json",
-  "extra_docker_stacks": "hr-agent-branch and listva stopped",
+  "extra_docker_stacks": "listva and old hr_agent application containers stopped; one HR_Agent application stack active; shared PostgreSQL/Qdrant remain",
   "remaining_limits": [
     "anaphora and action-selection errors",
     "no measured retrieval gain",
     "uncalibrated same-model judge",
     "no independent final test on new scenarios"
-  ]
+  ],
+  "deployed_http": {
+    "url": "http://127.0.0.1:18100",
+    "login": "passed",
+    "conversation_mode": "agent",
+    "http_send": "passed",
+    "seconds": 80.75694680000015,
+    "api_health": {
+      "status": "alive"
+    },
+    "unsigned_api_request": "rejected_401",
+    "observed_turn_status": "answer",
+    "observed_langgraph_version": "1.2.24",
+    "observed_searches": 1,
+    "observed_stop_reason": "answer",
+    "answer_source": "Начало работы и план адаптации / Абзац 3"
+  }
 }
