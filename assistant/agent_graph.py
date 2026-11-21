@@ -26,6 +26,7 @@ clarify: уточнить существенное неизвестное усл
 refuse: остановиться, если подтверждений нет и нового полезного поиска не видишь.
 Не считай дополнительные поиски обязательными. Если найденного хватает — answer, без лишних вызовов.
 Пустой первый поиск не доказывает отсутствие нормы. При пустой/частичной выдаче можно искать недостающий аспект другими словами или читать контекст. assessment.missing и previous_tool_feedback указывают конкретный дефицит. Новые чанки без подходящего доказательства не означают успех.
+После пустой выдачи новый поиск должен менять ключевые термины или искать одну из частей вопроса. Не копируй resolved_question и не меняй только порядок слов.
 resolved_question задаёт актуальную тему и условия; в хронологических условиях старое может быть заменено новым. Не возвращай устаревшие условия.
 suggested_clarification — предварительное предложение, не факт. Если current и история однозначно задают новый предмет, можешь сформулировать полный query и выполнить поиск; иначе уточни.
 При новом поиске используй missing из оценки: сохрани отрицания, программу, категорию, период и роли; не выдумывай исключение.
@@ -115,7 +116,7 @@ def read_policy_fragment(fragment_id,allowed):
         return None
     return result
 
-def run_agent(user,conversation,original,query,history,model,evaluation_date,*,clarification='',force_clarification=False,search_tool=None,read_tool=None):
+def run_agent(user,conversation,original,query,history,model,evaluation_date,*,dialogue_state=None,clarification='',force_clarification=False,search_tool=None,read_tool=None):
     owned_conversation(user,conversation.id)
     started=time.monotonic();max_steps=max(1,min(8,int(os.getenv('AGENT_MAX_ACTIONS','8'))));max_searches=max(1,min(3,int(os.getenv('AGENT_MAX_SEARCHES','3'))))
     timeout=max(1,min(840,float(os.getenv('AGENT_TIMEOUT_SECONDS','600'))));deadline=started+timeout
@@ -142,6 +143,7 @@ def run_agent(user,conversation,original,query,history,model,evaluation_date,*,c
         ordered_sources=sorted(state['sources'],key=lambda s:-(state['expanded'].index(s['id'])+1) if s['id'] in state['expanded'] else 0)
         previews=[{'id':s['id'],'title':s['title'],'text':s['text'] if s['id'] in state['expanded'] else s['text'][:240]} for s in ordered_sources]
         payload={'current':original,'resolved_question':state['query'],'topic':state['topic'],'conditions_from_user':state['conditions'],
+                 'dialogue_state':dialogue_state,
                  'suggested_clarification':state.get('suggested_clarification',''),
                  'previous_tool_feedback':state.get('feedback',''),
                  'retrieval_state':state.get('retrieval_state','not_searched'),'no_progress_attempts':state['no_progress'],
@@ -235,6 +237,8 @@ def run_agent(user,conversation,original,query,history,model,evaluation_date,*,c
         t=time.monotonic()
         try:
             value,sources,proofs,documents=assess(traced,state['query'],state['sources'],trace)
+            if not state['sources']:
+                value['missing']=['Ни одна часть вопроса не проверена: '+state['query']]
             evidence={(proofs[k]['document_id'],proofs[k]['quote']) for k in value['proof_ids'] if k in proofs}
             added=evidence-known_proofs;known_proofs.update(evidence)
             state['no_progress']=0 if added else state['no_progress']+1
@@ -249,6 +253,8 @@ def run_agent(user,conversation,original,query,history,model,evaluation_date,*,c
             policy=check_policy_relations(traced,state['query'],proofs,evaluation_date,trace)
             assessment_cache['policy_checked']=True
             if policy:state.update(result=policy,stop_reason='document_conflict' if policy['status']=='conflict' else 'document_scope_clarification')
+            elif value['sufficient'] and value.get('parts') and not value['clarification']:
+                state['stop_reason']='answer'
             elif state['no_progress']>=no_progress_limit:state['stop_reason']='no_progress_budget'
         except Exception as exc:state['stop_reason']='timeout' if isinstance(exc,TimeoutError) or time.monotonic()>=deadline else 'assessment_unavailable';trace['assessment_error']=type(exc).__name__
         return event(state,'assess',t,sufficient=state.get('assessment',{}).get('sufficient',False),new_proofs=state.get('last_proof_gain',0),no_progress=state['no_progress'],retrieval_state=state.get('retrieval_state'))

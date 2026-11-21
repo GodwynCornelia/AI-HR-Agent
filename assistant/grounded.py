@@ -1,5 +1,6 @@
 """Общий для RAG и графа путь: доказательства → текст → ограниченная проверка."""
 import json,time,re
+from typing import Literal
 from pydantic import BaseModel,ConfigDict,Field
 from .evidence import excerpts_from_sources,ClaimAnswer,claim_schema,resolve_plan,CLAIM_PROMPT
 from .answer_checks import check_policy_relations
@@ -12,6 +13,7 @@ ASSESS_PROMPT='''Определи, хватает ли приведённых д
 В finding кратко назови найденное подтверждение или отсутствующий факт, не повторяя вопрос.
 proof_ids — только выдержки, прямо отвечающие на вопрос, а не просто близкие по теме.
 Для составного вопроса нужны все части. sufficient=true только если все существенные части подтверждены.
+В parts перечисли существенные части вопроса. Для каждой укажи прямые proof_ids и remaining: covered, search (нужен документ), context (условие может быть рядом), user (не хватает условия пользователя).
 Явный отрицательный ответ или отсутствие гарантии в документе — ответ; отсутствие нужной детали в контексте — не запрет.
 missing — чего конкретно не хватает. clarification — вопрос, только если неизвестно существенное условие пользователя; иначе пусто.
 Не добавляй условия соседних программ. Сохраняй категорию, период, сумму, срок, отрицания и роль плательщика.'''
@@ -22,6 +24,12 @@ VERIFY_PROMPT='''Проверь только указанные утвержде
 Верни по одному булеву значению в том же порядке. Не дописывай новый ответ.'''
 WRITE_PROMPT=CLAIM_PROMPT+'\nСформулируй краткий ответ по-русски. Не упоминай внутренние ID E1/D1 и технические псевдонимы в тексте утверждений; ссылки с названиями документов сервер покажет отдельно.'
 
+class EvidencePart(BaseModel):
+    need:str=Field(min_length=1,max_length=260)
+    proof_ids:list[str]=Field(max_length=5)
+    remaining:Literal['covered','search','context','user']
+
+
 class Assessment(BaseModel):
     model_config=ConfigDict(extra='forbid')
     finding:str
@@ -29,6 +37,7 @@ class Assessment(BaseModel):
     sufficient:bool
     missing:list[str]=Field(max_length=4)
     clarification:str
+    parts:list[EvidencePart]=Field(default_factory=list,max_length=5)
 
 def assess(model,question,sources,diagnostic):
     started=time.perf_counter();selected=[s for s in sources if compatible(question,s.get('scope',''))];documents,proofs=excerpts_from_sources(selected)
@@ -46,11 +55,22 @@ def assess(model,question,sources,diagnostic):
         cause='Контекст не помещается' if diagnostic['context_budget_exhausted'] else 'Нет применимых доступных фрагментов'
         return {'finding':cause,'proof_ids':[],'sufficient':False,'missing':['применимые подтверждения'],'clarification':''},[],{},[]
     schema=Assessment.model_json_schema();schema['properties']['proof_ids']['items']={'type':'string','enum':list(proofs)}
+    schema['$defs']['EvidencePart']['properties']['proof_ids']['items']={'type':'string','enum':list(proofs)}
+    schema['required'].append('parts')
     raw=model.chat(ASSESS_PROMPT,messages(),structured=schema);value=Assessment.model_validate(raw).model_dump()
     if value['clarification'] and not safe_clarification(value['clarification']):
         diagnostic['invalid_assessment_clarification']=value['clarification'];value['clarification']=''
     if any(i not in proofs for i in value['proof_ids']):raise ValueError('Неизвестное доказательство')
     if not value['proof_ids']:value['sufficient']=False
+    if value['parts']:
+        for part in value['parts']:
+            part['proof_ids']=[key for key in part['proof_ids'] if key in value['proof_ids']]
+            if part['remaining']=='covered' and not part['proof_ids']:
+                part['remaining']='search'
+        missing=[p['need'] for p in value['parts'] if p['remaining']!='covered']
+        if missing:
+            value['sufficient']=False
+            value['missing']=missing
     diagnostic.update(provided_sources=selected,assessment=value,assessment_seconds=time.perf_counter()-started,
         assessment_model_metadata=getattr(model,'last_chat_metadata',{}))
     return value,selected,proofs,documents

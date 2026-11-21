@@ -1,5 +1,6 @@
 """Сравнение режимов при одинаковой пустой первой выдаче."""
 import json
+import argparse
 import os
 import sys
 import time
@@ -16,7 +17,10 @@ from django.contrib.auth import get_user_model
 from assistant import services
 from assistant.models import Conversation
 
-case = json.loads((ROOT / 'experiments/agent_v2/protocol.json').read_text(encoding='utf-8'))['cases'][0]
+parser=argparse.ArgumentParser()
+parser.add_argument('--case',default='mentor')
+opts=parser.parse_args()
+case = next(c for c in json.loads((ROOT / 'experiments/agent_v2/protocol.json').read_text(encoding='utf-8'))['cases'] if c['id']==opts.case)
 user, _ = get_user_model().objects.get_or_create(username='local_agent_probes')
 retrieve = services.retrieve
 output = ROOT / 'runtime/agent-v2' / str(uuid4())

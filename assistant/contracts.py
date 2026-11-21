@@ -19,11 +19,28 @@ class GroundedReply(Reply):
     conflict_reason:str=Field(default='',max_length=300)
 
 
+class UserCondition(BaseModel):
+    dimension:str=Field(max_length=120)
+    value:str=Field(max_length=240)
+    user_message_index:int=Field(ge=0,le=6)
+
+
+class DialogueState(BaseModel):
+    subject:str=Field(max_length=240)
+    procedure:str=Field(max_length=240)
+    requested_action:str=Field(max_length=350)
+    active_conditions:list[UserCondition]=Field(max_length=6)
+    unresolved_conditions:list[str]=Field(max_length=4)
+    superseded_conditions:list[UserCondition]=Field(max_length=6)
+    parts:list[str]=Field(max_length=5)
+
+
 class Rewrite(BaseModel):
     model_config=ConfigDict(extra='forbid')
     status:Literal['search','clarify']
     query:str=Field(max_length=900)
     clarification:str=Field(max_length=350)
+    dialogue_state:DialogueState|None=None
     @model_validator(mode='after')
     def validate_action(self):
         if self.status=='search' and not self.query.strip():

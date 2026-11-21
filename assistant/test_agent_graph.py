@@ -47,6 +47,18 @@ class AgentGraphTests(TestCase):
         self.assertEqual(result['status'],'answer');self.assertEqual(trace['agent']['searches'],1)
         self.assertEqual(trace['agent']['stop_reason'],'answer');self.assertNotIn('finalization_error',trace)
         self.assertEqual([e['node'] for e in trace['agent']['events']],['prepare','plan','tool','assess','plan','finalize'])
+    def test_sufficient_part_evidence_skips_second_planning_call(self):
+        model=FakeModel([('search_policies','заявка')])
+        chat=model.chat
+        def with_parts(system,messages,structured):
+            answer=chat(system,messages,structured)
+            if 'sufficient' in answer:
+                answer['parts']=[{'need':'куда подать заявку','proof_ids':answer['proof_ids'],'remaining':'covered'}]
+            return answer
+        model.chat=with_parts
+        result,trace=self.run_graph(model)
+        self.assertEqual(result['status'],'answer')
+        self.assertEqual(trace['agent']['actions'],1)
     def test_model_can_choose_additional_distinct_search(self):
         model=FakeModel([('search_policies','заявка'),('search_policies','подтверждение'),('answer','')],[False,True])
         result,trace=self.run_graph(model,lambda q,m:[self.source(self.a if q=='заявка' else self.b)])

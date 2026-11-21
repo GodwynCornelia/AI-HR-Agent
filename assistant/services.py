@@ -288,7 +288,12 @@ def ask(user, conversation_id, message, *, as_of=None):
             while history and not model.fits(REWRITE_PROMPT, rewrite_message()):
                 history.pop(0)
             diagnostic['history'] = history.copy()
-            rewrite = Rewrite.model_validate(model.chat(REWRITE_PROMPT, rewrite_message(),structured=Rewrite.model_json_schema())).model_dump()
+            schema=Rewrite.model_json_schema()
+            schema['required'].append('dialogue_state')
+            rewrite = Rewrite.model_validate(model.chat(
+                REWRITE_PROMPT+'\nЗаполни dialogue_state. Условия бери только из слов пользователя. Индекс 0 — current, 1 — последний вопрос истории, 2 — предпоследний. Укажи предмет, процедуру и действие. При смене процедуры не наследуй старые условия. Явно заменённые условия вынеси в superseded_conditions. Несовместимые условия без явной замены вынеси в unresolved_conditions. Разбей составной запрос на части.',
+                rewrite_message(),structured=schema)).model_dump()
+            dialogue_state=rewrite.pop('dialogue_state',None)
             diagnostic['rewrite_model_result'] = rewrite.copy()
             diagnostic['rewrite_initial_metadata']=getattr(model,'last_chat_metadata',{})
             diagnostic['rewrite_initial_request']=getattr(model,'last_request',{})
@@ -344,11 +349,12 @@ def ask(user, conversation_id, message, *, as_of=None):
             stages['rewrite_seconds'] = time.perf_counter() - before
             turn.rewritten = str(rewrite.get('query', ''))[:4000]
             diagnostic['rewrite'] = rewrite
+            diagnostic['dialogue_state']=dialogue_state
             diagnostic['rewrite_model_metadata'] = getattr(model, 'last_chat_metadata', {})
             diagnostic['rewrite_model_request'] = getattr(model, 'last_request', {})
             if conversation.mode=='agent':
                 from .agent_graph import run_agent
-                result,agent_diagnostic=run_agent(user,conversation,message,turn.rewritten,history,model,evaluation_date.isoformat(),clarification=rewrite.get('clarification','') if rewrite['status']=='clarify' else '',force_clarification=diagnostic.get('rewrite_validation',{}).get('reason') in {'unspecified_alternative','action_without_identified_topic'})
+                result,agent_diagnostic=run_agent(user,conversation,message,turn.rewritten,history,model,evaluation_date.isoformat(),dialogue_state=dialogue_state,clarification=rewrite.get('clarification','') if rewrite['status']=='clarify' else '',force_clarification=diagnostic.get('rewrite_validation',{}).get('reason') in {'unspecified_alternative','action_without_identified_topic'})
                 diagnostic.update(agent_diagnostic)
                 if not turn.rewritten and agent_diagnostic.get('resolved_query'):
                     turn.rewritten=agent_diagnostic['resolved_query'];diagnostic['rewrite_before_agent']=rewrite
