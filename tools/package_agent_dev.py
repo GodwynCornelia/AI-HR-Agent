@@ -38,7 +38,7 @@ for directory in args.runs:
   union= retrieval_metrics([by_id[i][1] for i in union_ids],refs,docs,len(union_ids),relevant)['span_recall_at_k']
   extra_gain=union-first if first is not None and union is not None else None
   partial=r.get('result',{}).get('partial',r['answer'].startswith('Подтверждённая часть'))
-  technical=agent.get('stop_reason') in {'timeout','model_unavailable','tool_error','assessment_unavailable','graph_execution_error','invalid_or_failed_decision'}
+  technical=agent.get('stop_reason') in {'timeout','model_unavailable','tool_error','assessment_unavailable','graph_execution_error','invalid_or_failed_decision','context_budget','source_deleted','source_unavailable','finalization_unavailable','preparation_unavailable','action_budget','search_budget','duplicate_tool_call'}
   row={'run':directory.name,'source_commit':manifest['source_commit'],'question_id':r['question_id'],'group_id':r['group_id'],'mode':r['mode'],
    'status':r['status'],'answer':r['answer'],'query':r.get('rewritten'),'seconds':r['seconds'],'partial':partial,
    'retrieved_metrics':r['retrieved_metrics'],'provided_metrics':r['provided_metrics'],'cited_metrics':r['cited_metrics'],
@@ -49,9 +49,12 @@ for directory in args.runs:
    'token_metadata_calls':len(usage.get('events',[])),'blocked_duplicate_calls':sum(e.get('blocked')=='duplicate' for e in events),
    'stop_reason':agent.get('stop_reason','linear_completion'),'fallback':r['diagnostics'].get('fallback'),
    'search_steps':steps,'additional_search_reference_gain':extra_gain,
-   'necessary_success_proxy':bool(r['action_label_proxy'] and not partial and not technical and (r['cited_metrics']['all_required_evidence_covered'] is not False)),
+   'strict_span_action_proxy':bool(r['action_label_proxy'] and not partial and not technical and (r['cited_metrics']['all_required_evidence_covered'] is not False)),
    'sources':[{'title':s['title'],'location':s['location'],'quote':s['quote']} for s in r.get('result',{}).get('sources',[])]}
   compact.append(row)
+  if r['mode']=='agent' and row['searches']>1:
+   row['retrieved_metrics']={**row['retrieved_metrics'],'ndcg_at_k':None,'rank_note':'Multi-query union is not a single ranked retrieval list.'}
+  for key in ['provided_metrics','cited_metrics']:row[key]={**row[key],'ndcg_at_k':None,'rank_note':'Context/citation coverage, not retriever ranking.'}
   if directory.name==args.final:
    final_rows.append(row)
    if trace_example is None and r['mode']=='agent' and r['status']=='answer':
@@ -68,8 +71,8 @@ for directory in args.runs:
   run_summary['modes'][mode]={'n':len(part),'p50':percentile([r['seconds'] for r in part],.5),'p95':percentile([r['seconds'] for r in part],.95),
     'provided_coverage':coverage('provided_metrics'),'cited_coverage':coverage('cited_metrics'),'mean_searches':mean('searches'),'mean_llm_calls':mean('llm_calls'),
     'known_prompt_tokens':sum(r['known_prompt_tokens'] for r in part),'known_output_tokens':sum(r['known_output_tokens'] for r in part),
-    'action_label_matches':sum(r['action_label_proxy'] for r in part),'necessary_success_proxy':sum(r['necessary_success_proxy'] for r in part),
-    'whole_group_proxy_success':sum(all(r['necessary_success_proxy'] for r in rows) for rows in groups.values()),'author_groups':len(groups),
+    'action_label_matches':sum(r['action_label_proxy'] for r in part),'strict_span_action_proxy':sum(r['strict_span_action_proxy'] for r in part),
+    'whole_group_strict_proxy':sum(all(r['strict_span_action_proxy'] for r in rows) for rows in groups.values()),'author_groups':len(groups),
     'extra_search_requests':sum(r['searches']>1 for r in part),'positive_reference_gain_requests':sum((r['additional_search_reference_gain'] or 0)>0 for r in part),
     'blocked_duplicates':sum(r['blocked_duplicate_calls'] for r in part),'partial_answers':sum(r['partial'] for r in part)}
  summaries.append(run_summary)
@@ -77,6 +80,18 @@ for directory in args.runs:
  published.extend(compact)
 (output/'summary.json').write_text(json.dumps({'purpose':'targeted_dev_diagnostics_not_final_test','final_run':args.final,'runs':summaries,
  'limits':['Different source versions are separate runs','Proxies are not semantic correctness','Additional queries are useful only when reference coverage increases','Tokens cover returned metadata, not unknown failed requests']},ensure_ascii=False,indent=2),encoding='utf-8')
+granularity=[]
+for identifier in ['v4.dialogue.cowork_to_hotel.2','v4.dialogue.cowork_to_hotel.3']:
+ q=questions[identifier]
+ granularity.append({'id':identifier,'required_facts':q['required_facts'],'reference_span_count':sum(len(e.get('spans',[])) for e in q['evidence']),
+   'note':'Spans include surrounding paragraph conditions beyond the short required-fact statement. Literal span coverage is not semantic fact completeness; references unchanged.'})
+(output/'reference_granularity_note.json').write_text(json.dumps({'method_limit':'Strict source-span mapping, not a factual correction of references and not necessary for every correct paraphrase. No labels changed to improve metrics.','examples':granularity},ensure_ascii=False,indent=2),encoding='utf-8')
 (output/'trace_example.json').write_text(json.dumps(trace_example,ensure_ascii=False,indent=2),encoding='utf-8')
 (output/'chunk_catalog.json').write_text(json.dumps(catalog,ensure_ascii=False,indent=2),encoding='utf-8')
+interrupted=[]
+for directory in (ROOT/'runtime/agent-dev').iterdir():
+ if (directory/'manifest.json').exists() and (directory/'answers.jsonl').exists() and not (directory/'completion.json').exists():
+  m=json.loads((directory/'manifest.json').read_text(encoding='utf-8'))
+  interrupted.append({'run':directory.name,'source_commit':m.get('source_commit'),'written_records':len((directory/'answers.jsonl').read_text(encoding='utf-8').splitlines()),'expected_records':2*len(m['ids']),'complete':False,'included_in_aggregate_tables':False,'raw_kept_locally':True})
+(output/'interrupted_runs.json').write_text(json.dumps(interrupted,ensure_ascii=False,indent=2),encoding='utf-8')
 print(json.dumps({'runs':len(summaries),'final_records':len(final_rows),'catalog_chunks':len(catalog),'trace_example':trace_example is not None}))

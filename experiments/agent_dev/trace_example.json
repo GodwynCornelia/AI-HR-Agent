@@ -1,0 +1,55 @@
+{
+  "scope": "synthetic_dev_example_not_working_user_dialogue",
+  "question": "А гостиница в согласованной командировке?",
+  "answer": "В согласованной командировке гостиница компенсируется по лимиту 6000 рублей за ночь на сотрудника. Превышение лимита проживания требует письменного согласия владельца бюджета. Стандартное такси компенсируется по фактической согласованной поездке.",
+  "graph_version": "hr-agent-graph-v1",
+  "source_commit": "e3fca656251563b759ca5883e977f71bf32109dd",
+  "configuration": {
+    "MODEL_CONTEXT": "4096",
+    "MODEL_OUTPUT": "700",
+    "TOP_K": "8",
+    "CONTEXT_CHARS": "12000",
+    "MODEL_GPU_LAYERS": "99",
+    "EMBED_GPU_LAYERS": "0",
+    "temperature": 0,
+    "seed": 116,
+    "embedding_model": "embeddinggemma"
+  },
+  "events": [
+    {
+      "node": "prepare",
+      "seconds": 1.7999991541728377e-06
+    },
+    {
+      "node": "plan",
+      "seconds": 6.206055900001957,
+      "action": "search_policies"
+    },
+    {
+      "node": "tool",
+      "seconds": 1.531089800002519,
+      "tool": "search_policies",
+      "arguments": {
+        "query": "Компенсируют мне гостиницу в согласованной командировке?"
+      },
+      "new_evidence": 8
+    },
+    {
+      "node": "assess",
+      "seconds": 18.177298199996585
+    },
+    {
+      "node": "plan",
+      "seconds": 14.51971059999778,
+      "action": "answer"
+    },
+    {
+      "node": "finalize",
+      "seconds": 11.83997680000175,
+      "stop_reason": "answer"
+    }
+  ],
+  "searches": 1,
+  "llm_calls": 8,
+  "stop_reason": "answer"
+}

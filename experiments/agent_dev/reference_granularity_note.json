@@ -1,0 +1,21 @@
+{
+  "method_limit": "Strict source-span mapping, not a factual correction of references and not necessary for every correct paraphrase. No labels changed to improve metrics.",
+  "examples": [
+    {
+      "id": "v4.dialogue.cowork_to_hotel.2",
+      "required_facts": [
+        "Нормы 3000/запрет несовместимы для тех же условий; показать обе, нет основания выбора, обратиться к HR."
+      ],
+      "reference_span_count": 13,
+      "note": "Spans include surrounding paragraph conditions beyond the short required-fact statement. Literal span coverage is not semantic fact completeness; references unchanged."
+    },
+    {
+      "id": "v4.dialogue.cowork_to_hotel.3",
+      "required_facts": [
+        "Другой предмет: 6000 за ночь, превышение заранее у владельца бюджета."
+      ],
+      "reference_span_count": 6,
+      "note": "Spans include surrounding paragraph conditions beyond the short required-fact statement. Literal span coverage is not semantic fact completeness; references unchanged."
+    }
+  ]
+}

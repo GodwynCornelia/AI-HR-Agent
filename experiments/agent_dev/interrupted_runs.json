@@ -1,0 +1,11 @@
+[
+  {
+    "run": "80ff165e-a736-437d-9155-90f38f3ccbf4",
+    "source_commit": "990029d875b22e2c2596a8985bc0442cdcfbee3c",
+    "written_records": 4,
+    "expected_records": 8,
+    "complete": false,
+    "included_in_aggregate_tables": false,
+    "raw_kept_locally": true
+  }
+]

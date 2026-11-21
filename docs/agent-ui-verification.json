@@ -1,0 +1,14 @@
+{
+  "mode_creation": [
+    "rag",
+    "agent"
+  ],
+  "persisted_mode_headers": "passed",
+  "ordinary_user_login": "passed",
+  "observed_events_and_sources": "visible_after_completion",
+  "mobile_horizontal_overflow": false,
+  "screenshot": "current_UI_rendering_real_saved_single_turn_dev_agent_response",
+  "new_inference_for_screenshot": false,
+  "no_extra_docker_containers_started": true,
+  "temporary_host_server_stopped_after_check": true
+}

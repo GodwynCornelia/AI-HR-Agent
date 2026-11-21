@@ -1,0 +1,428 @@
+{
+  "purpose": "targeted_dev_diagnostics_not_final_test",
+  "final_run": "2dccfcc2-5665-4863-8f0f-51d9e76b6ae3",
+  "runs": [
+    {
+      "run": "8e1a615a-2072-4d52-9b96-db9d3f1f7689",
+      "configuration": {
+        "purpose": "development_diagnostics_not_independent_final_test",
+        "source_commit": "27a4ed63eeb487678248378b068b8fcf66f1c1e0",
+        "langgraph": "1.2.24",
+        "ids": [
+          "v4.onboarding_plan.mentor",
+          "cross.learning_trip",
+          "v4.absent.library_after",
+          "v4.replaced.learning",
+          "v4.conflict.cowork",
+          "v4.dialogue.equipment_scope.1",
+          "v4.dialogue.equipment_scope.2",
+          "v4.dialogue.equipment_scope.3",
+          "v4.dialogue.equipment_scope.4",
+          "v4.dialogue.cowork_to_hotel.1",
+          "v4.dialogue.cowork_to_hotel.2",
+          "v4.dialogue.cowork_to_hotel.3",
+          "v4.dialogue.cowork_to_hotel.4"
+        ],
+        "same_retriever": true,
+        "new_final_test": false,
+        "model": "qwen3:4b",
+        "embedding": "embeddinggemma",
+        "model_context": "4096",
+        "model_output": "700",
+        "top_k": "8",
+        "corpus_manifest_sha256": "59e17e22372a20ef5712ee4c925389694e11bb90ba6f00da97f0fe3adf8f4ebe",
+        "protocol_sha256": "eb9efb829d1048677102adf567c1b0f88ed9c89ef17d0c9d2eb8e984805d9d69"
+      },
+      "records": 26,
+      "modes": {
+        "rag": {
+          "n": 13,
+          "p50": 27.632164900001953,
+          "p95": 40.18109903999939,
+          "provided_coverage": {
+            "n": 10,
+            "mean": 0.55
+          },
+          "cited_coverage": {
+            "n": 10,
+            "mean": 0.24705128205128207
+          },
+          "mean_searches": 0.8461538461538461,
+          "mean_llm_calls": 3.076923076923077,
+          "known_prompt_tokens": 51633,
+          "known_output_tokens": 2530,
+          "action_label_matches": 9,
+          "strict_span_action_proxy": 4,
+          "whole_group_strict_proxy": 2,
+          "author_groups": 5,
+          "extra_search_requests": 0,
+          "positive_reference_gain_requests": 0,
+          "blocked_duplicates": 0,
+          "partial_answers": 0
+        },
+        "agent": {
+          "n": 13,
+          "p50": 42.57367990000057,
+          "p95": 76.10797000000092,
+          "provided_coverage": {
+            "n": 10,
+            "mean": 0.4966666666666667
+          },
+          "cited_coverage": {
+            "n": 10,
+            "mean": 0.2603846153846154
+          },
+          "mean_searches": 0.8461538461538461,
+          "mean_llm_calls": 4.538461538461538,
+          "known_prompt_tokens": 72910,
+          "known_output_tokens": 3865,
+          "action_label_matches": 9,
+          "strict_span_action_proxy": 3,
+          "whole_group_strict_proxy": 1,
+          "author_groups": 5,
+          "extra_search_requests": 0,
+          "positive_reference_gain_requests": 0,
+          "blocked_duplicates": 1,
+          "partial_answers": 0
+        }
+      }
+    },
+    {
+      "run": "95e51640-ecfb-4c5d-b9bd-61f375dfa8c3",
+      "configuration": {
+        "purpose": "development_diagnostics_not_independent_final_test",
+        "source_commit": "fb1b4c47e22753683e7a0be3db64673a175d5702",
+        "langgraph": "1.2.24",
+        "ids": [
+          "v4.dialogue.cowork_to_hotel.1",
+          "v4.dialogue.cowork_to_hotel.2",
+          "v4.dialogue.cowork_to_hotel.3",
+          "v4.dialogue.cowork_to_hotel.4"
+        ],
+        "same_retriever": true,
+        "new_final_test": false,
+        "model": "qwen3:4b",
+        "embedding": "embeddinggemma",
+        "model_context": "4096",
+        "model_output": "700",
+        "top_k": "8",
+        "corpus_manifest_sha256": "59e17e22372a20ef5712ee4c925389694e11bb90ba6f00da97f0fe3adf8f4ebe",
+        "protocol_sha256": "eb9efb829d1048677102adf567c1b0f88ed9c89ef17d0c9d2eb8e984805d9d69"
+      },
+      "records": 8,
+      "modes": {
+        "rag": {
+          "n": 4,
+          "p50": 21.952552199996717,
+          "p95": 50.92522158999927,
+          "provided_coverage": {
+            "n": 3,
+            "mean": 0.3333333333333333
+          },
+          "cited_coverage": {
+            "n": 3,
+            "mean": 0.05128205128205129
+          },
+          "mean_searches": 0.5,
+          "mean_llm_calls": 2.5,
+          "known_prompt_tokens": 11092,
+          "known_output_tokens": 725,
+          "action_label_matches": 2,
+          "strict_span_action_proxy": 1,
+          "whole_group_strict_proxy": 0,
+          "author_groups": 1,
+          "extra_search_requests": 0,
+          "positive_reference_gain_requests": 0,
+          "blocked_duplicates": 0,
+          "partial_answers": 0
+        },
+        "agent": {
+          "n": 4,
+          "p50": 19.410147300000972,
+          "p95": 44.64368267500285,
+          "provided_coverage": {
+            "n": 3,
+            "mean": 0.3333333333333333
+          },
+          "cited_coverage": {
+            "n": 3,
+            "mean": 0.05128205128205129
+          },
+          "mean_searches": 0.5,
+          "mean_llm_calls": 3.0,
+          "known_prompt_tokens": 12211,
+          "known_output_tokens": 869,
+          "action_label_matches": 2,
+          "strict_span_action_proxy": 1,
+          "whole_group_strict_proxy": 0,
+          "author_groups": 1,
+          "extra_search_requests": 0,
+          "positive_reference_gain_requests": 0,
+          "blocked_duplicates": 0,
+          "partial_answers": 0
+        }
+      }
+    },
+    {
+      "run": "d99531ec-c340-48e1-aec2-c080e4ec3219",
+      "configuration": {
+        "purpose": "development_diagnostics_not_independent_final_test",
+        "source_commit": "761a2585b9d7bb5a70af98aed35f38d6554046fe",
+        "langgraph": "1.2.24",
+        "ids": [
+          "v4.dialogue.cowork_to_hotel.1",
+          "v4.dialogue.cowork_to_hotel.2",
+          "v4.dialogue.cowork_to_hotel.3",
+          "v4.dialogue.cowork_to_hotel.4"
+        ],
+        "same_retriever": true,
+        "new_final_test": false,
+        "model": "qwen3:4b",
+        "embedding": "embeddinggemma",
+        "model_context": "4096",
+        "model_output": "700",
+        "top_k": "8",
+        "corpus_manifest_sha256": "59e17e22372a20ef5712ee4c925389694e11bb90ba6f00da97f0fe3adf8f4ebe",
+        "protocol_sha256": "eb9efb829d1048677102adf567c1b0f88ed9c89ef17d0c9d2eb8e984805d9d69"
+      },
+      "records": 8,
+      "modes": {
+        "rag": {
+          "n": 4,
+          "p50": 12.779070499997033,
+          "p95": 26.62593913499731,
+          "provided_coverage": {
+            "n": 3,
+            "mean": 0.3333333333333333
+          },
+          "cited_coverage": {
+            "n": 3,
+            "mean": 0.05128205128205129
+          },
+          "mean_searches": 0.5,
+          "mean_llm_calls": 2.5,
+          "known_prompt_tokens": 11178,
+          "known_output_tokens": 722,
+          "action_label_matches": 2,
+          "strict_span_action_proxy": 1,
+          "whole_group_strict_proxy": 0,
+          "author_groups": 1,
+          "extra_search_requests": 0,
+          "positive_reference_gain_requests": 0,
+          "blocked_duplicates": 0,
+          "partial_answers": 0
+        },
+        "agent": {
+          "n": 4,
+          "p50": 32.015979399999196,
+          "p95": 72.41668968500414,
+          "provided_coverage": {
+            "n": 3,
+            "mean": 0.6666666666666666
+          },
+          "cited_coverage": {
+            "n": 3,
+            "mean": 0.05128205128205129
+          },
+          "mean_searches": 1.0,
+          "mean_llm_calls": 5.0,
+          "known_prompt_tokens": 27831,
+          "known_output_tokens": 1680,
+          "action_label_matches": 2,
+          "strict_span_action_proxy": 1,
+          "whole_group_strict_proxy": 0,
+          "author_groups": 1,
+          "extra_search_requests": 0,
+          "positive_reference_gain_requests": 0,
+          "blocked_duplicates": 1,
+          "partial_answers": 0
+        }
+      }
+    },
+    {
+      "run": "5345d5b6-effb-4e40-9c6e-7924227d6987",
+      "configuration": {
+        "purpose": "development_diagnostics_not_independent_final_test",
+        "source_commit": "84190e1a2cea2580a5b62ed7c60f87ed272dc5d6",
+        "langgraph": "1.2.24",
+        "ids": [
+          "v4.onboarding_plan.mentor",
+          "cross.learning_trip",
+          "v4.absent.library_after",
+          "v4.replaced.learning",
+          "v4.conflict.cowork",
+          "v4.dialogue.equipment_scope.1",
+          "v4.dialogue.equipment_scope.2",
+          "v4.dialogue.equipment_scope.3",
+          "v4.dialogue.equipment_scope.4",
+          "v4.dialogue.cowork_to_hotel.1",
+          "v4.dialogue.cowork_to_hotel.2",
+          "v4.dialogue.cowork_to_hotel.3",
+          "v4.dialogue.cowork_to_hotel.4"
+        ],
+        "same_retriever": true,
+        "new_final_test": false,
+        "model": "qwen3:4b",
+        "embedding": "embeddinggemma",
+        "model_context": "4096",
+        "model_output": "700",
+        "top_k": "8",
+        "corpus_manifest_sha256": "59e17e22372a20ef5712ee4c925389694e11bb90ba6f00da97f0fe3adf8f4ebe",
+        "protocol_sha256": "5aaa0b16fdc1f95cddc5ee9234d844821fe23a2f28ec8282900f5549348aa9c6",
+        "ollama_version": {
+          "version": "0.40.16"
+        },
+        "model_digests": {
+          "qwen3:4b": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+          "embeddinggemma:latest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1"
+        },
+        "requirements_lock_sha256": "90b620966d41a2262ea5a9a8305ffc7a9ecf8ce7134a6e02b58a0dcd3e1e2307",
+        "initial_query_shared_with_rag": true
+      },
+      "records": 26,
+      "modes": {
+        "rag": {
+          "n": 13,
+          "p50": 27.54466880000109,
+          "p95": 45.08847572000086,
+          "provided_coverage": {
+            "n": 10,
+            "mean": 0.55
+          },
+          "cited_coverage": {
+            "n": 10,
+            "mean": 0.24705128205128207
+          },
+          "mean_searches": 0.8461538461538461,
+          "mean_llm_calls": 3.3846153846153846,
+          "known_prompt_tokens": 54323,
+          "known_output_tokens": 3269,
+          "action_label_matches": 11,
+          "strict_span_action_proxy": 5,
+          "whole_group_strict_proxy": 2,
+          "author_groups": 5,
+          "extra_search_requests": 0,
+          "positive_reference_gain_requests": 0,
+          "blocked_duplicates": 0,
+          "partial_answers": 0
+        },
+        "agent": {
+          "n": 13,
+          "p50": 49.922764799994184,
+          "p95": 81.58149693999874,
+          "provided_coverage": {
+            "n": 10,
+            "mean": 0.55
+          },
+          "cited_coverage": {
+            "n": 10,
+            "mean": 0.24705128205128207
+          },
+          "mean_searches": 1.0,
+          "mean_llm_calls": 5.153846153846154,
+          "known_prompt_tokens": 83724,
+          "known_output_tokens": 5422,
+          "action_label_matches": 11,
+          "strict_span_action_proxy": 5,
+          "whole_group_strict_proxy": 2,
+          "author_groups": 5,
+          "extra_search_requests": 1,
+          "positive_reference_gain_requests": 0,
+          "blocked_duplicates": 2,
+          "partial_answers": 0
+        }
+      }
+    },
+    {
+      "run": "2dccfcc2-5665-4863-8f0f-51d9e76b6ae3",
+      "configuration": {
+        "purpose": "development_diagnostics_not_independent_final_test",
+        "source_commit": "e3fca656251563b759ca5883e977f71bf32109dd",
+        "langgraph": "1.2.24",
+        "ids": [
+          "v4.dialogue.cowork_to_hotel.1",
+          "v4.dialogue.cowork_to_hotel.2",
+          "v4.dialogue.cowork_to_hotel.3",
+          "v4.dialogue.cowork_to_hotel.4"
+        ],
+        "same_retriever": true,
+        "new_final_test": false,
+        "model": "qwen3:4b",
+        "embedding": "embeddinggemma",
+        "model_context": "4096",
+        "model_output": "700",
+        "top_k": "8",
+        "corpus_manifest_sha256": "59e17e22372a20ef5712ee4c925389694e11bb90ba6f00da97f0fe3adf8f4ebe",
+        "protocol_sha256": "5aaa0b16fdc1f95cddc5ee9234d844821fe23a2f28ec8282900f5549348aa9c6",
+        "ollama_version": {
+          "version": "0.40.16"
+        },
+        "model_digests": {
+          "qwen3:4b": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+          "embeddinggemma:latest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1"
+        },
+        "requirements_lock_sha256": "90b620966d41a2262ea5a9a8305ffc7a9ecf8ce7134a6e02b58a0dcd3e1e2307",
+        "initial_query_shared_with_rag": true
+      },
+      "records": 8,
+      "modes": {
+        "rag": {
+          "n": 4,
+          "p50": 23.543004800001654,
+          "p95": 38.45348050499706,
+          "provided_coverage": {
+            "n": 3,
+            "mean": 0.3333333333333333
+          },
+          "cited_coverage": {
+            "n": 3,
+            "mean": 0.05128205128205129
+          },
+          "mean_searches": 0.75,
+          "mean_llm_calls": 3.5,
+          "known_prompt_tokens": 17006,
+          "known_output_tokens": 1220,
+          "action_label_matches": 3,
+          "strict_span_action_proxy": 1,
+          "whole_group_strict_proxy": 0,
+          "author_groups": 1,
+          "extra_search_requests": 0,
+          "positive_reference_gain_requests": 0,
+          "blocked_duplicates": 0,
+          "partial_answers": 0
+        },
+        "agent": {
+          "n": 4,
+          "p50": 34.39566199999899,
+          "p95": 55.74626543500453,
+          "provided_coverage": {
+            "n": 3,
+            "mean": 0.3333333333333333
+          },
+          "cited_coverage": {
+            "n": 3,
+            "mean": 0.05128205128205129
+          },
+          "mean_searches": 0.75,
+          "mean_llm_calls": 4.75,
+          "known_prompt_tokens": 21756,
+          "known_output_tokens": 1628,
+          "action_label_matches": 3,
+          "strict_span_action_proxy": 1,
+          "whole_group_strict_proxy": 0,
+          "author_groups": 1,
+          "extra_search_requests": 0,
+          "positive_reference_gain_requests": 0,
+          "blocked_duplicates": 0,
+          "partial_answers": 0
+        }
+      }
+    }
+  ],
+  "limits": [
+    "Different source versions are separate runs",
+    "Proxies are not semantic correctness",
+    "Additional queries are useful only when reference coverage increases",
+    "Tokens cover returned metadata, not unknown failed requests"
+  ]
+}

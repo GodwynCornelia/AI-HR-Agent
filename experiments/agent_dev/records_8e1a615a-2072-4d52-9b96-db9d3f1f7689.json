@@ -1,0 +1,2120 @@
+[
+  {
+    "run": "8e1a615a-2072-4d52-9b96-db9d3f1f7689",
+    "source_commit": "27a4ed63eeb487678248378b068b8fcf66f1c1e0",
+    "question_id": "v4.onboarding_plan.mentor",
+    "group_id": "onboarding_plan.mentor",
+    "mode": "rag",
+    "status": "answer",
+    "answer": "«Начало работы и план адаптации», Абзац 3: «Наставника назначает руководитель команды до первого рабочего дня; имя указано в плане адаптации.»",
+    "query": "Кто назначает наставника и где проверить его имя?",
+    "seconds": 24.365214199999173,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": 1.0,
+      "ndcg_at_k": 0.5,
+      "evidence_found": [
+        0
+      ],
+      "evidence_count": 1,
+      "all_required_evidence_covered": true,
+      "span_recall_at_k": 1.0
+    },
+    "provided_metrics": {
+      "recall_at_k": 1.0,
+      "ndcg_at_k": null,
+      "evidence_found": [
+        0
+      ],
+      "evidence_count": 1,
+      "all_required_evidence_covered": true,
+      "span_recall_at_k": 1.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": 1.0,
+      "ndcg_at_k": null,
+      "evidence_found": [
+        0
+      ],
+      "evidence_count": 1,
+      "all_required_evidence_covered": true,
+      "span_recall_at_k": 1.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": true,
+    "is_semantic_accuracy": false,
+    "searches": 1,
+    "actions": null,
+    "llm_calls": 4,
+    "known_prompt_tokens": 4665,
+    "known_output_tokens": 199,
+    "token_metadata_calls": 4,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "linear_completion",
+    "fallback": "unsupported_paraphrase",
+    "search_steps": [
+      {
+        "query": "Кто назначает наставника и где проверить его имя?",
+        "chunks": [
+          "3ef9cbffb1cd21760893",
+          "09b10f440e87bf577c4f",
+          "daa4e3c6c401beb18ea0",
+          "4da64dc15b9743636af8",
+          "aadbaa79baa8cff39424",
+          "9a3f234d7d584c9385af",
+          "c6d0c3aa7ac5644e680c",
+          "ce4590a134e8eeece7ed"
+        ],
+        "coverage": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.5,
+          "evidence_found": [
+            0
+          ],
+          "evidence_count": 1,
+          "all_required_evidence_covered": true,
+          "span_recall_at_k": 1.0
+        }
+      }
+    ],
+    "additional_search_reference_gain": 0.0,
+    "strict_span_action_proxy": true,
+    "sources": [
+      {
+        "title": "Начало работы и план адаптации",
+        "location": "Абзац 3",
+        "quote": "Наставника назначает руководитель команды до первого рабочего дня; имя указано в плане адаптации."
+      }
+    ]
+  },
+  {
+    "run": "8e1a615a-2072-4d52-9b96-db9d3f1f7689",
+    "source_commit": "27a4ed63eeb487678248378b068b8fcf66f1c1e0",
+    "question_id": "v4.onboarding_plan.mentor",
+    "group_id": "onboarding_plan.mentor",
+    "mode": "agent",
+    "status": "answer",
+    "answer": "«Начало работы и план адаптации», Абзац 3: «Наставника назначает руководитель команды до первого рабочего дня; имя указано в плане адаптации.»",
+    "query": "Кто назначает наставника и где проверить его имя?",
+    "seconds": 40.68188419999933,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": 1.0,
+      "ndcg_at_k": 0.5,
+      "evidence_found": [
+        0
+      ],
+      "evidence_count": 1,
+      "all_required_evidence_covered": true,
+      "span_recall_at_k": 1.0
+    },
+    "provided_metrics": {
+      "recall_at_k": 1.0,
+      "ndcg_at_k": null,
+      "evidence_found": [
+        0
+      ],
+      "evidence_count": 1,
+      "all_required_evidence_covered": true,
+      "span_recall_at_k": 1.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": 1.0,
+      "ndcg_at_k": null,
+      "evidence_found": [
+        0
+      ],
+      "evidence_count": 1,
+      "all_required_evidence_covered": true,
+      "span_recall_at_k": 1.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": true,
+    "is_semantic_accuracy": false,
+    "searches": 1,
+    "actions": 2,
+    "llm_calls": 6,
+    "known_prompt_tokens": 6802,
+    "known_output_tokens": 327,
+    "token_metadata_calls": 6,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "answer",
+    "fallback": "unsupported_paraphrase",
+    "search_steps": [
+      {
+        "query": "Кто назначает наставника в компании и где проверить его имя в системе?",
+        "chunks": [
+          "3ef9cbffb1cd21760893",
+          "09b10f440e87bf577c4f",
+          "daa4e3c6c401beb18ea0",
+          "4da64dc15b9743636af8",
+          "197458f4cd7f1e292542",
+          "f6455ab6028f6f4e7076",
+          "c6d0c3aa7ac5644e680c",
+          "c68536a7140345225c3a"
+        ],
+        "coverage": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.5,
+          "evidence_found": [
+            0
+          ],
+          "evidence_count": 1,
+          "all_required_evidence_covered": true,
+          "span_recall_at_k": 1.0
+        }
+      }
+    ],
+    "additional_search_reference_gain": 0.0,
+    "strict_span_action_proxy": true,
+    "sources": [
+      {
+        "title": "Начало работы и план адаптации",
+        "location": "Абзац 3",
+        "quote": "Наставника назначает руководитель команды до первого рабочего дня; имя указано в плане адаптации."
+      }
+    ]
+  },
+  {
+    "run": "8e1a615a-2072-4d52-9b96-db9d3f1f7689",
+    "source_commit": "27a4ed63eeb487678248378b068b8fcf66f1c1e0",
+    "question_id": "cross.learning_trip",
+    "group_id": "absent.learning_share",
+    "mode": "agent",
+    "status": "answer",
+    "answer": "Билеты и проживание оформляются отдельно через Поездки",
+    "query": "Курс одобрен HR. Что ещё нужно для билетов и гостиницы на очное обучение?",
+    "seconds": 54.60631910000302,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": 0.5,
+      "ndcg_at_k": 0.6131471927654584,
+      "evidence_found": [
+        0
+      ],
+      "evidence_count": 2,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.5
+    },
+    "provided_metrics": {
+      "recall_at_k": 0.5,
+      "ndcg_at_k": null,
+      "evidence_found": [
+        0
+      ],
+      "evidence_count": 2,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.5,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 2,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": true,
+    "is_semantic_accuracy": false,
+    "searches": 1,
+    "actions": 2,
+    "llm_calls": 6,
+    "known_prompt_tokens": 6709,
+    "known_output_tokens": 345,
+    "token_metadata_calls": 6,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "answer",
+    "fallback": null,
+    "search_steps": [
+      {
+        "query": "Что ещё нужно для билетов и гостиницы на очное обучение, если курс одобрен HR?",
+        "chunks": [
+          "b90ef08b0a0d4f1abdf5",
+          "e597f764f7cbbb3bff22",
+          "daa11984bec681a3dd3a",
+          "2602fd240d275a164059",
+          "c06f1741f112b753acc7",
+          "867b348097b898a6f335",
+          "33e6283d3d7ba5217542",
+          "034ed00795f2ecad805a"
+        ],
+        "coverage": {
+          "recall_at_k": 0.5,
+          "ndcg_at_k": 0.6131471927654584,
+          "evidence_found": [
+            0
+          ],
+          "evidence_count": 2,
+          "all_required_evidence_covered": false,
+          "span_recall_at_k": 0.5
+        }
+      }
+    ],
+    "additional_search_reference_gain": 0.0,
+    "strict_span_action_proxy": false,
+    "sources": [
+      {
+        "title": "Конференции, внутренние семинары и учебные мероприятия",
+        "location": "Абзац 2",
+        "quote": "Если взнос относится к обучению, HR проверяет применимость соответствующего бюджета; билеты и проживание оформляются отдельно через Поездки."
+      }
+    ]
+  },
+  {
+    "run": "8e1a615a-2072-4d52-9b96-db9d3f1f7689",
+    "source_commit": "27a4ed63eeb487678248378b068b8fcf66f1c1e0",
+    "question_id": "cross.learning_trip",
+    "group_id": "absent.learning_share",
+    "mode": "rag",
+    "status": "answer",
+    "answer": "Билеты и проживание оформляются отдельно через Поездки Для конференционного взноса без учебной программы используется регламент мероприятий",
+    "query": "Курс одобрен HR. Что ещё нужно для билетов и гостиницы на очное обучение?",
+    "seconds": 34.060135000003356,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": 0.5,
+      "ndcg_at_k": 0.6131471927654584,
+      "evidence_found": [
+        0
+      ],
+      "evidence_count": 2,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.5
+    },
+    "provided_metrics": {
+      "recall_at_k": 0.5,
+      "ndcg_at_k": null,
+      "evidence_found": [
+        0
+      ],
+      "evidence_count": 2,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.5,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 2,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": true,
+    "is_semantic_accuracy": false,
+    "searches": 1,
+    "actions": null,
+    "llm_calls": 4,
+    "known_prompt_tokens": 4788,
+    "known_output_tokens": 292,
+    "token_metadata_calls": 4,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "linear_completion",
+    "fallback": null,
+    "search_steps": [
+      {
+        "query": "Курс одобрен HR. Что ещё нужно для билетов и гостиницы на очное обучение?",
+        "chunks": [
+          "b90ef08b0a0d4f1abdf5",
+          "e597f764f7cbbb3bff22",
+          "daa11984bec681a3dd3a",
+          "c06f1741f112b753acc7",
+          "33e6283d3d7ba5217542",
+          "867b348097b898a6f335",
+          "2602fd240d275a164059",
+          "35d83054f6344a2308aa"
+        ],
+        "coverage": {
+          "recall_at_k": 0.5,
+          "ndcg_at_k": 0.6131471927654584,
+          "evidence_found": [
+            0
+          ],
+          "evidence_count": 2,
+          "all_required_evidence_covered": false,
+          "span_recall_at_k": 0.5
+        }
+      }
+    ],
+    "additional_search_reference_gain": 0.0,
+    "strict_span_action_proxy": false,
+    "sources": [
+      {
+        "title": "Конференции, внутренние семинары и учебные мероприятия",
+        "location": "Абзац 2",
+        "quote": "Если взнос относится к обучению, HR проверяет применимость соответствующего бюджета; билеты и проживание оформляются отдельно через Поездки."
+      },
+      {
+        "title": "Профессиональное обучение и бюджет курса",
+        "location": "Абзац 12",
+        "quote": "Для конференционного взноса без учебной программы используется регламент мероприятий, а для билетов и гостиницы — правила командировок."
+      }
+    ]
+  },
+  {
+    "run": "8e1a615a-2072-4d52-9b96-db9d3f1f7689",
+    "source_commit": "27a4ed63eeb487678248378b068b8fcf66f1c1e0",
+    "question_id": "v4.absent.library_after",
+    "group_id": "absent.library_after",
+    "mode": "rag",
+    "status": "refuse",
+    "answer": "В найденных фрагментах недостаточно сведений для ответа. Уточните правило у HR.",
+    "query": "Какой единый срок компания установила для перечисления возврата за отменённую учебную подписку?",
+    "seconds": 27.632164900001953,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": null,
+      "ndcg_at_k": null,
+      "all_required_evidence_covered": null,
+      "span_recall_at_k": null
+    },
+    "provided_metrics": {
+      "recall_at_k": null,
+      "ndcg_at_k": null,
+      "all_required_evidence_covered": null,
+      "span_recall_at_k": null,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": null,
+      "ndcg_at_k": null,
+      "all_required_evidence_covered": null,
+      "span_recall_at_k": null,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": true,
+    "is_semantic_accuracy": false,
+    "searches": 1,
+    "actions": null,
+    "llm_calls": 2,
+    "known_prompt_tokens": 3611,
+    "known_output_tokens": 81,
+    "token_metadata_calls": 2,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "linear_completion",
+    "fallback": "insufficient_evidence_or_budget",
+    "search_steps": [
+      {
+        "query": "Какой единый срок компания установила для перечисления возврата за отменённую учебную подписку?",
+        "chunks": [
+          "9fd30a9e608bb07a4cbe",
+          "c06f1741f112b753acc7",
+          "966cedcbac5268ac1649",
+          "730f52a8579af7bae8fe",
+          "7189ca7a72a1bd4734a4",
+          "6c9b3710c242bf94996e",
+          "3a137e982718049547bc",
+          "6a4b6b48c758f731d338"
+        ],
+        "coverage": {
+          "recall_at_k": null,
+          "ndcg_at_k": null,
+          "all_required_evidence_covered": null,
+          "span_recall_at_k": null
+        }
+      }
+    ],
+    "additional_search_reference_gain": null,
+    "strict_span_action_proxy": true,
+    "sources": []
+  },
+  {
+    "run": "8e1a615a-2072-4d52-9b96-db9d3f1f7689",
+    "source_commit": "27a4ed63eeb487678248378b068b8fcf66f1c1e0",
+    "question_id": "v4.absent.library_after",
+    "group_id": "absent.library_after",
+    "mode": "agent",
+    "status": "refuse",
+    "answer": "Не удалось завершить проверку источников в пределах доступного бюджета или из-за технической ошибки. Это не означает отсутствия правила в базе. Повторите вопрос или обратитесь к HR.",
+    "query": "Какой единый срок компания установила для перечисления возврата за отменённую учебную подписку?",
+    "seconds": 42.57367990000057,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": null,
+      "ndcg_at_k": null,
+      "all_required_evidence_covered": null,
+      "span_recall_at_k": null
+    },
+    "provided_metrics": {
+      "recall_at_k": null,
+      "ndcg_at_k": null,
+      "all_required_evidence_covered": null,
+      "span_recall_at_k": null,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": null,
+      "ndcg_at_k": null,
+      "all_required_evidence_covered": null,
+      "span_recall_at_k": null,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": true,
+    "is_semantic_accuracy": false,
+    "searches": 1,
+    "actions": 2,
+    "llm_calls": 4,
+    "known_prompt_tokens": 6041,
+    "known_output_tokens": 292,
+    "token_metadata_calls": 4,
+    "blocked_duplicate_calls": 1,
+    "stop_reason": "duplicate_tool_call",
+    "fallback": null,
+    "search_steps": [
+      {
+        "query": "Какой единый срок компании установил для перечисления возврата за отменённую учебную подписку в условиях, что компания предоставляет возвраты в течение 30 дней после отмены подписки?",
+        "chunks": [
+          "9fd30a9e608bb07a4cbe",
+          "c06f1741f112b753acc7",
+          "966cedcbac5268ac1649",
+          "730f52a8579af7bae8fe",
+          "6a4b6b48c758f731d338",
+          "7189ca7a72a1bd4734a4",
+          "3a137e982718049547bc",
+          "5cde9154e9cb36796f36"
+        ],
+        "coverage": {
+          "recall_at_k": null,
+          "ndcg_at_k": null,
+          "all_required_evidence_covered": null,
+          "span_recall_at_k": null
+        }
+      }
+    ],
+    "additional_search_reference_gain": null,
+    "strict_span_action_proxy": false,
+    "sources": []
+  },
+  {
+    "run": "8e1a615a-2072-4d52-9b96-db9d3f1f7689",
+    "source_commit": "27a4ed63eeb487678248378b068b8fcf66f1c1e0",
+    "question_id": "v4.replaced.learning",
+    "group_id": "absent.learning_share",
+    "mode": "agent",
+    "status": "answer",
+    "answer": "Бюджет профессионального обучения на 17.11.2026 составляет 18000 рублей на календарный год. Согласно документу, бюджет курса действует с 01.01.2026 и включает 18000 рублей на календарный год.",
+    "query": "Какой бюджет курса действует на 17.11.2026: 12000 или 18000?",
+    "seconds": 71.02828080000108,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": 1.0,
+      "ndcg_at_k": 1.0,
+      "evidence_found": [
+        0,
+        1
+      ],
+      "evidence_count": 2,
+      "all_required_evidence_covered": true,
+      "span_recall_at_k": 1.0
+    },
+    "provided_metrics": {
+      "recall_at_k": 1.0,
+      "ndcg_at_k": null,
+      "evidence_found": [
+        0,
+        1
+      ],
+      "evidence_count": 2,
+      "all_required_evidence_covered": true,
+      "span_recall_at_k": 1.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 2,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.25,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": true,
+    "is_semantic_accuracy": false,
+    "searches": 1,
+    "actions": 2,
+    "llm_calls": 7,
+    "known_prompt_tokens": 7920,
+    "known_output_tokens": 483,
+    "token_metadata_calls": 7,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "answer",
+    "fallback": null,
+    "search_steps": [
+      {
+        "query": "бюджет курса на 17.11.2026: 12000 или 18000",
+        "chunks": [
+          "db02980d1bc9743241e6",
+          "1173482499143e33fd4b",
+          "9c8146651f6b6133c3af",
+          "35d83054f6344a2308aa",
+          "c06f1741f112b753acc7",
+          "2312d0d4eacbf26c9a53",
+          "93ccadb306d788976d6b",
+          "1c22c4a9712609413d42"
+        ],
+        "coverage": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 1.0,
+          "evidence_found": [
+            0,
+            1
+          ],
+          "evidence_count": 2,
+          "all_required_evidence_covered": true,
+          "span_recall_at_k": 1.0
+        }
+      }
+    ],
+    "additional_search_reference_gain": 0.0,
+    "strict_span_action_proxy": false,
+    "sources": [
+      {
+        "title": "Профессиональное обучение и бюджет курса",
+        "location": "Абзац 4",
+        "quote": "С 01.01.2026 бюджет профессионального обучения составляет 18000 рублей на календарный год."
+      },
+      {
+        "title": "Профессиональное обучение и бюджет курса",
+        "location": "Таблица 1, строка 3",
+        "quote": "С 01.01.2026 | 18000 рублей в календарный год | Руководитель и HR; стажёру также наставник"
+      }
+    ]
+  },
+  {
+    "run": "8e1a615a-2072-4d52-9b96-db9d3f1f7689",
+    "source_commit": "27a4ed63eeb487678248378b068b8fcf66f1c1e0",
+    "question_id": "v4.replaced.learning",
+    "group_id": "absent.learning_share",
+    "mode": "rag",
+    "status": "answer",
+    "answer": "Бюджет профессионального обучения на 17.11.2026 составляет 18000 рублей на календарный год. Согласно документу, бюджет курса действует с 01.01.2026 и включает 18000 рублей на календарный год.",
+    "query": "Какой бюджет курса действует на 17.11.2026: 12000 или 18000?",
+    "seconds": 23.024622799999634,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": 1.0,
+      "ndcg_at_k": 1.0,
+      "evidence_found": [
+        0,
+        1
+      ],
+      "evidence_count": 2,
+      "all_required_evidence_covered": true,
+      "span_recall_at_k": 1.0
+    },
+    "provided_metrics": {
+      "recall_at_k": 1.0,
+      "ndcg_at_k": null,
+      "evidence_found": [
+        0,
+        1
+      ],
+      "evidence_count": 2,
+      "all_required_evidence_covered": true,
+      "span_recall_at_k": 1.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 2,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.25,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": true,
+    "is_semantic_accuracy": false,
+    "searches": 1,
+    "actions": null,
+    "llm_calls": 5,
+    "known_prompt_tokens": 5673,
+    "known_output_tokens": 327,
+    "token_metadata_calls": 5,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "linear_completion",
+    "fallback": null,
+    "search_steps": [
+      {
+        "query": "Какой бюджет курса действует на 17.11.2026: 12000 или 18000?",
+        "chunks": [
+          "db02980d1bc9743241e6",
+          "1173482499143e33fd4b",
+          "9c8146651f6b6133c3af",
+          "35d83054f6344a2308aa",
+          "c06f1741f112b753acc7",
+          "2312d0d4eacbf26c9a53",
+          "93ccadb306d788976d6b",
+          "1c22c4a9712609413d42"
+        ],
+        "coverage": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 1.0,
+          "evidence_found": [
+            0,
+            1
+          ],
+          "evidence_count": 2,
+          "all_required_evidence_covered": true,
+          "span_recall_at_k": 1.0
+        }
+      }
+    ],
+    "additional_search_reference_gain": 0.0,
+    "strict_span_action_proxy": false,
+    "sources": [
+      {
+        "title": "Профессиональное обучение и бюджет курса",
+        "location": "Абзац 4",
+        "quote": "С 01.01.2026 бюджет профессионального обучения составляет 18000 рублей на календарный год."
+      },
+      {
+        "title": "Профессиональное обучение и бюджет курса",
+        "location": "Таблица 1, строка 3",
+        "quote": "С 01.01.2026 | 18000 рублей в календарный год | Руководитель и HR; стажёру также наставник"
+      }
+    ]
+  },
+  {
+    "run": "8e1a615a-2072-4d52-9b96-db9d3f1f7689",
+    "source_commit": "27a4ed63eeb487678248378b068b8fcf66f1c1e0",
+    "question_id": "v4.conflict.cowork",
+    "group_id": "absent.hotel_rollover",
+    "mode": "rag",
+    "status": "conflict",
+    "answer": "«Коворкинг: финансовая инструкция по личному месту», Абзац 2: «Постоянным удалённым сотрудникам компенсация индивидуального места в коворкинге не предоставляется.»\n«Коворкинг: организационная программа удалённого места», Абзац 2: «Постоянному удалённому сотруднику предоставляется возмещение коворкинга до 3000 рублей в месяц по подтверждённому договору и чеку.»\nЭти положения не позволяют дать однозначный ответ по базе знаний. Уточните применимое правило у HR.",
+    "query": "Я постоянно удалённый и оплачиваю обычное рабочее место в коворкинге своего города. Есть ли компенсация?",
+    "seconds": 36.98047270000097,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": 1.0,
+      "ndcg_at_k": 1.0,
+      "evidence_found": [
+        0,
+        1
+      ],
+      "evidence_count": 2,
+      "all_required_evidence_covered": true,
+      "span_recall_at_k": 1.0
+    },
+    "provided_metrics": {
+      "recall_at_k": 1.0,
+      "ndcg_at_k": null,
+      "evidence_found": [
+        0,
+        1
+      ],
+      "evidence_count": 2,
+      "all_required_evidence_covered": true,
+      "span_recall_at_k": 1.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": 1.0,
+      "ndcg_at_k": null,
+      "evidence_found": [
+        0,
+        1
+      ],
+      "evidence_count": 2,
+      "all_required_evidence_covered": true,
+      "span_recall_at_k": 1.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": true,
+    "is_semantic_accuracy": false,
+    "searches": 1,
+    "actions": null,
+    "llm_calls": 3,
+    "known_prompt_tokens": 4379,
+    "known_output_tokens": 168,
+    "token_metadata_calls": 3,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "linear_completion",
+    "fallback": null,
+    "search_steps": [
+      {
+        "query": "Я постоянно удалённый и оплачиваю обычное рабочее место в коворкинге своего города. Есть ли компенсация?",
+        "chunks": [
+          "defbb4ad46d1f8a2ad71",
+          "1cb5d03a06f458e6860d",
+          "075e114d7256dc081344",
+          "15e0dbcf07de9318ae4b",
+          "8db2c8c9912d4e3f0953",
+          "dafe42c244547d065b95",
+          "54993313d09bf4aff559",
+          "e1da3239b1e3425da51c"
+        ],
+        "coverage": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 1.0,
+          "evidence_found": [
+            0,
+            1
+          ],
+          "evidence_count": 2,
+          "all_required_evidence_covered": true,
+          "span_recall_at_k": 1.0
+        }
+      }
+    ],
+    "additional_search_reference_gain": 0.0,
+    "strict_span_action_proxy": true,
+    "sources": [
+      {
+        "title": "Коворкинг: финансовая инструкция по личному месту",
+        "location": "Абзац 2",
+        "quote": "Постоянным удалённым сотрудникам компенсация индивидуального места в коворкинге не предоставляется."
+      },
+      {
+        "title": "Коворкинг: организационная программа удалённого места",
+        "location": "Абзац 2",
+        "quote": "Постоянному удалённому сотруднику предоставляется возмещение коворкинга до 3000 рублей в месяц по подтверждённому договору и чеку."
+      }
+    ]
+  },
+  {
+    "run": "8e1a615a-2072-4d52-9b96-db9d3f1f7689",
+    "source_commit": "27a4ed63eeb487678248378b068b8fcf66f1c1e0",
+    "question_id": "v4.conflict.cowork",
+    "group_id": "absent.hotel_rollover",
+    "mode": "agent",
+    "status": "conflict",
+    "answer": "«Коворкинг: финансовая инструкция по личному месту», Абзац 2: «Постоянным удалённым сотрудникам компенсация индивидуального места в коворкинге не предоставляется.»\n«Коворкинг: организационная программа удалённого места», Абзац 2: «Постоянному удалённому сотруднику предоставляется возмещение коворкинга до 3000 рублей в месяц по подтверждённому договору и чеку.»\nЭти положения не позволяют дать однозначный ответ по базе знаний. Уточните применимое правило у HR.",
+    "query": "Я постоянно удалённый и оплачиваю обычное рабочее место в коворкинге своего города. Есть ли компенсация?",
+    "seconds": 29.356281199998193,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": 1.0,
+      "ndcg_at_k": 1.0,
+      "evidence_found": [
+        0,
+        1
+      ],
+      "evidence_count": 2,
+      "all_required_evidence_covered": true,
+      "span_recall_at_k": 1.0
+    },
+    "provided_metrics": {
+      "recall_at_k": 1.0,
+      "ndcg_at_k": null,
+      "evidence_found": [
+        0,
+        1
+      ],
+      "evidence_count": 2,
+      "all_required_evidence_covered": true,
+      "span_recall_at_k": 1.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": 1.0,
+      "ndcg_at_k": null,
+      "evidence_found": [
+        0,
+        1
+      ],
+      "evidence_count": 2,
+      "all_required_evidence_covered": true,
+      "span_recall_at_k": 1.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": true,
+    "is_semantic_accuracy": false,
+    "searches": 1,
+    "actions": 1,
+    "llm_calls": 4,
+    "known_prompt_tokens": 4966,
+    "known_output_tokens": 206,
+    "token_metadata_calls": 4,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "document_conflict",
+    "fallback": null,
+    "search_steps": [
+      {
+        "query": "Есть ли компенсация для постоянно удалённых сотрудников, оплачивающих коворкинг в своём городе?",
+        "chunks": [
+          "defbb4ad46d1f8a2ad71",
+          "1cb5d03a06f458e6860d",
+          "075e114d7256dc081344",
+          "54993313d09bf4aff559",
+          "8db2c8c9912d4e3f0953",
+          "15e0dbcf07de9318ae4b",
+          "a9acfa044a47ae8fa0e1",
+          "0f8b72931f2e82e92f19"
+        ],
+        "coverage": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 1.0,
+          "evidence_found": [
+            0,
+            1
+          ],
+          "evidence_count": 2,
+          "all_required_evidence_covered": true,
+          "span_recall_at_k": 1.0
+        }
+      }
+    ],
+    "additional_search_reference_gain": 0.0,
+    "strict_span_action_proxy": true,
+    "sources": [
+      {
+        "title": "Коворкинг: финансовая инструкция по личному месту",
+        "location": "Абзац 2",
+        "quote": "Постоянным удалённым сотрудникам компенсация индивидуального места в коворкинге не предоставляется."
+      },
+      {
+        "title": "Коворкинг: организационная программа удалённого места",
+        "location": "Абзац 2",
+        "quote": "Постоянному удалённому сотруднику предоставляется возмещение коворкинга до 3000 рублей в месяц по подтверждённому договору и чеку."
+      }
+    ]
+  },
+  {
+    "run": "8e1a615a-2072-4d52-9b96-db9d3f1f7689",
+    "source_commit": "27a4ed63eeb487678248378b068b8fcf66f1c1e0",
+    "question_id": "v4.dialogue.equipment_scope.1",
+    "group_id": "dialogue.equipment_scope",
+    "mode": "agent",
+    "status": "answer",
+    "answer": "Для подтверждения приёма ноутбука при выходе в офис необходимо подтвердить адрес и контакт для доставки в защищённой форме Service Desk. Если вы являетесь удалённым новичком, ноутбук отправляется курьером IT-службы, а офисный новичок получает его в IT-службе офиса по акту. Отправка на адрес знакомого без согласования не допускается, так как получателем по акту должен быть сотрудник.",
+    "query": "Я выхожу в офисе и хочу получить ноутбук. Как подтвердить приёмку?",
+    "seconds": 83.7275038000007,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": 1.0,
+      "ndcg_at_k": 0.8065735963827293,
+      "evidence_found": [
+        0,
+        1
+      ],
+      "evidence_count": 2,
+      "all_required_evidence_covered": true,
+      "span_recall_at_k": 1.0
+    },
+    "provided_metrics": {
+      "recall_at_k": 0.5,
+      "ndcg_at_k": null,
+      "evidence_found": [
+        0
+      ],
+      "evidence_count": 2,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.4666666666666667,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 2,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.2,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": true,
+    "is_semantic_accuracy": false,
+    "searches": 1,
+    "actions": 3,
+    "llm_calls": 8,
+    "known_prompt_tokens": 12249,
+    "known_output_tokens": 645,
+    "token_metadata_calls": 8,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "answer",
+    "fallback": null,
+    "search_steps": [
+      {
+        "query": "Как подтвердить приёмку ноутбука при выходе в офис?",
+        "chunks": [
+          "62596ad2ec15ee51a20f",
+          "fac6179da3eb4e25df33",
+          "803d1e814e89c5981957",
+          "d930487fbdba060a8653",
+          "f617d02ef4f042d6ad01",
+          "990052b252a68ad99430",
+          "f54a6120f3a454d8755f",
+          "3b4e3322aa6e6bac0adb"
+        ],
+        "coverage": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.8065735963827293,
+          "evidence_found": [
+            0,
+            1
+          ],
+          "evidence_count": 2,
+          "all_required_evidence_covered": true,
+          "span_recall_at_k": 1.0
+        }
+      }
+    ],
+    "additional_search_reference_gain": 0.0,
+    "strict_span_action_proxy": false,
+    "sources": [
+      {
+        "title": "Выдача техники и приёмка рабочего места",
+        "location": "Абзац 2",
+        "quote": "Адрес и контакт для доставки подтверждаются в защищённой форме Service Desk."
+      },
+      {
+        "title": "Выдача техники и приёмка рабочего места",
+        "location": "Абзац 2",
+        "quote": "Удалённому новичку ноутбук отправляет IT-служба курьером; офисный новичок получает его в IT-службе офиса по акту."
+      },
+      {
+        "title": "Выдача техники и приёмка рабочего места",
+        "location": "Абзац 2",
+        "quote": "Отправка на адрес знакомого без согласования не допускается, поскольку получателем по акту является сотрудник."
+      }
+    ]
+  },
+  {
+    "run": "8e1a615a-2072-4d52-9b96-db9d3f1f7689",
+    "source_commit": "27a4ed63eeb487678248378b068b8fcf66f1c1e0",
+    "question_id": "v4.dialogue.equipment_scope.1",
+    "group_id": "dialogue.equipment_scope",
+    "mode": "rag",
+    "status": "answer",
+    "answer": "При получении ноутбука сотрудник должен проверить модель, серийный номер, зарядное устройство и видимые повреждения по актуальности техники.",
+    "query": "Я выхожу в офисе и хочу получить ноутбук. Как подтвердить приёмку?",
+    "seconds": 39.696599500002776,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": 1.0,
+      "ndcg_at_k": 1.0,
+      "evidence_found": [
+        0,
+        1
+      ],
+      "evidence_count": 2,
+      "all_required_evidence_covered": true,
+      "span_recall_at_k": 1.0
+    },
+    "provided_metrics": {
+      "recall_at_k": 1.0,
+      "ndcg_at_k": null,
+      "evidence_found": [
+        0,
+        1
+      ],
+      "evidence_count": 2,
+      "all_required_evidence_covered": true,
+      "span_recall_at_k": 1.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 2,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.06666666666666667,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": true,
+    "is_semantic_accuracy": false,
+    "searches": 1,
+    "actions": null,
+    "llm_calls": 4,
+    "known_prompt_tokens": 4756,
+    "known_output_tokens": 253,
+    "token_metadata_calls": 4,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "linear_completion",
+    "fallback": null,
+    "search_steps": [
+      {
+        "query": "Я выхожу в офисе и хочу получить ноутбук. Как подтвердить приёмку?",
+        "chunks": [
+          "62596ad2ec15ee51a20f",
+          "3b4e3322aa6e6bac0adb",
+          "fac6179da3eb4e25df33",
+          "803d1e814e89c5981957",
+          "f617d02ef4f042d6ad01",
+          "263df15184c5e7be77f0",
+          "5ef786046e8792f69ae0",
+          "fdee38783c89d1486801"
+        ],
+        "coverage": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 1.0,
+          "evidence_found": [
+            0,
+            1
+          ],
+          "evidence_count": 2,
+          "all_required_evidence_covered": true,
+          "span_recall_at_k": 1.0
+        }
+      }
+    ],
+    "additional_search_reference_gain": 0.0,
+    "strict_span_action_proxy": false,
+    "sources": [
+      {
+        "title": "Выдача техники и приёмка рабочего места",
+        "location": "Абзац 3",
+        "quote": "При получении сотрудник проверяет модель, серийный номер, зарядное устройство и видимые повреждения по акту."
+      }
+    ]
+  },
+  {
+    "run": "8e1a615a-2072-4d52-9b96-db9d3f1f7689",
+    "source_commit": "27a4ed63eeb487678248378b068b8fcf66f1c1e0",
+    "question_id": "v4.dialogue.equipment_scope.2",
+    "group_id": "dialogue.equipment_scope",
+    "mode": "rag",
+    "status": "answer",
+    "answer": "«Постоянная и гибридная удалённая работа», Абзац 7: «Для постоянного удалённого выхода используется курьерский маршрут техники; для согласованного визита может потребоваться офисное место и гостевая отметка питания.»",
+    "query": "Как подтвердить приёмку ноутбука после изменения выхода на постоянный удалённый?",
+    "seconds": 37.30259989999831,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": 0.0,
+      "evidence_found": [],
+      "evidence_count": 2,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0
+    },
+    "provided_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 2,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 2,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": true,
+    "is_semantic_accuracy": false,
+    "searches": 1,
+    "actions": null,
+    "llm_calls": 4,
+    "known_prompt_tokens": 4620,
+    "known_output_tokens": 212,
+    "token_metadata_calls": 4,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "linear_completion",
+    "fallback": "unsupported_paraphrase",
+    "search_steps": [
+      {
+        "query": "Как подтвердить приёмку ноутбука после изменения выхода на постоянный удалённый?",
+        "chunks": [
+          "8db2c8c9912d4e3f0953",
+          "c9c965dfa1e60e21f6de",
+          "a9acfa044a47ae8fa0e1",
+          "803d1e814e89c5981957",
+          "03a35f8d6edcd9c0ef6e",
+          "d930487fbdba060a8653",
+          "9f43ad6bef71da9ad85f",
+          "990052b252a68ad99430"
+        ],
+        "coverage": {
+          "recall_at_k": 0.0,
+          "ndcg_at_k": 0.0,
+          "evidence_found": [],
+          "evidence_count": 2,
+          "all_required_evidence_covered": false,
+          "span_recall_at_k": 0.0
+        }
+      }
+    ],
+    "additional_search_reference_gain": 0.0,
+    "strict_span_action_proxy": false,
+    "sources": [
+      {
+        "title": "Постоянная и гибридная удалённая работа",
+        "location": "Абзац 7",
+        "quote": "Для постоянного удалённого выхода используется курьерский маршрут техники; для согласованного визита может потребоваться офисное место и гостевая отметка питания."
+      }
+    ]
+  },
+  {
+    "run": "8e1a615a-2072-4d52-9b96-db9d3f1f7689",
+    "source_commit": "27a4ed63eeb487678248378b068b8fcf66f1c1e0",
+    "question_id": "v4.dialogue.equipment_scope.2",
+    "group_id": "dialogue.equipment_scope",
+    "mode": "agent",
+    "status": "answer",
+    "answer": "«Постоянная и гибридная удалённая работа», Абзац 7: «Для постоянного удалённого выхода используется курьерский маршрут техники; для согласованного визита может потребоваться офисное место и гостевая отметка питания.»",
+    "query": "Как подтвердить приёмку ноутбука после изменения выхода на постоянный удалённый?",
+    "seconds": 34.97988279999845,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": 0.0,
+      "evidence_found": [],
+      "evidence_count": 2,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0
+    },
+    "provided_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 2,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 2,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": true,
+    "is_semantic_accuracy": false,
+    "searches": 1,
+    "actions": 2,
+    "llm_calls": 6,
+    "known_prompt_tokens": 6858,
+    "known_output_tokens": 346,
+    "token_metadata_calls": 6,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "answer",
+    "fallback": "unsupported_paraphrase",
+    "search_steps": [
+      {
+        "query": "Как подтвердить приёмку ноутбука после изменения выхода на постоянный удалённый?",
+        "chunks": [
+          "8db2c8c9912d4e3f0953",
+          "c9c965dfa1e60e21f6de",
+          "a9acfa044a47ae8fa0e1",
+          "803d1e814e89c5981957",
+          "03a35f8d6edcd9c0ef6e",
+          "d930487fbdba060a8653",
+          "9f43ad6bef71da9ad85f",
+          "990052b252a68ad99430"
+        ],
+        "coverage": {
+          "recall_at_k": 0.0,
+          "ndcg_at_k": 0.0,
+          "evidence_found": [],
+          "evidence_count": 2,
+          "all_required_evidence_covered": false,
+          "span_recall_at_k": 0.0
+        }
+      }
+    ],
+    "additional_search_reference_gain": 0.0,
+    "strict_span_action_proxy": false,
+    "sources": [
+      {
+        "title": "Постоянная и гибридная удалённая работа",
+        "location": "Абзац 7",
+        "quote": "Для постоянного удалённого выхода используется курьерский маршрут техники; для согласованного визита может потребоваться офисное место и гостевая отметка питания."
+      }
+    ]
+  },
+  {
+    "run": "8e1a615a-2072-4d52-9b96-db9d3f1f7689",
+    "source_commit": "27a4ed63eeb487678248378b068b8fcf66f1c1e0",
+    "question_id": "v4.dialogue.equipment_scope.3",
+    "group_id": "dialogue.equipment_scope",
+    "mode": "agent",
+    "status": "clarify",
+    "answer": "А если другой вариант для подтверждения приёма ноутбука после изменения выхода на постоянный удалённый?",
+    "query": "",
+    "seconds": 3.961848300001293,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": null,
+      "ndcg_at_k": null,
+      "all_required_evidence_covered": null,
+      "span_recall_at_k": null
+    },
+    "provided_metrics": {
+      "recall_at_k": null,
+      "ndcg_at_k": null,
+      "all_required_evidence_covered": null,
+      "span_recall_at_k": null,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": null,
+      "ndcg_at_k": null,
+      "all_required_evidence_covered": null,
+      "span_recall_at_k": null,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": true,
+    "is_semantic_accuracy": false,
+    "searches": 0,
+    "actions": 0,
+    "llm_calls": 1,
+    "known_prompt_tokens": 594,
+    "known_output_tokens": 49,
+    "token_metadata_calls": 1,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "clarification_before_search",
+    "fallback": null,
+    "search_steps": [],
+    "additional_search_reference_gain": null,
+    "strict_span_action_proxy": true,
+    "sources": []
+  },
+  {
+    "run": "8e1a615a-2072-4d52-9b96-db9d3f1f7689",
+    "source_commit": "27a4ed63eeb487678248378b068b8fcf66f1c1e0",
+    "question_id": "v4.dialogue.equipment_scope.3",
+    "group_id": "dialogue.equipment_scope",
+    "mode": "rag",
+    "status": "clarify",
+    "answer": "А если другой вариант для подтверждения приёма ноутбука после изменения выхода на постоянный удалённый?",
+    "query": "",
+    "seconds": 3.05787699999928,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": null,
+      "ndcg_at_k": null,
+      "all_required_evidence_covered": null,
+      "span_recall_at_k": null
+    },
+    "provided_metrics": {
+      "recall_at_k": null,
+      "ndcg_at_k": null,
+      "all_required_evidence_covered": null,
+      "span_recall_at_k": null,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": null,
+      "ndcg_at_k": null,
+      "all_required_evidence_covered": null,
+      "span_recall_at_k": null,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": true,
+    "is_semantic_accuracy": false,
+    "searches": 0,
+    "actions": null,
+    "llm_calls": 1,
+    "known_prompt_tokens": 594,
+    "known_output_tokens": 49,
+    "token_metadata_calls": 1,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "linear_completion",
+    "fallback": null,
+    "search_steps": [],
+    "additional_search_reference_gain": null,
+    "strict_span_action_proxy": true,
+    "sources": []
+  },
+  {
+    "run": "8e1a615a-2072-4d52-9b96-db9d3f1f7689",
+    "source_commit": "27a4ed63eeb487678248378b068b8fcf66f1c1e0",
+    "question_id": "v4.dialogue.equipment_scope.4",
+    "group_id": "dialogue.equipment_scope",
+    "mode": "rag",
+    "status": "clarify",
+    "answer": "Как подтвердить приёмку ноутбука после изменения выхода на постоянный удалённый, если починка у мастера рядом с домом?",
+    "query": "",
+    "seconds": 3.9734763000014937,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 1,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0
+    },
+    "provided_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 1,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 1,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": false,
+    "is_semantic_accuracy": false,
+    "searches": 0,
+    "actions": null,
+    "llm_calls": 1,
+    "known_prompt_tokens": 621,
+    "known_output_tokens": 56,
+    "token_metadata_calls": 1,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "linear_completion",
+    "fallback": null,
+    "search_steps": [],
+    "additional_search_reference_gain": null,
+    "strict_span_action_proxy": false,
+    "sources": []
+  },
+  {
+    "run": "8e1a615a-2072-4d52-9b96-db9d3f1f7689",
+    "source_commit": "27a4ed63eeb487678248378b068b8fcf66f1c1e0",
+    "question_id": "v4.dialogue.equipment_scope.4",
+    "group_id": "dialogue.equipment_scope",
+    "mode": "agent",
+    "status": "clarify",
+    "answer": "Как подтвердить приёмку ноутбука после изменения выхода на постоянный удалённый, если починка у мастера рядом с домом?",
+    "query": "",
+    "seconds": 3.428860899999563,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 1,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0
+    },
+    "provided_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 1,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 1,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": false,
+    "is_semantic_accuracy": false,
+    "searches": 0,
+    "actions": 0,
+    "llm_calls": 1,
+    "known_prompt_tokens": 621,
+    "known_output_tokens": 56,
+    "token_metadata_calls": 1,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "clarification_before_search",
+    "fallback": null,
+    "search_steps": [],
+    "additional_search_reference_gain": null,
+    "strict_span_action_proxy": false,
+    "sources": []
+  },
+  {
+    "run": "8e1a615a-2072-4d52-9b96-db9d3f1f7689",
+    "source_commit": "27a4ed63eeb487678248378b068b8fcf66f1c1e0",
+    "question_id": "v4.dialogue.cowork_to_hotel.1",
+    "group_id": "absent.hotel_rollover",
+    "mode": "agent",
+    "status": "conflict",
+    "answer": "«Коворкинг: финансовая инструкция по личному месту», Абзац 2: «Постоянным удалённым сотрудникам компенсация индивидуального места в коворкинге не предоставляется.»\n«Коворкинг: организационная программа удалённого места», Абзац 2: «Постоянному удалённому сотруднику предоставляется возмещение коворкинга до 3000 рублей в месяц по подтверждённому договору и чеку.»\nЭти положения не позволяют дать однозначный ответ по базе знаний. Уточните применимое правило у HR.",
+    "query": "Компенсируют мне рабочее место в коворкинге?",
+    "seconds": 48.9634670000014,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": null,
+      "ndcg_at_k": null,
+      "all_required_evidence_covered": null,
+      "span_recall_at_k": null
+    },
+    "provided_metrics": {
+      "recall_at_k": null,
+      "ndcg_at_k": null,
+      "all_required_evidence_covered": null,
+      "span_recall_at_k": null,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": null,
+      "ndcg_at_k": null,
+      "all_required_evidence_covered": null,
+      "span_recall_at_k": null,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": false,
+    "is_semantic_accuracy": false,
+    "searches": 1,
+    "actions": 1,
+    "llm_calls": 4,
+    "known_prompt_tokens": 4975,
+    "known_output_tokens": 307,
+    "token_metadata_calls": 4,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "document_conflict",
+    "fallback": null,
+    "search_steps": [
+      {
+        "query": "Компенсируют мне рабочее место в коворкинге?",
+        "chunks": [
+          "defbb4ad46d1f8a2ad71",
+          "1cb5d03a06f458e6860d",
+          "075e114d7256dc081344",
+          "0f8b72931f2e82e92f19",
+          "d987594201bb38afb923",
+          "4d8099eea1ed06c1c43f",
+          "f637555fe89c56897192",
+          "13408180b705dd14458d"
+        ],
+        "coverage": {
+          "recall_at_k": null,
+          "ndcg_at_k": null,
+          "all_required_evidence_covered": null,
+          "span_recall_at_k": null
+        }
+      }
+    ],
+    "additional_search_reference_gain": null,
+    "strict_span_action_proxy": false,
+    "sources": [
+      {
+        "title": "Коворкинг: финансовая инструкция по личному месту",
+        "location": "Абзац 2",
+        "quote": "Постоянным удалённым сотрудникам компенсация индивидуального места в коворкинге не предоставляется."
+      },
+      {
+        "title": "Коворкинг: организационная программа удалённого места",
+        "location": "Абзац 2",
+        "quote": "Постоянному удалённому сотруднику предоставляется возмещение коворкинга до 3000 рублей в месяц по подтверждённому договору и чеку."
+      }
+    ]
+  },
+  {
+    "run": "8e1a615a-2072-4d52-9b96-db9d3f1f7689",
+    "source_commit": "27a4ed63eeb487678248378b068b8fcf66f1c1e0",
+    "question_id": "v4.dialogue.cowork_to_hotel.1",
+    "group_id": "absent.hotel_rollover",
+    "mode": "rag",
+    "status": "conflict",
+    "answer": "«Коворкинг: финансовая инструкция по личному месту», Абзац 2: «Постоянным удалённым сотрудникам компенсация индивидуального места в коворкинге не предоставляется.»\n«Коворкинг: организационная программа удалённого места», Абзац 2: «Постоянному удалённому сотруднику предоставляется возмещение коворкинга до 3000 рублей в месяц по подтверждённому договору и чеку.»\nЭти положения не позволяют дать однозначный ответ по базе знаний. Уточните применимое правило у HR.",
+    "query": "Компенсируют мне рабочее место в коворкинге?",
+    "seconds": 18.99830640000073,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": null,
+      "ndcg_at_k": null,
+      "all_required_evidence_covered": null,
+      "span_recall_at_k": null
+    },
+    "provided_metrics": {
+      "recall_at_k": null,
+      "ndcg_at_k": null,
+      "all_required_evidence_covered": null,
+      "span_recall_at_k": null,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": null,
+      "ndcg_at_k": null,
+      "all_required_evidence_covered": null,
+      "span_recall_at_k": null,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": false,
+    "is_semantic_accuracy": false,
+    "searches": 1,
+    "actions": null,
+    "llm_calls": 3,
+    "known_prompt_tokens": 4442,
+    "known_output_tokens": 258,
+    "token_metadata_calls": 3,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "linear_completion",
+    "fallback": null,
+    "search_steps": [
+      {
+        "query": "Компенсируют мне рабочее место в коворкинге?",
+        "chunks": [
+          "defbb4ad46d1f8a2ad71",
+          "1cb5d03a06f458e6860d",
+          "075e114d7256dc081344",
+          "0f8b72931f2e82e92f19",
+          "d987594201bb38afb923",
+          "4d8099eea1ed06c1c43f",
+          "f637555fe89c56897192",
+          "13408180b705dd14458d"
+        ],
+        "coverage": {
+          "recall_at_k": null,
+          "ndcg_at_k": null,
+          "all_required_evidence_covered": null,
+          "span_recall_at_k": null
+        }
+      }
+    ],
+    "additional_search_reference_gain": null,
+    "strict_span_action_proxy": false,
+    "sources": [
+      {
+        "title": "Коворкинг: финансовая инструкция по личному месту",
+        "location": "Абзац 2",
+        "quote": "Постоянным удалённым сотрудникам компенсация индивидуального места в коворкинге не предоставляется."
+      },
+      {
+        "title": "Коворкинг: организационная программа удалённого места",
+        "location": "Абзац 2",
+        "quote": "Постоянному удалённому сотруднику предоставляется возмещение коворкинга до 3000 рублей в месяц по подтверждённому договору и чеку."
+      }
+    ]
+  },
+  {
+    "run": "8e1a615a-2072-4d52-9b96-db9d3f1f7689",
+    "source_commit": "27a4ed63eeb487678248378b068b8fcf66f1c1e0",
+    "question_id": "v4.dialogue.cowork_to_hotel.2",
+    "group_id": "absent.hotel_rollover",
+    "mode": "rag",
+    "status": "conflict",
+    "answer": "«Коворкинг: финансовая инструкция по личному месту», Абзац 2: «Постоянным удалённым сотрудникам компенсация индивидуального места в коворкинге не предоставляется.»\n«Коворкинг: организационная программа удалённого места», Абзац 2: «Постоянному удалённому сотруднику предоставляется возмещение коворкинга до 3000 рублей в месяц по подтверждённому договору и чеку.»\nЭти положения не позволяют дать однозначный ответ по базе знаний. Уточните применимое правило у HR.",
+    "query": "Компенсируют мне раб: Я постоянный удалённый, это обычное место для моей работы в своём городе.",
+    "seconds": 40.5366056999992,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": 1.0,
+      "ndcg_at_k": 0.8772153153380493,
+      "evidence_found": [
+        0,
+        1
+      ],
+      "evidence_count": 2,
+      "all_required_evidence_covered": true,
+      "span_recall_at_k": 1.0
+    },
+    "provided_metrics": {
+      "recall_at_k": 1.0,
+      "ndcg_at_k": null,
+      "evidence_found": [
+        0,
+        1
+      ],
+      "evidence_count": 2,
+      "all_required_evidence_covered": true,
+      "span_recall_at_k": 1.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 2,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.15384615384615385,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": true,
+    "is_semantic_accuracy": false,
+    "searches": 1,
+    "actions": null,
+    "llm_calls": 3,
+    "known_prompt_tokens": 4408,
+    "known_output_tokens": 218,
+    "token_metadata_calls": 3,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "linear_completion",
+    "fallback": null,
+    "search_steps": [
+      {
+        "query": "Компенсируют мне раб: Я постоянный удалённый, это обычное место для моей работы в своём городе.",
+        "chunks": [
+          "defbb4ad46d1f8a2ad71",
+          "d6dd72550a021c8353df",
+          "15e0dbcf07de9318ae4b",
+          "1cb5d03a06f458e6860d",
+          "e1da3239b1e3425da51c",
+          "8db2c8c9912d4e3f0953",
+          "dafe42c244547d065b95",
+          "41790aed76c59155483b"
+        ],
+        "coverage": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.8772153153380493,
+          "evidence_found": [
+            0,
+            1
+          ],
+          "evidence_count": 2,
+          "all_required_evidence_covered": true,
+          "span_recall_at_k": 1.0
+        }
+      }
+    ],
+    "additional_search_reference_gain": 0.0,
+    "strict_span_action_proxy": false,
+    "sources": [
+      {
+        "title": "Коворкинг: финансовая инструкция по личному месту",
+        "location": "Абзац 2",
+        "quote": "Постоянным удалённым сотрудникам компенсация индивидуального места в коворкинге не предоставляется."
+      },
+      {
+        "title": "Коворкинг: организационная программа удалённого места",
+        "location": "Абзац 2",
+        "quote": "Постоянному удалённому сотруднику предоставляется возмещение коворкинга до 3000 рублей в месяц по подтверждённому договору и чеку."
+      }
+    ]
+  },
+  {
+    "run": "8e1a615a-2072-4d52-9b96-db9d3f1f7689",
+    "source_commit": "27a4ed63eeb487678248378b068b8fcf66f1c1e0",
+    "question_id": "v4.dialogue.cowork_to_hotel.2",
+    "group_id": "absent.hotel_rollover",
+    "mode": "agent",
+    "status": "conflict",
+    "answer": "«Коворкинг: финансовая инструкция по личному месту», Абзац 2: «Постоянным удалённым сотрудникам компенсация индивидуального места в коворкинге не предоставляется.»\n«Коворкинг: организационная программа удалённого места», Абзац 2: «Постоянному удалённому сотруднику предоставляется возмещение коворкинга до 3000 рублей в месяц по подтверждённому договору и чеку.»\nЭти положения не позволяют дать однозначный ответ по базе знаний. Уточните применимое правило у HR.",
+    "query": "Компенсируют мне раб: Я постоянный удалённый, это обычное место для моей работы в своём городе.",
+    "seconds": 43.143415800001094,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": 1.0,
+      "ndcg_at_k": 1.0,
+      "evidence_found": [
+        0,
+        1
+      ],
+      "evidence_count": 2,
+      "all_required_evidence_covered": true,
+      "span_recall_at_k": 1.0
+    },
+    "provided_metrics": {
+      "recall_at_k": 1.0,
+      "ndcg_at_k": null,
+      "evidence_found": [
+        0,
+        1
+      ],
+      "evidence_count": 2,
+      "all_required_evidence_covered": true,
+      "span_recall_at_k": 1.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 2,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.15384615384615385,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": true,
+    "is_semantic_accuracy": false,
+    "searches": 1,
+    "actions": 1,
+    "llm_calls": 4,
+    "known_prompt_tokens": 4994,
+    "known_output_tokens": 309,
+    "token_metadata_calls": 4,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "document_conflict",
+    "fallback": null,
+    "search_steps": [
+      {
+        "query": "Компенсируют мне рабочее место в коворкинге для постоянных удалённых, если это обычное место для моей работы в своём городе?",
+        "chunks": [
+          "defbb4ad46d1f8a2ad71",
+          "1cb5d03a06f458e6860d",
+          "075e114d7256dc081344",
+          "15e0dbcf07de9318ae4b",
+          "8db2c8c9912d4e3f0953",
+          "dafe42c244547d065b95",
+          "e1da3239b1e3425da51c",
+          "0f8b72931f2e82e92f19"
+        ],
+        "coverage": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 1.0,
+          "evidence_found": [
+            0,
+            1
+          ],
+          "evidence_count": 2,
+          "all_required_evidence_covered": true,
+          "span_recall_at_k": 1.0
+        }
+      }
+    ],
+    "additional_search_reference_gain": 0.0,
+    "strict_span_action_proxy": false,
+    "sources": [
+      {
+        "title": "Коворкинг: финансовая инструкция по личному месту",
+        "location": "Абзац 2",
+        "quote": "Постоянным удалённым сотрудникам компенсация индивидуального места в коворкинге не предоставляется."
+      },
+      {
+        "title": "Коворкинг: организационная программа удалённого места",
+        "location": "Абзац 2",
+        "quote": "Постоянному удалённому сотруднику предоставляется возмещение коворкинга до 3000 рублей в месяц по подтверждённому договору и чеку."
+      }
+    ]
+  },
+  {
+    "run": "8e1a615a-2072-4d52-9b96-db9d3f1f7689",
+    "source_commit": "27a4ed63eeb487678248378b068b8fcf66f1c1e0",
+    "question_id": "v4.dialogue.cowork_to_hotel.3",
+    "group_id": "absent.hotel_rollover",
+    "mode": "agent",
+    "status": "conflict",
+    "answer": "«Бронирование, лимиты проживания и перевозки», Страница 1: «Как читать лимиты В приложении к этому регламенту приведена таблица: проживание — 6000 рублей за ночь, стандартное такси — по фактической согласованной поездке, повышенный класс — только по предварительному разрешению.»\n«Офисный обед, транспорт и посещение площадки», Абзац 8: «Обычная дорога от дома до закреплённого офиса не оформляется как командировка и не возмещается по лимиту гостиницы или правилам служебного такси.»\nЭти положения не позволяют дать однозначный ответ по базе знаний. Уточните применимое правило у HR.",
+    "query": "А гостиница в согласованной командировке?",
+    "seconds": 44.72846500000014,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": 0.0,
+      "evidence_found": [],
+      "evidence_count": 1,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0
+    },
+    "provided_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 1,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 1,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": false,
+    "is_semantic_accuracy": false,
+    "searches": 1,
+    "actions": 1,
+    "llm_calls": 4,
+    "known_prompt_tokens": 5292,
+    "known_output_tokens": 222,
+    "token_metadata_calls": 4,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "document_conflict",
+    "fallback": null,
+    "search_steps": [
+      {
+        "query": "А гостиница в согласованной командировке?",
+        "chunks": [
+          "2602fd240d275a164059",
+          "a317bb35d665117a6a31",
+          "4501da697f38c0e53bce",
+          "e1da3239b1e3425da51c",
+          "f35d3d284ef55cbce852",
+          "8e1510b8b5088d88eea3",
+          "a93ea2456a737b90e835",
+          "7acf5c8bdecaaa57e399"
+        ],
+        "coverage": {
+          "recall_at_k": 0.0,
+          "ndcg_at_k": 0.0,
+          "evidence_found": [],
+          "evidence_count": 1,
+          "all_required_evidence_covered": false,
+          "span_recall_at_k": 0.0
+        }
+      }
+    ],
+    "additional_search_reference_gain": 0.0,
+    "strict_span_action_proxy": false,
+    "sources": [
+      {
+        "title": "Бронирование, лимиты проживания и перевозки",
+        "location": "Страница 1",
+        "quote": "Как читать лимиты В приложении к этому регламенту приведена таблица: проживание — 6000 рублей за ночь, стандартное такси — по фактической согласованной поездке, повышенный класс — только по предварительному разрешению."
+      },
+      {
+        "title": "Офисный обед, транспорт и посещение площадки",
+        "location": "Абзац 8",
+        "quote": "Обычная дорога от дома до закреплённого офиса не оформляется как командировка и не возмещается по лимиту гостиницы или правилам служебного такси."
+      }
+    ]
+  },
+  {
+    "run": "8e1a615a-2072-4d52-9b96-db9d3f1f7689",
+    "source_commit": "27a4ed63eeb487678248378b068b8fcf66f1c1e0",
+    "question_id": "v4.dialogue.cowork_to_hotel.3",
+    "group_id": "absent.hotel_rollover",
+    "mode": "rag",
+    "status": "conflict",
+    "answer": "«Бронирование, лимиты проживания и перевозки», Страница 1: «Как читать лимиты В приложении к этому регламенту приведена таблица: проживание — 6000 рублей за ночь, стандартное такси — по фактической согласованной поездке, повышенный класс — только по предварительному разрешению.»\n«Офисный обед, транспорт и посещение площадки», Абзац 8: «Обычная дорога от дома до закреплённого офиса не оформляется как командировка и не возмещается по лимиту гостиницы или правилам служебного такси.»\nЭти положения не позволяют дать однозначный ответ по базе знаний. Уточните применимое правило у HR.",
+    "query": "А гостиница в согласованной командировке?",
+    "seconds": 14.240032100002281,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": 0.0,
+      "evidence_found": [],
+      "evidence_count": 1,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0
+    },
+    "provided_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 1,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 1,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": false,
+    "is_semantic_accuracy": false,
+    "searches": 1,
+    "actions": null,
+    "llm_calls": 3,
+    "known_prompt_tokens": 4741,
+    "known_output_tokens": 179,
+    "token_metadata_calls": 3,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "linear_completion",
+    "fallback": null,
+    "search_steps": [
+      {
+        "query": "А гостиница в согласованной командировке?",
+        "chunks": [
+          "2602fd240d275a164059",
+          "a317bb35d665117a6a31",
+          "4501da697f38c0e53bce",
+          "e1da3239b1e3425da51c",
+          "f35d3d284ef55cbce852",
+          "8e1510b8b5088d88eea3",
+          "a93ea2456a737b90e835",
+          "7acf5c8bdecaaa57e399"
+        ],
+        "coverage": {
+          "recall_at_k": 0.0,
+          "ndcg_at_k": 0.0,
+          "evidence_found": [],
+          "evidence_count": 1,
+          "all_required_evidence_covered": false,
+          "span_recall_at_k": 0.0
+        }
+      }
+    ],
+    "additional_search_reference_gain": 0.0,
+    "strict_span_action_proxy": false,
+    "sources": [
+      {
+        "title": "Бронирование, лимиты проживания и перевозки",
+        "location": "Страница 1",
+        "quote": "Как читать лимиты В приложении к этому регламенту приведена таблица: проживание — 6000 рублей за ночь, стандартное такси — по фактической согласованной поездке, повышенный класс — только по предварительному разрешению."
+      },
+      {
+        "title": "Офисный обед, транспорт и посещение площадки",
+        "location": "Абзац 8",
+        "quote": "Обычная дорога от дома до закреплённого офиса не оформляется как командировка и не возмещается по лимиту гостиницы или правилам служебного такси."
+      }
+    ]
+  },
+  {
+    "run": "8e1a615a-2072-4d52-9b96-db9d3f1f7689",
+    "source_commit": "27a4ed63eeb487678248378b068b8fcf66f1c1e0",
+    "question_id": "v4.dialogue.cowork_to_hotel.4",
+    "group_id": "absent.hotel_rollover",
+    "mode": "rag",
+    "status": "conflict",
+    "answer": "«Служебная мобильная связь во время поездки», Абзац 2: «Для согласованной служебной поездки по России сотруднику возмещается дополнительный мобильный пакет до 800 рублей за поездку при предварительном одобрении руководителя и подтверждении оплаты.»\n«Финансовые ограничения мобильной связи в поездке», Абзац 2: «Дополнительные мобильные пакеты для рабочей связи в служебной поездке по России сотрудникам не возмещаются, включая предварительно одобренные руководителем.»\nЭти положения не позволяют дать однозначный ответ по базе знаний. Уточните применимое правило у HR.",
+    "query": "Нужный вариант дороже этой суммы",
+    "seconds": 39.94409459999952,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": 0.0,
+      "evidence_found": [],
+      "evidence_count": 1,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0
+    },
+    "provided_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 1,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 1,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": false,
+    "is_semantic_accuracy": false,
+    "searches": 1,
+    "actions": null,
+    "llm_calls": 3,
+    "known_prompt_tokens": 4335,
+    "known_output_tokens": 238,
+    "token_metadata_calls": 3,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "linear_completion",
+    "fallback": null,
+    "search_steps": [
+      {
+        "query": "Нужный вариант дороже этой суммы",
+        "chunks": [
+          "93ccadb306d788976d6b",
+          "01798c77674968f2e642",
+          "fe1e86304918f2fcb5dd",
+          "9dee3b0b2fb2410e8350",
+          "8144b80910a6372459fb",
+          "20648398a713eaa1828c",
+          "35d83054f6344a2308aa",
+          "4501da697f38c0e53bce"
+        ],
+        "coverage": {
+          "recall_at_k": 0.0,
+          "ndcg_at_k": 0.0,
+          "evidence_found": [],
+          "evidence_count": 1,
+          "all_required_evidence_covered": false,
+          "span_recall_at_k": 0.0
+        }
+      }
+    ],
+    "additional_search_reference_gain": 0.0,
+    "strict_span_action_proxy": false,
+    "sources": [
+      {
+        "title": "Служебная мобильная связь во время поездки",
+        "location": "Абзац 2",
+        "quote": "Для согласованной служебной поездки по России сотруднику возмещается дополнительный мобильный пакет до 800 рублей за поездку при предварительном одобрении руководителя и подтверждении оплаты."
+      },
+      {
+        "title": "Финансовые ограничения мобильной связи в поездке",
+        "location": "Абзац 2",
+        "quote": "Дополнительные мобильные пакеты для рабочей связи в служебной поездке по России сотрудникам не возмещаются, включая предварительно одобренные руководителем."
+      }
+    ]
+  },
+  {
+    "run": "8e1a615a-2072-4d52-9b96-db9d3f1f7689",
+    "source_commit": "27a4ed63eeb487678248378b068b8fcf66f1c1e0",
+    "question_id": "v4.dialogue.cowork_to_hotel.4",
+    "group_id": "absent.hotel_rollover",
+    "mode": "agent",
+    "status": "conflict",
+    "answer": "«Служебная мобильная связь во время поездки», Абзац 2: «Для согласованной служебной поездки по России сотруднику возмещается дополнительный мобильный пакет до 800 рублей за поездку при предварительном одобрении руководителя и подтверждении оплаты.»\n«Финансовые ограничения мобильной связи в поездке», Абзац 2: «Дополнительные мобильные пакеты для рабочей связи в служебной поездке по России сотрудникам не возмещаются, включая предварительно одобренные руководителем.»\nЭти положения не позволяют дать однозначный ответ по базе знаний. Уточните применимое правило у HR.",
+    "query": "Нужный вариант дороже этой суммы",
+    "seconds": 20.93235260000074,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": 0.0,
+      "evidence_found": [],
+      "evidence_count": 1,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0
+    },
+    "provided_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 1,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 1,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": false,
+    "is_semantic_accuracy": false,
+    "searches": 1,
+    "actions": 1,
+    "llm_calls": 4,
+    "known_prompt_tokens": 4889,
+    "known_output_tokens": 278,
+    "token_metadata_calls": 4,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "document_conflict",
+    "fallback": null,
+    "search_steps": [
+      {
+        "query": "Нужный вариант дороже этой суммы",
+        "chunks": [
+          "93ccadb306d788976d6b",
+          "01798c77674968f2e642",
+          "fe1e86304918f2fcb5dd",
+          "9dee3b0b2fb2410e8350",
+          "8144b80910a6372459fb",
+          "20648398a713eaa1828c",
+          "35d83054f6344a2308aa",
+          "4501da697f38c0e53bce"
+        ],
+        "coverage": {
+          "recall_at_k": 0.0,
+          "ndcg_at_k": 0.0,
+          "evidence_found": [],
+          "evidence_count": 1,
+          "all_required_evidence_covered": false,
+          "span_recall_at_k": 0.0
+        }
+      }
+    ],
+    "additional_search_reference_gain": 0.0,
+    "strict_span_action_proxy": false,
+    "sources": [
+      {
+        "title": "Служебная мобильная связь во время поездки",
+        "location": "Абзац 2",
+        "quote": "Для согласованной служебной поездки по России сотруднику возмещается дополнительный мобильный пакет до 800 рублей за поездку при предварительном одобрении руководителя и подтверждении оплаты."
+      },
+      {
+        "title": "Финансовые ограничения мобильной связи в поездке",
+        "location": "Абзац 2",
+        "quote": "Дополнительные мобильные пакеты для рабочей связи в служебной поездке по России сотрудникам не возмещаются, включая предварительно одобренные руководителем."
+      }
+    ]
+  }
+]

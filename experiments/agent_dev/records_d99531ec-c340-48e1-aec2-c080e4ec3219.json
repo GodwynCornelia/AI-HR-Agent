@@ -1,0 +1,588 @@
+[
+  {
+    "run": "d99531ec-c340-48e1-aec2-c080e4ec3219",
+    "source_commit": "761a2585b9d7bb5a70af98aed35f38d6554046fe",
+    "question_id": "v4.dialogue.cowork_to_hotel.1",
+    "group_id": "absent.hotel_rollover",
+    "mode": "rag",
+    "status": "clarify",
+    "answer": "Какой у вас формат работы: офисный, гибридный или постоянный удалённый?",
+    "query": "Компенсируют мне рабочее место в коворкинге?",
+    "seconds": 28.049485199997434,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": null,
+      "ndcg_at_k": null,
+      "all_required_evidence_covered": null,
+      "span_recall_at_k": null
+    },
+    "provided_metrics": {
+      "recall_at_k": null,
+      "ndcg_at_k": null,
+      "all_required_evidence_covered": null,
+      "span_recall_at_k": null,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": null,
+      "ndcg_at_k": null,
+      "all_required_evidence_covered": null,
+      "span_recall_at_k": null,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": true,
+    "is_semantic_accuracy": false,
+    "searches": 1,
+    "actions": null,
+    "llm_calls": 3,
+    "known_prompt_tokens": 4555,
+    "known_output_tokens": 338,
+    "token_metadata_calls": 3,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "linear_completion",
+    "fallback": null,
+    "search_steps": [
+      {
+        "query": "Компенсируют мне рабочее место в коворкинге?",
+        "chunks": [
+          "defbb4ad46d1f8a2ad71",
+          "1cb5d03a06f458e6860d",
+          "075e114d7256dc081344",
+          "0f8b72931f2e82e92f19",
+          "d987594201bb38afb923",
+          "4d8099eea1ed06c1c43f",
+          "f637555fe89c56897192",
+          "13408180b705dd14458d"
+        ],
+        "coverage": {
+          "recall_at_k": null,
+          "ndcg_at_k": null,
+          "all_required_evidence_covered": null,
+          "span_recall_at_k": null
+        }
+      }
+    ],
+    "additional_search_reference_gain": null,
+    "strict_span_action_proxy": true,
+    "sources": []
+  },
+  {
+    "run": "d99531ec-c340-48e1-aec2-c080e4ec3219",
+    "source_commit": "761a2585b9d7bb5a70af98aed35f38d6554046fe",
+    "question_id": "v4.dialogue.cowork_to_hotel.1",
+    "group_id": "absent.hotel_rollover",
+    "mode": "agent",
+    "status": "clarify",
+    "answer": "Какой у вас формат работы: офисный, гибридный или постоянный удалённый?",
+    "query": "Компенсируют мне рабочее место в коворкинге?",
+    "seconds": 29.69698110000172,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": null,
+      "ndcg_at_k": null,
+      "all_required_evidence_covered": null,
+      "span_recall_at_k": null
+    },
+    "provided_metrics": {
+      "recall_at_k": null,
+      "ndcg_at_k": null,
+      "all_required_evidence_covered": null,
+      "span_recall_at_k": null,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": null,
+      "ndcg_at_k": null,
+      "all_required_evidence_covered": null,
+      "span_recall_at_k": null,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": true,
+    "is_semantic_accuracy": false,
+    "searches": 1,
+    "actions": 1,
+    "llm_calls": 4,
+    "known_prompt_tokens": 5150,
+    "known_output_tokens": 387,
+    "token_metadata_calls": 4,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "document_scope_clarification",
+    "fallback": null,
+    "search_steps": [
+      {
+        "query": "Компенсируют мне рабочее место в коворкинге?",
+        "chunks": [
+          "defbb4ad46d1f8a2ad71",
+          "1cb5d03a06f458e6860d",
+          "075e114d7256dc081344",
+          "0f8b72931f2e82e92f19",
+          "d987594201bb38afb923",
+          "4d8099eea1ed06c1c43f",
+          "f637555fe89c56897192",
+          "13408180b705dd14458d"
+        ],
+        "coverage": {
+          "recall_at_k": null,
+          "ndcg_at_k": null,
+          "all_required_evidence_covered": null,
+          "span_recall_at_k": null
+        }
+      }
+    ],
+    "additional_search_reference_gain": null,
+    "strict_span_action_proxy": true,
+    "sources": []
+  },
+  {
+    "run": "d99531ec-c340-48e1-aec2-c080e4ec3219",
+    "source_commit": "761a2585b9d7bb5a70af98aed35f38d6554046fe",
+    "question_id": "v4.dialogue.cowork_to_hotel.2",
+    "group_id": "absent.hotel_rollover",
+    "mode": "agent",
+    "status": "conflict",
+    "answer": "«Коворкинг: финансовая инструкция по личному месту», Абзац 2: «Постоянным удалённым сотрудникам компенсация индивидуального места в коворкинге не предоставляется.»\n«Коворкинг: организационная программа удалённого места», Абзац 2: «Постоянному удалённому сотруднику предоставляется возмещение коворкинга до 3000 рублей в месяц по подтверждённому договору и чеку.»\nЭти положения не позволяют дать однозначный ответ по базе знаний. Уточните применимое правило у HR.",
+    "query": "Компенсируют мне раб: Я постоянный удалённый, это обычное место для моей работы в своём городе.",
+    "seconds": 28.993741100006446,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": 1.0,
+      "ndcg_at_k": 1.0,
+      "evidence_found": [
+        0,
+        1
+      ],
+      "evidence_count": 2,
+      "all_required_evidence_covered": true,
+      "span_recall_at_k": 1.0
+    },
+    "provided_metrics": {
+      "recall_at_k": 1.0,
+      "ndcg_at_k": null,
+      "evidence_found": [
+        0,
+        1
+      ],
+      "evidence_count": 2,
+      "all_required_evidence_covered": true,
+      "span_recall_at_k": 1.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 2,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.15384615384615385,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": true,
+    "is_semantic_accuracy": false,
+    "searches": 1,
+    "actions": 1,
+    "llm_calls": 4,
+    "known_prompt_tokens": 5169,
+    "known_output_tokens": 329,
+    "token_metadata_calls": 4,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "document_conflict",
+    "fallback": null,
+    "search_steps": [
+      {
+        "query": "Компенсируют мне рабочее место в коворкинге для постоянных удалённых, если это обычное место для моей работы в своём городе?",
+        "chunks": [
+          "defbb4ad46d1f8a2ad71",
+          "1cb5d03a06f458e6860d",
+          "075e114d7256dc081344",
+          "15e0dbcf07de9318ae4b",
+          "8db2c8c9912d4e3f0953",
+          "dafe42c244547d065b95",
+          "e1da3239b1e3425da51c",
+          "0f8b72931f2e82e92f19"
+        ],
+        "coverage": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 1.0,
+          "evidence_found": [
+            0,
+            1
+          ],
+          "evidence_count": 2,
+          "all_required_evidence_covered": true,
+          "span_recall_at_k": 1.0
+        }
+      }
+    ],
+    "additional_search_reference_gain": 0.0,
+    "strict_span_action_proxy": false,
+    "sources": [
+      {
+        "title": "Коворкинг: финансовая инструкция по личному месту",
+        "location": "Абзац 2",
+        "quote": "Постоянным удалённым сотрудникам компенсация индивидуального места в коворкинге не предоставляется."
+      },
+      {
+        "title": "Коворкинг: организационная программа удалённого места",
+        "location": "Абзац 2",
+        "quote": "Постоянному удалённому сотруднику предоставляется возмещение коворкинга до 3000 рублей в месяц по подтверждённому договору и чеку."
+      }
+    ]
+  },
+  {
+    "run": "d99531ec-c340-48e1-aec2-c080e4ec3219",
+    "source_commit": "761a2585b9d7bb5a70af98aed35f38d6554046fe",
+    "question_id": "v4.dialogue.cowork_to_hotel.2",
+    "group_id": "absent.hotel_rollover",
+    "mode": "rag",
+    "status": "conflict",
+    "answer": "«Коворкинг: финансовая инструкция по личному месту», Абзац 2: «Постоянным удалённым сотрудникам компенсация индивидуального места в коворкинге не предоставляется.»\n«Коворкинг: организационная программа удалённого места», Абзац 2: «Постоянному удалённому сотруднику предоставляется возмещение коворкинга до 3000 рублей в месяц по подтверждённому договору и чеку.»\nЭти положения не позволяют дать однозначный ответ по базе знаний. Уточните применимое правило у HR.",
+    "query": "Компенсируют мне раб: Я постоянный удалённый, это обычное место для моей работы в своём городе.",
+    "seconds": 18.559178099996643,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": 1.0,
+      "ndcg_at_k": 0.8772153153380493,
+      "evidence_found": [
+        0,
+        1
+      ],
+      "evidence_count": 2,
+      "all_required_evidence_covered": true,
+      "span_recall_at_k": 1.0
+    },
+    "provided_metrics": {
+      "recall_at_k": 1.0,
+      "ndcg_at_k": null,
+      "evidence_found": [
+        0,
+        1
+      ],
+      "evidence_count": 2,
+      "all_required_evidence_covered": true,
+      "span_recall_at_k": 1.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 2,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.15384615384615385,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": true,
+    "is_semantic_accuracy": false,
+    "searches": 1,
+    "actions": null,
+    "llm_calls": 3,
+    "known_prompt_tokens": 4521,
+    "known_output_tokens": 234,
+    "token_metadata_calls": 3,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "linear_completion",
+    "fallback": null,
+    "search_steps": [
+      {
+        "query": "Компенсируют мне раб: Я постоянный удалённый, это обычное место для моей работы в своём городе.",
+        "chunks": [
+          "defbb4ad46d1f8a2ad71",
+          "d6dd72550a021c8353df",
+          "15e0dbcf07de9318ae4b",
+          "1cb5d03a06f458e6860d",
+          "e1da3239b1e3425da51c",
+          "8db2c8c9912d4e3f0953",
+          "dafe42c244547d065b95",
+          "41790aed76c59155483b"
+        ],
+        "coverage": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.8772153153380493,
+          "evidence_found": [
+            0,
+            1
+          ],
+          "evidence_count": 2,
+          "all_required_evidence_covered": true,
+          "span_recall_at_k": 1.0
+        }
+      }
+    ],
+    "additional_search_reference_gain": 0.0,
+    "strict_span_action_proxy": false,
+    "sources": [
+      {
+        "title": "Коворкинг: финансовая инструкция по личному месту",
+        "location": "Абзац 2",
+        "quote": "Постоянным удалённым сотрудникам компенсация индивидуального места в коворкинге не предоставляется."
+      },
+      {
+        "title": "Коворкинг: организационная программа удалённого места",
+        "location": "Абзац 2",
+        "quote": "Постоянному удалённому сотруднику предоставляется возмещение коворкинга до 3000 рублей в месяц по подтверждённому договору и чеку."
+      }
+    ]
+  },
+  {
+    "run": "d99531ec-c340-48e1-aec2-c080e4ec3219",
+    "source_commit": "761a2585b9d7bb5a70af98aed35f38d6554046fe",
+    "question_id": "v4.dialogue.cowork_to_hotel.3",
+    "group_id": "absent.hotel_rollover",
+    "mode": "rag",
+    "status": "clarify",
+    "answer": "К какому предмету и условию относится ваше продолжение?",
+    "query": "",
+    "seconds": 6.998962899997423,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 1,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0
+    },
+    "provided_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 1,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 1,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": false,
+    "is_semantic_accuracy": false,
+    "searches": 0,
+    "actions": null,
+    "llm_calls": 2,
+    "known_prompt_tokens": 1030,
+    "known_output_tokens": 65,
+    "token_metadata_calls": 2,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "linear_completion",
+    "fallback": null,
+    "search_steps": [],
+    "additional_search_reference_gain": null,
+    "strict_span_action_proxy": false,
+    "sources": []
+  },
+  {
+    "run": "d99531ec-c340-48e1-aec2-c080e4ec3219",
+    "source_commit": "761a2585b9d7bb5a70af98aed35f38d6554046fe",
+    "question_id": "v4.dialogue.cowork_to_hotel.3",
+    "group_id": "absent.hotel_rollover",
+    "mode": "agent",
+    "status": "clarify",
+    "answer": "Какой у вас формат работы: офисный, гибридный или постоянный удалённый?",
+    "query": "Компенсируют мне рабочее место в коворкинге?",
+    "seconds": 34.33497769999667,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": 0.0,
+      "evidence_found": [],
+      "evidence_count": 1,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0
+    },
+    "provided_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 1,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 1,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": false,
+    "is_semantic_accuracy": false,
+    "searches": 1,
+    "actions": 1,
+    "llm_calls": 5,
+    "known_prompt_tokens": 5677,
+    "known_output_tokens": 411,
+    "token_metadata_calls": 5,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "document_scope_clarification",
+    "fallback": null,
+    "search_steps": [
+      {
+        "query": "Компенсируют мне рабочее место в коворкинге?",
+        "chunks": [
+          "defbb4ad46d1f8a2ad71",
+          "1cb5d03a06f458e6860d",
+          "075e114d7256dc081344",
+          "0f8b72931f2e82e92f19",
+          "d987594201bb38afb923",
+          "4d8099eea1ed06c1c43f",
+          "f637555fe89c56897192",
+          "13408180b705dd14458d"
+        ],
+        "coverage": {
+          "recall_at_k": 0.0,
+          "ndcg_at_k": 0.0,
+          "evidence_found": [],
+          "evidence_count": 1,
+          "all_required_evidence_covered": false,
+          "span_recall_at_k": 0.0
+        }
+      }
+    ],
+    "additional_search_reference_gain": 0.0,
+    "strict_span_action_proxy": false,
+    "sources": []
+  },
+  {
+    "run": "d99531ec-c340-48e1-aec2-c080e4ec3219",
+    "source_commit": "761a2585b9d7bb5a70af98aed35f38d6554046fe",
+    "question_id": "v4.dialogue.cowork_to_hotel.4",
+    "group_id": "absent.hotel_rollover",
+    "mode": "agent",
+    "status": "refuse",
+    "answer": "Не удалось завершить проверку источников в пределах доступного бюджета или из-за технической ошибки. Это не означает отсутствия правила в базе. Повторите вопрос или обратитесь к HR.",
+    "query": "Нужный вариант дороже этой суммы. — какое условие в ковернинге, гостинице или командировке?",
+    "seconds": 79.13699180000549,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": 1.0,
+      "ndcg_at_k": 0.43067655807339306,
+      "evidence_found": [
+        0
+      ],
+      "evidence_count": 1,
+      "all_required_evidence_covered": true,
+      "span_recall_at_k": 1.0
+    },
+    "provided_metrics": {
+      "recall_at_k": 1.0,
+      "ndcg_at_k": null,
+      "evidence_found": [
+        0
+      ],
+      "evidence_count": 1,
+      "all_required_evidence_covered": true,
+      "span_recall_at_k": 1.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 1,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": false,
+    "is_semantic_accuracy": false,
+    "searches": 1,
+    "actions": 3,
+    "llm_calls": 7,
+    "known_prompt_tokens": 11835,
+    "known_output_tokens": 553,
+    "token_metadata_calls": 7,
+    "blocked_duplicate_calls": 1,
+    "stop_reason": "duplicate_tool_call",
+    "fallback": null,
+    "search_steps": [
+      {
+        "query": "Нужный вариант дороже этой суммы. — какое условие в ковернинге, гостинице или командировке?",
+        "chunks": [
+          "2602fd240d275a164059",
+          "4501da697f38c0e53bce",
+          "cff57466b2c308153b58",
+          "75662e3cef775a75d512",
+          "8e1510b8b5088d88eea3",
+          "fe1e86304918f2fcb5dd",
+          "01624fd1986f7a49bb19",
+          "20648398a713eaa1828c"
+        ],
+        "coverage": {
+          "recall_at_k": 1.0,
+          "ndcg_at_k": 0.43067655807339306,
+          "evidence_found": [
+            0
+          ],
+          "evidence_count": 1,
+          "all_required_evidence_covered": true,
+          "span_recall_at_k": 1.0
+        }
+      }
+    ],
+    "additional_search_reference_gain": 0.0,
+    "strict_span_action_proxy": false,
+    "sources": []
+  },
+  {
+    "run": "d99531ec-c340-48e1-aec2-c080e4ec3219",
+    "source_commit": "761a2585b9d7bb5a70af98aed35f38d6554046fe",
+    "question_id": "v4.dialogue.cowork_to_hotel.4",
+    "group_id": "absent.hotel_rollover",
+    "mode": "rag",
+    "status": "clarify",
+    "answer": "К какому предмету и условию относится ваше продолжение?",
+    "query": "",
+    "seconds": 6.375237000000197,
+    "partial": false,
+    "retrieved_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 1,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0
+    },
+    "provided_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 1,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "cited_metrics": {
+      "recall_at_k": 0.0,
+      "ndcg_at_k": null,
+      "evidence_found": [],
+      "evidence_count": 1,
+      "all_required_evidence_covered": false,
+      "span_recall_at_k": 0.0,
+      "rank_note": "Context/citation coverage, not retriever ranking."
+    },
+    "action_label_proxy": false,
+    "is_semantic_accuracy": false,
+    "searches": 0,
+    "actions": null,
+    "llm_calls": 2,
+    "known_prompt_tokens": 1072,
+    "known_output_tokens": 85,
+    "token_metadata_calls": 2,
+    "blocked_duplicate_calls": 0,
+    "stop_reason": "linear_completion",
+    "fallback": null,
+    "search_steps": [],
+    "additional_search_reference_gain": null,
+    "strict_span_action_proxy": false,
+    "sources": []
+  }
+]

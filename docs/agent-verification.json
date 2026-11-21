@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-21",
+  "runtime_source_commit": "e3fca656251563b759ca5883e977f71bf32109dd",
+  "suite": "python manage.py test assistant --noinput",
+  "tests_found": 70,
+  "tests_passed": 70,
+  "database": "separate_temporary_test_database",
+  "compact_results": "five separate runs, 76 records; 41 corpus hashes, 286 catalog chunks; 34 preliminary LLM grades verified",
+  "live_model_runs": "see experiments/agent_dev; actual local inference, not mocks",
+  "ui": "docs/agent-ui-verification.json",
+  "extra_docker_stacks": "hr-agent-branch and listva stopped",
+  "remaining_limits": [
+    "anaphora and action-selection errors",
+    "no measured retrieval gain",
+    "uncalibrated same-model judge",
+    "no independent final test on new scenarios"
+  ]
+}
