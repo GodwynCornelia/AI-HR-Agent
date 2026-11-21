@@ -1,0 +1,1901 @@
+[
+  {
+    "run": "ddd81707-c99f-4b5e-a895-a1b659f04e74",
+    "kind": "natural",
+    "configuration": {
+      "purpose": "development_diagnostics_not_independent_final_test",
+      "source_commit": "807d6eb366e117e331bf3a57b46b22e51f860257",
+      "langgraph": "1.2.24",
+      "ids": [
+        "v4.dialogue.cowork_to_hotel.1",
+        "v4.dialogue.cowork_to_hotel.2",
+        "v4.dialogue.cowork_to_hotel.3",
+        "v4.dialogue.cowork_to_hotel.4"
+      ],
+      "same_retriever": true,
+      "new_final_test": false,
+      "model": "qwen3:4b",
+      "embedding": "embeddinggemma",
+      "model_context": "4096",
+      "model_output": "700",
+      "top_k": "8",
+      "corpus_manifest_sha256": "59e17e22372a20ef5712ee4c925389694e11bb90ba6f00da97f0fe3adf8f4ebe",
+      "protocol_sha256": "5aaa0b16fdc1f95cddc5ee9234d844821fe23a2f28ec8282900f5549348aa9c6",
+      "ollama_version": {
+        "version": "0.40.16"
+      },
+      "model_digests": {
+        "qwen3:4b": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+        "embeddinggemma:latest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1"
+      },
+      "requirements_lock_sha256": "90b620966d41a2262ea5a9a8305ffc7a9ecf8ce7134a6e02b58a0dcd3e1e2307",
+      "initial_query_shared_with_rag": true
+    },
+    "mode": "rag",
+    "question": "Компенсируют мне рабочее место в коворкинге?",
+    "question_id": "v4.dialogue.cowork_to_hotel.1",
+    "expected": "Уточнить постоянный формат и предмет места; не выбирать сумму до условий.",
+    "history": [],
+    "query": "Компенсируют мне рабочее место в коворкинге?",
+    "answer": "Какой у вас формат работы: офисный, гибридный или постоянный удалённый?",
+    "status": "clarify",
+    "seconds": 49.2696036999987,
+    "llm_calls": 3,
+    "searches": 1,
+    "reads": 0,
+    "stop_reason": null,
+    "fallback": null,
+    "span_recall": null,
+    "sources": [],
+    "dialogue_state": null,
+    "assessment": {
+      "finding": "Компенсируют мне рабочее место в коворкинге?",
+      "proof_ids": [],
+      "sufficient": false,
+      "missing": [
+        "Компенсация индивидуального места в коворкинге для постоянных удалённых сотрудников"
+      ],
+      "clarification": ""
+    },
+    "decisions": [],
+    "graph_configuration": null,
+    "graph_code_sha256": null,
+    "events": []
+  },
+  {
+    "run": "ddd81707-c99f-4b5e-a895-a1b659f04e74",
+    "kind": "natural",
+    "configuration": {
+      "purpose": "development_diagnostics_not_independent_final_test",
+      "source_commit": "807d6eb366e117e331bf3a57b46b22e51f860257",
+      "langgraph": "1.2.24",
+      "ids": [
+        "v4.dialogue.cowork_to_hotel.1",
+        "v4.dialogue.cowork_to_hotel.2",
+        "v4.dialogue.cowork_to_hotel.3",
+        "v4.dialogue.cowork_to_hotel.4"
+      ],
+      "same_retriever": true,
+      "new_final_test": false,
+      "model": "qwen3:4b",
+      "embedding": "embeddinggemma",
+      "model_context": "4096",
+      "model_output": "700",
+      "top_k": "8",
+      "corpus_manifest_sha256": "59e17e22372a20ef5712ee4c925389694e11bb90ba6f00da97f0fe3adf8f4ebe",
+      "protocol_sha256": "5aaa0b16fdc1f95cddc5ee9234d844821fe23a2f28ec8282900f5549348aa9c6",
+      "ollama_version": {
+        "version": "0.40.16"
+      },
+      "model_digests": {
+        "qwen3:4b": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+        "embeddinggemma:latest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1"
+      },
+      "requirements_lock_sha256": "90b620966d41a2262ea5a9a8305ffc7a9ecf8ce7134a6e02b58a0dcd3e1e2307",
+      "initial_query_shared_with_rag": true
+    },
+    "mode": "agent",
+    "question": "Компенсируют мне рабочее место в коворкинге?",
+    "question_id": "v4.dialogue.cowork_to_hotel.1",
+    "expected": "Уточнить постоянный формат и предмет места; не выбирать сумму до условий.",
+    "history": [],
+    "query": "Компенсируют мне рабочее место в коворкинге?",
+    "answer": "Какой у вас формат работы: офисный, гибридный или постоянный удалённый?",
+    "status": "clarify",
+    "seconds": 33.945838300001924,
+    "llm_calls": 4,
+    "searches": 1,
+    "reads": 0,
+    "stop_reason": "document_scope_clarification",
+    "fallback": null,
+    "span_recall": null,
+    "sources": [],
+    "dialogue_state": null,
+    "assessment": {
+      "finding": "Компенсируют мне рабочее место в коворкинге?",
+      "proof_ids": [],
+      "sufficient": false,
+      "missing": [
+        "Компенсация индивидуального места в коворкинге для постоянных удалённых сотрудников"
+      ],
+      "clarification": ""
+    },
+    "decisions": [
+      {
+        "action": "search_policies",
+        "query": "Компенсируют мне рабочее место в коворкинге?",
+        "clarification": ""
+      }
+    ],
+    "graph_configuration": {
+      "MODEL_CONTEXT": "4096",
+      "MODEL_OUTPUT": "700",
+      "TOP_K": "8",
+      "CONTEXT_CHARS": "12000",
+      "MODEL_GPU_LAYERS": "99",
+      "EMBED_GPU_LAYERS": "0",
+      "temperature": 0,
+      "seed": 116,
+      "embedding_model": "embeddinggemma"
+    },
+    "graph_code_sha256": "39366a3210b9ea40ccbf18635c9a7f949c10a0eda5e4a451a37a5c7713eab151",
+    "events": [
+      {
+        "node": "prepare",
+        "seconds": 1.2999953469261527e-06,
+        "action": null,
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      },
+      {
+        "node": "plan",
+        "seconds": 9.063908099997207,
+        "action": "search_policies",
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      },
+      {
+        "node": "tool",
+        "seconds": 1.3002379000099609,
+        "action": null,
+        "tool": "search_policies",
+        "arguments": {
+          "query": "Компенсируют мне рабочее место в коворкинге?"
+        },
+        "blocked": null,
+        "new_chunks": 8,
+        "new_proofs": null,
+        "retrieval_state": "new_chunks"
+      },
+      {
+        "node": "assess",
+        "seconds": 19.240611400004127,
+        "action": null,
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": 0,
+        "retrieval_state": "irrelevant"
+      },
+      {
+        "node": "finalize",
+        "seconds": 0.0005243999912636355,
+        "action": null,
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      }
+    ]
+  },
+  {
+    "run": "ddd81707-c99f-4b5e-a895-a1b659f04e74",
+    "kind": "natural",
+    "configuration": {
+      "purpose": "development_diagnostics_not_independent_final_test",
+      "source_commit": "807d6eb366e117e331bf3a57b46b22e51f860257",
+      "langgraph": "1.2.24",
+      "ids": [
+        "v4.dialogue.cowork_to_hotel.1",
+        "v4.dialogue.cowork_to_hotel.2",
+        "v4.dialogue.cowork_to_hotel.3",
+        "v4.dialogue.cowork_to_hotel.4"
+      ],
+      "same_retriever": true,
+      "new_final_test": false,
+      "model": "qwen3:4b",
+      "embedding": "embeddinggemma",
+      "model_context": "4096",
+      "model_output": "700",
+      "top_k": "8",
+      "corpus_manifest_sha256": "59e17e22372a20ef5712ee4c925389694e11bb90ba6f00da97f0fe3adf8f4ebe",
+      "protocol_sha256": "5aaa0b16fdc1f95cddc5ee9234d844821fe23a2f28ec8282900f5549348aa9c6",
+      "ollama_version": {
+        "version": "0.40.16"
+      },
+      "model_digests": {
+        "qwen3:4b": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+        "embeddinggemma:latest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1"
+      },
+      "requirements_lock_sha256": "90b620966d41a2262ea5a9a8305ffc7a9ecf8ce7134a6e02b58a0dcd3e1e2307",
+      "initial_query_shared_with_rag": true
+    },
+    "mode": "agent",
+    "question": "Я постоянный удалённый, это обычное место для моей работы в своём городе.",
+    "question_id": "v4.dialogue.cowork_to_hotel.2",
+    "expected": "Нормы 3000/запрет несовместимы для тех же условий; показать обе, нет основания выбора, обратиться к HR.",
+    "history": [
+      {
+        "question": "Компенсируют мне рабочее место в коворкинге?",
+        "search_query": "Компенсируют мне рабочее место в коворкинге?",
+        "answer": "Какой у вас формат работы: офисный, гибридный или постоянный удалённый?"
+      }
+    ],
+    "query": "Компенсируют мне раб: Я постоянный удалённый, это обычное место для моей работы в своём городе.",
+    "answer": "«Коворкинг: финансовая инструкция по личному месту», Абзац 2: «Постоянным удалённым сотрудникам компенсация индивидуального места в коворкинге не предоставляется.»\n«Коворкинг: организационная программа удалённого места», Абзац 2: «Постоянному удалённому сотруднику предоставляется возмещение коворкинга до 3000 рублей в месяц по подтверждённому договору и чеку.»\nЭти положения не позволяют дать однозначный ответ по базе знаний. Уточните применимое правило у HR.",
+    "status": "conflict",
+    "seconds": 47.34498330000497,
+    "llm_calls": 4,
+    "searches": 1,
+    "reads": 0,
+    "stop_reason": "document_conflict",
+    "fallback": null,
+    "span_recall": 0.15384615384615385,
+    "sources": [
+      {
+        "title": "Коворкинг: финансовая инструкция по личному месту",
+        "location": "Абзац 2",
+        "quote": "Постоянным удалённым сотрудникам компенсация индивидуального места в коворкинге не предоставляется."
+      },
+      {
+        "title": "Коворкинг: организационная программа удалённого места",
+        "location": "Абзац 2",
+        "quote": "Постоянному удалённому сотруднику предоставляется возмещение коворкинга до 3000 рублей в месяц по подтверждённому договору и чеку."
+      }
+    ],
+    "dialogue_state": null,
+    "assessment": {
+      "finding": "Компенсация для постоянного удалённого сотрудника с рабочим местом вне офиса не предоставляется",
+      "proof_ids": [
+        "E2"
+      ],
+      "sufficient": true,
+      "missing": [],
+      "clarification": ""
+    },
+    "decisions": [
+      {
+        "action": "search_policies",
+        "query": "Компенсируют мне раб: Я постоянный удалённый, это обычное место для моей работы в своём городе.",
+        "clarification": ""
+      }
+    ],
+    "graph_configuration": {
+      "MODEL_CONTEXT": "4096",
+      "MODEL_OUTPUT": "700",
+      "TOP_K": "8",
+      "CONTEXT_CHARS": "12000",
+      "MODEL_GPU_LAYERS": "99",
+      "EMBED_GPU_LAYERS": "0",
+      "temperature": 0,
+      "seed": 116,
+      "embedding_model": "embeddinggemma"
+    },
+    "graph_code_sha256": "39366a3210b9ea40ccbf18635c9a7f949c10a0eda5e4a451a37a5c7713eab151",
+    "events": [
+      {
+        "node": "prepare",
+        "seconds": 1.200009137392044e-06,
+        "action": null,
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      },
+      {
+        "node": "plan",
+        "seconds": 7.355230800007121,
+        "action": "search_policies",
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      },
+      {
+        "node": "tool",
+        "seconds": 1.3251613000029465,
+        "action": null,
+        "tool": "search_policies",
+        "arguments": {
+          "query": "Компенсируют мне раб: Я постоянный удалённый, это обычное место для моей работы в своём городе."
+        },
+        "blocked": null,
+        "new_chunks": 8,
+        "new_proofs": null,
+        "retrieval_state": "new_chunks"
+      },
+      {
+        "node": "assess",
+        "seconds": 34.437475900005666,
+        "action": null,
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": 1,
+        "retrieval_state": "complete"
+      },
+      {
+        "node": "finalize",
+        "seconds": 0.006291500001680106,
+        "action": null,
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      }
+    ]
+  },
+  {
+    "run": "ddd81707-c99f-4b5e-a895-a1b659f04e74",
+    "kind": "natural",
+    "configuration": {
+      "purpose": "development_diagnostics_not_independent_final_test",
+      "source_commit": "807d6eb366e117e331bf3a57b46b22e51f860257",
+      "langgraph": "1.2.24",
+      "ids": [
+        "v4.dialogue.cowork_to_hotel.1",
+        "v4.dialogue.cowork_to_hotel.2",
+        "v4.dialogue.cowork_to_hotel.3",
+        "v4.dialogue.cowork_to_hotel.4"
+      ],
+      "same_retriever": true,
+      "new_final_test": false,
+      "model": "qwen3:4b",
+      "embedding": "embeddinggemma",
+      "model_context": "4096",
+      "model_output": "700",
+      "top_k": "8",
+      "corpus_manifest_sha256": "59e17e22372a20ef5712ee4c925389694e11bb90ba6f00da97f0fe3adf8f4ebe",
+      "protocol_sha256": "5aaa0b16fdc1f95cddc5ee9234d844821fe23a2f28ec8282900f5549348aa9c6",
+      "ollama_version": {
+        "version": "0.40.16"
+      },
+      "model_digests": {
+        "qwen3:4b": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+        "embeddinggemma:latest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1"
+      },
+      "requirements_lock_sha256": "90b620966d41a2262ea5a9a8305ffc7a9ecf8ce7134a6e02b58a0dcd3e1e2307",
+      "initial_query_shared_with_rag": true
+    },
+    "mode": "rag",
+    "question": "Я постоянный удалённый, это обычное место для моей работы в своём городе.",
+    "question_id": "v4.dialogue.cowork_to_hotel.2",
+    "expected": "Нормы 3000/запрет несовместимы для тех же условий; показать обе, нет основания выбора, обратиться к HR.",
+    "history": [
+      {
+        "question": "Компенсируют мне рабочее место в коворкинге?",
+        "search_query": "Компенсируют мне рабочее место в коворкинге?",
+        "answer": "Какой у вас формат работы: офисный, гибридный или постоянный удалённый?"
+      }
+    ],
+    "query": "Компенсируют мне раб: Я постоянный удалённый, это обычное место для моей работы в своём городе.",
+    "answer": "«Коворкинг: финансовая инструкция по личному месту», Абзац 2: «Постоянным удалённым сотрудникам компенсация индивидуального места в коворкинге не предоставляется.»\n«Коворкинг: организационная программа удалённого места», Абзац 2: «Постоянному удалённому сотруднику предоставляется возмещение коворкинга до 3000 рублей в месяц по подтверждённому договору и чеку.»\nЭти положения не позволяют дать однозначный ответ по базе знаний. Уточните применимое правило у HR.",
+    "status": "conflict",
+    "seconds": 16.738081699993927,
+    "llm_calls": 3,
+    "searches": 1,
+    "reads": 0,
+    "stop_reason": null,
+    "fallback": null,
+    "span_recall": 0.15384615384615385,
+    "sources": [
+      {
+        "title": "Коворкинг: финансовая инструкция по личному месту",
+        "location": "Абзац 2",
+        "quote": "Постоянным удалённым сотрудникам компенсация индивидуального места в коворкинге не предоставляется."
+      },
+      {
+        "title": "Коворкинг: организационная программа удалённого места",
+        "location": "Абзац 2",
+        "quote": "Постоянному удалённому сотруднику предоставляется возмещение коворкинга до 3000 рублей в месяц по подтверждённому договору и чеку."
+      }
+    ],
+    "dialogue_state": null,
+    "assessment": {
+      "finding": "Компенсация для постоянного удалённого сотрудника с рабочим местом вне офиса не предоставляется",
+      "proof_ids": [
+        "E2"
+      ],
+      "sufficient": true,
+      "missing": [],
+      "clarification": ""
+    },
+    "decisions": [],
+    "graph_configuration": null,
+    "graph_code_sha256": null,
+    "events": []
+  },
+  {
+    "run": "ddd81707-c99f-4b5e-a895-a1b659f04e74",
+    "kind": "natural",
+    "configuration": {
+      "purpose": "development_diagnostics_not_independent_final_test",
+      "source_commit": "807d6eb366e117e331bf3a57b46b22e51f860257",
+      "langgraph": "1.2.24",
+      "ids": [
+        "v4.dialogue.cowork_to_hotel.1",
+        "v4.dialogue.cowork_to_hotel.2",
+        "v4.dialogue.cowork_to_hotel.3",
+        "v4.dialogue.cowork_to_hotel.4"
+      ],
+      "same_retriever": true,
+      "new_final_test": false,
+      "model": "qwen3:4b",
+      "embedding": "embeddinggemma",
+      "model_context": "4096",
+      "model_output": "700",
+      "top_k": "8",
+      "corpus_manifest_sha256": "59e17e22372a20ef5712ee4c925389694e11bb90ba6f00da97f0fe3adf8f4ebe",
+      "protocol_sha256": "5aaa0b16fdc1f95cddc5ee9234d844821fe23a2f28ec8282900f5549348aa9c6",
+      "ollama_version": {
+        "version": "0.40.16"
+      },
+      "model_digests": {
+        "qwen3:4b": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+        "embeddinggemma:latest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1"
+      },
+      "requirements_lock_sha256": "90b620966d41a2262ea5a9a8305ffc7a9ecf8ce7134a6e02b58a0dcd3e1e2307",
+      "initial_query_shared_with_rag": true
+    },
+    "mode": "rag",
+    "question": "А гостиница в согласованной командировке?",
+    "question_id": "v4.dialogue.cowork_to_hotel.3",
+    "expected": "Другой предмет: 6000 за ночь, превышение заранее у владельца бюджета.",
+    "history": [
+      {
+        "question": "Компенсируют мне рабочее место в коворкинге?",
+        "search_query": "Компенсируют мне рабочее место в коворкинге?",
+        "answer": "Какой у вас формат работы: офисный, гибридный или постоянный удалённый?"
+      },
+      {
+        "question": "Я постоянный удалённый, это обычное место для моей работы в своём городе.",
+        "search_query": "Компенсируют мне раб: Я постоянный удалённый, это обычное место для моей работы в своём городе.",
+        "answer": "«Коворкинг: финансовая инструкция по личному месту», Абзац 2: «Постоянным удалённым сотрудникам компенсация индивидуального места в коворкинге не предоставляется.»\n«Коворкинг: организационная программа удалённого места», Абзац 2: «Постоянному удалённому сотруднику предоставляется возмещение коворкинга до 3000 рублей в месяц по подтверждённому договору и чеку.»\nЭти положения не позволяют дать однозначный ответ по базе знаний. Уточните применимое правило у HR."
+      }
+    ],
+    "query": "Компенсируют мне гостиницу в согласованной командировке?",
+    "answer": "В согласованной командировке гостиница компенсируется по лимиту 6000 рублей за ночь на сотрудника. Превышение лимита проживания требует письменного согласия владельца бюджета. Стандартное такси компенсируется по фактической согласованной поездке.",
+    "status": "answer",
+    "seconds": 73.13538320000225,
+    "llm_calls": 6,
+    "searches": 1,
+    "reads": 0,
+    "stop_reason": null,
+    "fallback": null,
+    "span_recall": 0.0,
+    "sources": [
+      {
+        "title": "Бронирование, лимиты проживания и перевозки",
+        "location": "Страница 2",
+        "quote": "Вид Предел / условие До покупки Проживание 6000 рублей за ночь на сотрудника Превышение письменно: владелец бюджета Билеты Экономический подходящий тариф Согласованная поездка, координатор Такси Фактический согласованный маршрут Особый класс отдельно"
+      },
+      {
+        "title": "Бронирование, лимиты проживания и перевозки",
+        "location": "Страница 1",
+        "quote": "Как читать лимиты В приложении к этому регламенту приведена таблица: проживание — 6000 рублей за ночь, стандартное такси — по фактической согласованной поездке, повышенный класс — только по предварительному разрешению."
+      }
+    ],
+    "dialogue_state": null,
+    "assessment": {
+      "finding": "Компенсируют ли мне гостиницу в согласованной командировке?",
+      "proof_ids": [
+        "E11",
+        "E31"
+      ],
+      "sufficient": true,
+      "missing": [],
+      "clarification": ""
+    },
+    "decisions": [],
+    "graph_configuration": null,
+    "graph_code_sha256": null,
+    "events": []
+  },
+  {
+    "run": "ddd81707-c99f-4b5e-a895-a1b659f04e74",
+    "kind": "natural",
+    "configuration": {
+      "purpose": "development_diagnostics_not_independent_final_test",
+      "source_commit": "807d6eb366e117e331bf3a57b46b22e51f860257",
+      "langgraph": "1.2.24",
+      "ids": [
+        "v4.dialogue.cowork_to_hotel.1",
+        "v4.dialogue.cowork_to_hotel.2",
+        "v4.dialogue.cowork_to_hotel.3",
+        "v4.dialogue.cowork_to_hotel.4"
+      ],
+      "same_retriever": true,
+      "new_final_test": false,
+      "model": "qwen3:4b",
+      "embedding": "embeddinggemma",
+      "model_context": "4096",
+      "model_output": "700",
+      "top_k": "8",
+      "corpus_manifest_sha256": "59e17e22372a20ef5712ee4c925389694e11bb90ba6f00da97f0fe3adf8f4ebe",
+      "protocol_sha256": "5aaa0b16fdc1f95cddc5ee9234d844821fe23a2f28ec8282900f5549348aa9c6",
+      "ollama_version": {
+        "version": "0.40.16"
+      },
+      "model_digests": {
+        "qwen3:4b": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+        "embeddinggemma:latest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1"
+      },
+      "requirements_lock_sha256": "90b620966d41a2262ea5a9a8305ffc7a9ecf8ce7134a6e02b58a0dcd3e1e2307",
+      "initial_query_shared_with_rag": true
+    },
+    "mode": "agent",
+    "question": "А гостиница в согласованной командировке?",
+    "question_id": "v4.dialogue.cowork_to_hotel.3",
+    "expected": "Другой предмет: 6000 за ночь, превышение заранее у владельца бюджета.",
+    "history": [
+      {
+        "question": "Компенсируют мне рабочее место в коворкинге?",
+        "search_query": "Компенсируют мне рабочее место в коворкинге?",
+        "answer": "Какой у вас формат работы: офисный, гибридный или постоянный удалённый?"
+      },
+      {
+        "question": "Я постоянный удалённый, это обычное место для моей работы в своём городе.",
+        "search_query": "Компенсируют мне раб: Я постоянный удалённый, это обычное место для моей работы в своём городе.",
+        "answer": "«Коворкинг: финансовая инструкция по личному месту», Абзац 2: «Постоянным удалённым сотрудникам компенсация индивидуального места в коворкинге не предоставляется.»\n«Коворкинг: организационная программа удалённого места», Абзац 2: «Постоянному удалённому сотруднику предоставляется возмещение коворкинга до 3000 рублей в месяц по подтверждённому договору и чеку.»\nЭти положения не позволяют дать однозначный ответ по базе знаний. Уточните применимое правило у HR."
+      }
+    ],
+    "query": "Компенсируют мне гостиницу в согласованной командировке?",
+    "answer": "В согласованной командировке гостиница компенсируется по лимиту 6000 рублей за ночь на сотрудника. Превышение лимита проживания требует письменного согласия владельца бюджета. Стандартное такси компенсируется по фактической согласованной поездке.",
+    "status": "answer",
+    "seconds": 60.21845549999853,
+    "llm_calls": 8,
+    "searches": 1,
+    "reads": 0,
+    "stop_reason": "answer",
+    "fallback": null,
+    "span_recall": 0.0,
+    "sources": [
+      {
+        "title": "Бронирование, лимиты проживания и перевозки",
+        "location": "Страница 2",
+        "quote": "Вид Предел / условие До покупки Проживание 6000 рублей за ночь на сотрудника Превышение письменно: владелец бюджета Билеты Экономический подходящий тариф Согласованная поездка, координатор Такси Фактический согласованный маршрут Особый класс отдельно"
+      },
+      {
+        "title": "Бронирование, лимиты проживания и перевозки",
+        "location": "Страница 1",
+        "quote": "Как читать лимиты В приложении к этому регламенту приведена таблица: проживание — 6000 рублей за ночь, стандартное такси — по фактической согласованной поездке, повышенный класс — только по предварительному разрешению."
+      }
+    ],
+    "dialogue_state": null,
+    "assessment": {
+      "finding": "Компенсируют ли мне гостиницу в согласованной командировке?",
+      "proof_ids": [
+        "E11",
+        "E31"
+      ],
+      "sufficient": true,
+      "missing": [],
+      "clarification": ""
+    },
+    "decisions": [
+      {
+        "action": "search_policies",
+        "query": "Компенсируют мне гостиницу в согласованной командировке?",
+        "clarification": ""
+      },
+      {
+        "action": "answer",
+        "query": "Компенсируют мне гостиницу в согласованной командировке?",
+        "clarification": ""
+      }
+    ],
+    "graph_configuration": {
+      "MODEL_CONTEXT": "4096",
+      "MODEL_OUTPUT": "700",
+      "TOP_K": "8",
+      "CONTEXT_CHARS": "12000",
+      "MODEL_GPU_LAYERS": "99",
+      "EMBED_GPU_LAYERS": "0",
+      "temperature": 0,
+      "seed": 116,
+      "embedding_model": "embeddinggemma"
+    },
+    "graph_code_sha256": "39366a3210b9ea40ccbf18635c9a7f949c10a0eda5e4a451a37a5c7713eab151",
+    "events": [
+      {
+        "node": "prepare",
+        "seconds": 1.00000761449337e-06,
+        "action": null,
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      },
+      {
+        "node": "plan",
+        "seconds": 6.301395400005276,
+        "action": "search_policies",
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      },
+      {
+        "node": "tool",
+        "seconds": 1.2592800999991596,
+        "action": null,
+        "tool": "search_policies",
+        "arguments": {
+          "query": "Компенсируют мне гостиницу в согласованной командировке?"
+        },
+        "blocked": null,
+        "new_chunks": 8,
+        "new_proofs": null,
+        "retrieval_state": "new_chunks"
+      },
+      {
+        "node": "assess",
+        "seconds": 18.167141300000367,
+        "action": null,
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": 2,
+        "retrieval_state": "complete"
+      },
+      {
+        "node": "plan",
+        "seconds": 16.67736370000057,
+        "action": "answer",
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      },
+      {
+        "node": "finalize",
+        "seconds": 11.576165699996636,
+        "action": null,
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      }
+    ]
+  },
+  {
+    "run": "ddd81707-c99f-4b5e-a895-a1b659f04e74",
+    "kind": "natural",
+    "configuration": {
+      "purpose": "development_diagnostics_not_independent_final_test",
+      "source_commit": "807d6eb366e117e331bf3a57b46b22e51f860257",
+      "langgraph": "1.2.24",
+      "ids": [
+        "v4.dialogue.cowork_to_hotel.1",
+        "v4.dialogue.cowork_to_hotel.2",
+        "v4.dialogue.cowork_to_hotel.3",
+        "v4.dialogue.cowork_to_hotel.4"
+      ],
+      "same_retriever": true,
+      "new_final_test": false,
+      "model": "qwen3:4b",
+      "embedding": "embeddinggemma",
+      "model_context": "4096",
+      "model_output": "700",
+      "top_k": "8",
+      "corpus_manifest_sha256": "59e17e22372a20ef5712ee4c925389694e11bb90ba6f00da97f0fe3adf8f4ebe",
+      "protocol_sha256": "5aaa0b16fdc1f95cddc5ee9234d844821fe23a2f28ec8282900f5549348aa9c6",
+      "ollama_version": {
+        "version": "0.40.16"
+      },
+      "model_digests": {
+        "qwen3:4b": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+        "embeddinggemma:latest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1"
+      },
+      "requirements_lock_sha256": "90b620966d41a2262ea5a9a8305ffc7a9ecf8ce7134a6e02b58a0dcd3e1e2307",
+      "initial_query_shared_with_rag": true
+    },
+    "mode": "agent",
+    "question": "Нужный вариант дороже этой суммы.",
+    "question_id": "v4.dialogue.cowork_to_hotel.4",
+    "expected": "До бронирования письменно согласовать превышение с владельцем бюджета.",
+    "history": [
+      {
+        "question": "Компенсируют мне рабочее место в коворкинге?",
+        "search_query": "Компенсируют мне рабочее место в коворкинге?",
+        "answer": "Какой у вас формат работы: офисный, гибридный или постоянный удалённый?"
+      },
+      {
+        "question": "Я постоянный удалённый, это обычное место для моей работы в своём городе.",
+        "search_query": "Компенсируют мне раб: Я постоянный удалённый, это обычное место для моей работы в своём городе.",
+        "answer": "«Коворкинг: финансовая инструкция по личному месту», Абзац 2: «Постоянным удалённым сотрудникам компенсация индивидуального места в коворкинге не предоставляется.»\n«Коворкинг: организационная программа удалённого места», Абзац 2: «Постоянному удалённому сотруднику предоставляется возмещение коворкинга до 3000 рублей в месяц по подтверждённому договору и чеку.»\nЭти положения не позволяют дать однозначный ответ по базе знаний. Уточните применимое правило у HR."
+      },
+      {
+        "question": "А гостиница в согласованной командировке?",
+        "search_query": "Компенсируют мне гостиницу в согласованной командировке?",
+        "answer": "В согласованной командировке гостиница компенсируется по лимиту 6000 рублей за ночь на сотрудника. Превышение лимита проживания требует письменного согласия владельца бюджета. Стандартное такси компенсируется по фактической согласованной поездке."
+      }
+    ],
+    "query": "",
+    "answer": "К какому конкретному варианту и ограничению относится ваше продолжение?",
+    "status": "clarify",
+    "seconds": 14.697551400007796,
+    "llm_calls": 3,
+    "searches": 0,
+    "reads": 0,
+    "stop_reason": "unresolved_reference_query",
+    "fallback": null,
+    "span_recall": 0.0,
+    "sources": [],
+    "dialogue_state": null,
+    "assessment": null,
+    "decisions": [
+      {
+        "action": "search_policies",
+        "query": "Нужный вариант дороже этой суммы.",
+        "clarification": ""
+      }
+    ],
+    "graph_configuration": {
+      "MODEL_CONTEXT": "4096",
+      "MODEL_OUTPUT": "700",
+      "TOP_K": "8",
+      "CONTEXT_CHARS": "12000",
+      "MODEL_GPU_LAYERS": "99",
+      "EMBED_GPU_LAYERS": "0",
+      "temperature": 0,
+      "seed": 116,
+      "embedding_model": "embeddinggemma"
+    },
+    "graph_code_sha256": "39366a3210b9ea40ccbf18635c9a7f949c10a0eda5e4a451a37a5c7713eab151",
+    "events": [
+      {
+        "node": "prepare",
+        "seconds": 1.1999945854768157e-06,
+        "action": null,
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      },
+      {
+        "node": "plan",
+        "seconds": 5.141740999999456,
+        "action": "search_policies",
+        "tool": null,
+        "arguments": null,
+        "blocked": "query_not_standalone",
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      },
+      {
+        "node": "finalize",
+        "seconds": 0.00046520000614691526,
+        "action": null,
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      }
+    ]
+  },
+  {
+    "run": "ddd81707-c99f-4b5e-a895-a1b659f04e74",
+    "kind": "natural",
+    "configuration": {
+      "purpose": "development_diagnostics_not_independent_final_test",
+      "source_commit": "807d6eb366e117e331bf3a57b46b22e51f860257",
+      "langgraph": "1.2.24",
+      "ids": [
+        "v4.dialogue.cowork_to_hotel.1",
+        "v4.dialogue.cowork_to_hotel.2",
+        "v4.dialogue.cowork_to_hotel.3",
+        "v4.dialogue.cowork_to_hotel.4"
+      ],
+      "same_retriever": true,
+      "new_final_test": false,
+      "model": "qwen3:4b",
+      "embedding": "embeddinggemma",
+      "model_context": "4096",
+      "model_output": "700",
+      "top_k": "8",
+      "corpus_manifest_sha256": "59e17e22372a20ef5712ee4c925389694e11bb90ba6f00da97f0fe3adf8f4ebe",
+      "protocol_sha256": "5aaa0b16fdc1f95cddc5ee9234d844821fe23a2f28ec8282900f5549348aa9c6",
+      "ollama_version": {
+        "version": "0.40.16"
+      },
+      "model_digests": {
+        "qwen3:4b": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+        "embeddinggemma:latest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1"
+      },
+      "requirements_lock_sha256": "90b620966d41a2262ea5a9a8305ffc7a9ecf8ce7134a6e02b58a0dcd3e1e2307",
+      "initial_query_shared_with_rag": true
+    },
+    "mode": "rag",
+    "question": "Нужный вариант дороже этой суммы.",
+    "question_id": "v4.dialogue.cowork_to_hotel.4",
+    "expected": "До бронирования письменно согласовать превышение с владельцем бюджета.",
+    "history": [
+      {
+        "question": "Компенсируют мне рабочее место в коворкинге?",
+        "search_query": "Компенсируют мне рабочее место в коворкинге?",
+        "answer": "Какой у вас формат работы: офисный, гибридный или постоянный удалённый?"
+      },
+      {
+        "question": "Я постоянный удалённый, это обычное место для моей работы в своём городе.",
+        "search_query": "Компенсируют мне раб: Я постоянный удалённый, это обычное место для моей работы в своём городе.",
+        "answer": "«Коворкинг: финансовая инструкция по личному месту», Абзац 2: «Постоянным удалённым сотрудникам компенсация индивидуального места в коворкинге не предоставляется.»\n«Коворкинг: организационная программа удалённого места», Абзац 2: «Постоянному удалённому сотруднику предоставляется возмещение коворкинга до 3000 рублей в месяц по подтверждённому договору и чеку.»\nЭти положения не позволяют дать однозначный ответ по базе знаний. Уточните применимое правило у HR."
+      },
+      {
+        "question": "А гостиница в согласованной командировке?",
+        "search_query": "Компенсируют мне гостиницу в согласованной командировке?",
+        "answer": "В согласованной командировке гостиница компенсируется по лимиту 6000 рублей за ночь на сотрудника. Превышение лимита проживания требует письменного согласия владельца бюджета. Стандартное такси компенсируется по фактической согласованной поездке."
+      }
+    ],
+    "query": null,
+    "answer": "К какому предмету и условию относится ваше продолжение?",
+    "status": "clarify",
+    "seconds": 6.728182499995455,
+    "llm_calls": 2,
+    "searches": 0,
+    "reads": 0,
+    "stop_reason": null,
+    "fallback": null,
+    "span_recall": 0.0,
+    "sources": [],
+    "dialogue_state": null,
+    "assessment": null,
+    "decisions": [],
+    "graph_configuration": null,
+    "graph_code_sha256": null,
+    "events": []
+  },
+  {
+    "run": "de9aa4b8-78c0-477c-9256-2c1a88d2187c",
+    "kind": "natural",
+    "configuration": {
+      "purpose": "development_diagnostics_not_independent_final_test",
+      "source_commit": "10d8c3b43232cc715bb16046e63b0a271fbaff67",
+      "langgraph": "1.2.24",
+      "ids": [
+        "v4.onboarding_plan.mentor"
+      ],
+      "same_retriever": true,
+      "new_final_test": false,
+      "model": "qwen3:4b",
+      "embedding": "embeddinggemma",
+      "model_context": "4096",
+      "model_output": "700",
+      "top_k": "8",
+      "corpus_manifest_sha256": "59e17e22372a20ef5712ee4c925389694e11bb90ba6f00da97f0fe3adf8f4ebe",
+      "protocol_sha256": "5aaa0b16fdc1f95cddc5ee9234d844821fe23a2f28ec8282900f5549348aa9c6",
+      "ollama_version": {
+        "version": "0.40.16"
+      },
+      "model_digests": {
+        "qwen3:4b": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+        "embeddinggemma:latest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1"
+      },
+      "requirements_lock_sha256": "90b620966d41a2262ea5a9a8305ffc7a9ecf8ce7134a6e02b58a0dcd3e1e2307",
+      "initial_query_shared_with_rag": true
+    },
+    "mode": "rag",
+    "question": "Кто назначает наставника и где проверить его имя?",
+    "question_id": "v4.onboarding_plan.mentor",
+    "expected": "Назначает руководитель; имя в плане адаптации.",
+    "history": [],
+    "query": "Кто назначает наставника и где проверить его имя?",
+    "answer": "Подтверждённая часть ответа:\n«Наставничество, обратная связь и учебная нагрузка», Абзац 2: «Наставник назначается руководителем, а не выбирается автоматически по старшинству в команде.»\nДля полного ответа недостаточно подтверждений: Где проверить его имя.",
+    "status": "answer",
+    "seconds": 41.76651060000586,
+    "llm_calls": 2,
+    "searches": 1,
+    "reads": 0,
+    "stop_reason": null,
+    "fallback": "insufficient_evidence_or_budget",
+    "span_recall": 0.0,
+    "sources": [
+      {
+        "title": "Наставничество, обратная связь и учебная нагрузка",
+        "location": "Абзац 2",
+        "quote": "Наставник назначается руководителем, а не выбирается автоматически по старшинству в команде."
+      }
+    ],
+    "dialogue_state": {
+      "subject": "наставник",
+      "procedure": "назначение",
+      "requested_action": "проверка имени",
+      "active_conditions": [
+        {
+          "dimension": "кто",
+          "value": "назначает наставника",
+          "user_message_index": 0
+        },
+        {
+          "dimension": "где",
+          "value": "проверить его имя",
+          "user_message_index": 0
+        }
+      ],
+      "unresolved_conditions": [],
+      "superseded_conditions": [],
+      "parts": [
+        "Кто назначает наставника",
+        "где проверить его имя"
+      ]
+    },
+    "assessment": {
+      "finding": "Наставник назначается руководителем команды",
+      "proof_ids": [
+        "E2"
+      ],
+      "sufficient": false,
+      "missing": [
+        "Где проверить его имя"
+      ],
+      "clarification": "",
+      "parts": [
+        {
+          "need": "Кто назначает наставника",
+          "proof_ids": [
+            "E2"
+          ],
+          "remaining": "covered"
+        },
+        {
+          "need": "Где проверить его имя",
+          "proof_ids": [],
+          "remaining": "search"
+        }
+      ]
+    },
+    "decisions": [],
+    "graph_configuration": null,
+    "graph_code_sha256": null,
+    "events": []
+  },
+  {
+    "run": "de9aa4b8-78c0-477c-9256-2c1a88d2187c",
+    "kind": "natural",
+    "configuration": {
+      "purpose": "development_diagnostics_not_independent_final_test",
+      "source_commit": "10d8c3b43232cc715bb16046e63b0a271fbaff67",
+      "langgraph": "1.2.24",
+      "ids": [
+        "v4.onboarding_plan.mentor"
+      ],
+      "same_retriever": true,
+      "new_final_test": false,
+      "model": "qwen3:4b",
+      "embedding": "embeddinggemma",
+      "model_context": "4096",
+      "model_output": "700",
+      "top_k": "8",
+      "corpus_manifest_sha256": "59e17e22372a20ef5712ee4c925389694e11bb90ba6f00da97f0fe3adf8f4ebe",
+      "protocol_sha256": "5aaa0b16fdc1f95cddc5ee9234d844821fe23a2f28ec8282900f5549348aa9c6",
+      "ollama_version": {
+        "version": "0.40.16"
+      },
+      "model_digests": {
+        "qwen3:4b": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+        "embeddinggemma:latest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1"
+      },
+      "requirements_lock_sha256": "90b620966d41a2262ea5a9a8305ffc7a9ecf8ce7134a6e02b58a0dcd3e1e2307",
+      "initial_query_shared_with_rag": true
+    },
+    "mode": "agent",
+    "question": "Кто назначает наставника и где проверить его имя?",
+    "question_id": "v4.onboarding_plan.mentor",
+    "expected": "Назначает руководитель; имя в плане адаптации.",
+    "history": [],
+    "query": "Кто назначает наставника и где проверить его имя?",
+    "answer": "Не удалось завершить проверку источников в пределах доступного бюджета или из-за технической ошибки. Это не означает отсутствия правила в базе. Повторите вопрос или обратитесь к HR.",
+    "status": "refuse",
+    "seconds": 138.58135020000918,
+    "llm_calls": 9,
+    "searches": 3,
+    "reads": 0,
+    "stop_reason": "duplicate_tool_call",
+    "fallback": null,
+    "span_recall": 0.0,
+    "sources": [],
+    "dialogue_state": {
+      "subject": "наставник",
+      "procedure": "назначение",
+      "requested_action": "проверка имени",
+      "active_conditions": [
+        {
+          "dimension": "кто",
+          "value": "назначает наставника",
+          "user_message_index": 0
+        },
+        {
+          "dimension": "где",
+          "value": "проверить его имя",
+          "user_message_index": 0
+        }
+      ],
+      "unresolved_conditions": [],
+      "superseded_conditions": [],
+      "parts": [
+        "Кто назначает наставника",
+        "где проверить его имя"
+      ]
+    },
+    "assessment": {
+      "finding": "",
+      "proof_ids": [],
+      "sufficient": false,
+      "missing": [
+        "Кто назначает наставника",
+        "где проверить его имя"
+      ],
+      "clarification": "",
+      "parts": [
+        {
+          "need": "Кто назначает наставника",
+          "proof_ids": [],
+          "remaining": "search"
+        },
+        {
+          "need": "где проверить его имя",
+          "proof_ids": [],
+          "remaining": "search"
+        }
+      ]
+    },
+    "decisions": [
+      {
+        "action": "search_policies",
+        "query": "Кто назначает наставника и где проверить его имя?",
+        "clarification": ""
+      },
+      {
+        "action": "search_policies",
+        "query": "Где проверить его имя",
+        "clarification": ""
+      },
+      {
+        "action": "search_policies",
+        "query": "Кто назначает наставника",
+        "clarification": ""
+      },
+      {
+        "action": "search_policies",
+        "query": "Кто назначает наставника",
+        "clarification": ""
+      },
+      {
+        "action": "search_policies",
+        "query": "Кто назначает наставника",
+        "clarification": ""
+      }
+    ],
+    "graph_configuration": {
+      "MODEL_CONTEXT": "4096",
+      "MODEL_OUTPUT": "700",
+      "TOP_K": "8",
+      "CONTEXT_CHARS": "12000",
+      "MODEL_GPU_LAYERS": "99",
+      "EMBED_GPU_LAYERS": "0",
+      "temperature": 0,
+      "seed": 116,
+      "embedding_model": "embeddinggemma"
+    },
+    "graph_code_sha256": "3c2838a13beaa37b0f1cb0b427cf2f3b1cd2efa35caea782b5c8f337af384102",
+    "events": [
+      {
+        "node": "prepare",
+        "seconds": 1.0999938240274787e-06,
+        "action": null,
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      },
+      {
+        "node": "plan",
+        "seconds": 6.048080599997775,
+        "action": "search_policies",
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      },
+      {
+        "node": "tool",
+        "seconds": 1.2062804000015603,
+        "action": null,
+        "tool": "search_policies",
+        "arguments": {
+          "query": "Кто назначает наставника и где проверить его имя?"
+        },
+        "blocked": null,
+        "new_chunks": 8,
+        "new_proofs": null,
+        "retrieval_state": "new_chunks"
+      },
+      {
+        "node": "assess",
+        "seconds": 8.779342599998927,
+        "action": null,
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": 1,
+        "retrieval_state": "partial"
+      },
+      {
+        "node": "plan",
+        "seconds": 13.996169500009273,
+        "action": "search_policies",
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      },
+      {
+        "node": "tool",
+        "seconds": 1.242626500010374,
+        "action": null,
+        "tool": "search_policies",
+        "arguments": {
+          "query": "Где проверить его имя"
+        },
+        "blocked": null,
+        "new_chunks": 8,
+        "new_proofs": null,
+        "retrieval_state": "new_chunks"
+      },
+      {
+        "node": "assess",
+        "seconds": 25.42530239999178,
+        "action": null,
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": 0,
+        "retrieval_state": "irrelevant"
+      },
+      {
+        "node": "plan",
+        "seconds": 19.780696000001626,
+        "action": "search_policies",
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      },
+      {
+        "node": "tool",
+        "seconds": 1.17282220000925,
+        "action": null,
+        "tool": "search_policies",
+        "arguments": {
+          "query": "Кто назначает наставника"
+        },
+        "blocked": null,
+        "new_chunks": 0,
+        "new_proofs": null,
+        "retrieval_state": "repeated_sources"
+      },
+      {
+        "node": "assess",
+        "seconds": 7.526340900003561,
+        "action": null,
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": 0,
+        "retrieval_state": "irrelevant"
+      },
+      {
+        "node": "plan",
+        "seconds": 19.54815490001056,
+        "action": "search_policies",
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      },
+      {
+        "node": "tool",
+        "seconds": 2.2799998987466097e-05,
+        "action": null,
+        "tool": "search_policies",
+        "arguments": {
+          "query": "Кто назначает наставника"
+        },
+        "blocked": "duplicate",
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      },
+      {
+        "node": "plan",
+        "seconds": 19.955524799996056,
+        "action": "search_policies",
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      },
+      {
+        "node": "tool",
+        "seconds": 2.169999061152339e-05,
+        "action": null,
+        "tool": "search_policies",
+        "arguments": {
+          "query": "Кто назначает наставника"
+        },
+        "blocked": "duplicate",
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      },
+      {
+        "node": "finalize",
+        "seconds": 0.0005371000006562099,
+        "action": null,
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      }
+    ]
+  },
+  {
+    "run": "41a5b693-d986-48d7-a864-ba266f729c26",
+    "kind": "empty",
+    "configuration": {
+      "first_search": "empty",
+      "same_intervention": true,
+      "profile": "config/experiment.env",
+      "source_commit": "dd16477",
+      "source_note": "Other empty probes ran during development before the fast path commit."
+    },
+    "mode": "rag",
+    "question": "Кто назначает наставника и где посмотреть, кто это?",
+    "question_id": null,
+    "expected": "Руководитель команды до первого дня; имя в плане адаптации.",
+    "history": [],
+    "query": null,
+    "answer": "В базе знаний не найдено информации для ответа. Уточните вопрос или обратитесь к HR.",
+    "status": "refuse",
+    "seconds": 36.142859499988845,
+    "llm_calls": 1,
+    "searches": 1,
+    "reads": 0,
+    "stop_reason": null,
+    "fallback": null,
+    "span_recall": null,
+    "sources": [],
+    "dialogue_state": null,
+    "assessment": null,
+    "decisions": [],
+    "graph_configuration": null,
+    "graph_code_sha256": null,
+    "events": []
+  },
+  {
+    "run": "41a5b693-d986-48d7-a864-ba266f729c26",
+    "kind": "empty",
+    "configuration": {
+      "first_search": "empty",
+      "same_intervention": true,
+      "profile": "config/experiment.env",
+      "source_commit": "dd16477",
+      "source_note": "Other empty probes ran during development before the fast path commit."
+    },
+    "mode": "agent",
+    "question": "Кто назначает наставника и где посмотреть, кто это?",
+    "question_id": null,
+    "expected": "Руководитель команды до первого дня; имя в плане адаптации.",
+    "history": [],
+    "query": "Кто назначает наставника и где посмотреть, кто это?",
+    "answer": "В найденных фрагментах недостаточно сведений для ответа. Уточните правило у HR.",
+    "status": "refuse",
+    "seconds": 25.82975129999977,
+    "llm_calls": 4,
+    "searches": 1,
+    "reads": 0,
+    "stop_reason": "refuse",
+    "fallback": null,
+    "span_recall": null,
+    "sources": [],
+    "dialogue_state": null,
+    "assessment": null,
+    "decisions": [
+      {
+        "action": "search_policies",
+        "query": "Кто назначает наставника и где посмотреть, кто это?",
+        "clarification": ""
+      },
+      {
+        "action": "search_policies",
+        "query": "Кто назначает наставника и где посмотреть, кто это?",
+        "clarification": ""
+      },
+      {
+        "action": "refuse",
+        "query": "",
+        "clarification": ""
+      }
+    ],
+    "graph_configuration": {
+      "MODEL_CONTEXT": "4096",
+      "MODEL_OUTPUT": "700",
+      "TOP_K": "8",
+      "CONTEXT_CHARS": "12000",
+      "MODEL_GPU_LAYERS": "99",
+      "EMBED_GPU_LAYERS": "0",
+      "temperature": 0,
+      "seed": 116,
+      "embedding_model": "embeddinggemma"
+    },
+    "graph_code_sha256": "1e6858bdb340f9ae20029a34488fc1099516a3b9128eb0bd24b06cd091aa7095",
+    "events": [
+      {
+        "node": "prepare",
+        "seconds": 1.3999961083754897e-06,
+        "action": null,
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      },
+      {
+        "node": "plan",
+        "seconds": 9.208745399999316,
+        "action": "search_policies",
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      },
+      {
+        "node": "tool",
+        "seconds": 1.963235999995959,
+        "action": null,
+        "tool": "search_policies",
+        "arguments": {
+          "query": "Кто назначает наставника и где посмотреть, кто это?"
+        },
+        "blocked": null,
+        "new_chunks": 0,
+        "new_proofs": null,
+        "retrieval_state": "empty"
+      },
+      {
+        "node": "assess",
+        "seconds": 3.840000135824084e-05,
+        "action": null,
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": 0,
+        "retrieval_state": "empty"
+      },
+      {
+        "node": "plan",
+        "seconds": 5.24464839999564,
+        "action": "search_policies",
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      },
+      {
+        "node": "tool",
+        "seconds": 2.7000001864507794e-05,
+        "action": null,
+        "tool": "search_policies",
+        "arguments": {
+          "query": "Кто назначает наставника и где посмотреть, кто это?"
+        },
+        "blocked": "duplicate",
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      },
+      {
+        "node": "plan",
+        "seconds": 4.593484400000307,
+        "action": "refuse",
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      },
+      {
+        "node": "finalize",
+        "seconds": 0.0005127000040374696,
+        "action": null,
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      }
+    ]
+  },
+  {
+    "run": "14b6a764-5014-488a-b4fc-04c6d1117097",
+    "kind": "empty",
+    "configuration": {
+      "first_search": "empty",
+      "same_intervention": true,
+      "profile": "config/experiment.env",
+      "source_commit": null,
+      "source_note": "Other empty probes ran during development before the fast path commit."
+    },
+    "mode": "rag",
+    "question": "Курс согласован HR. Какие согласования нужны для билетов и гостиницы на очное обучение?",
+    "question_id": null,
+    "expected": "Согласование HR не заменяет оформление командировки; условия поездки и расходов подтверждаются регламентами.",
+    "history": [],
+    "query": null,
+    "answer": "В базе знаний не найдено информации для ответа. Уточните вопрос или обратитесь к HR.",
+    "status": "refuse",
+    "seconds": 52.539621899995836,
+    "llm_calls": 1,
+    "searches": 1,
+    "reads": 0,
+    "stop_reason": null,
+    "fallback": null,
+    "span_recall": null,
+    "sources": [],
+    "dialogue_state": {
+      "subject": "получатель",
+      "procedure": "согласование",
+      "requested_action": "получение согласований",
+      "active_conditions": [
+        {
+          "dimension": "предмет",
+          "value": "билеты и гостиница",
+          "user_message_index": 0
+        },
+        {
+          "dimension": "тип_действия",
+          "value": "очное обучение",
+          "user_message_index": 0
+        }
+      ],
+      "unresolved_conditions": [],
+      "superseded_conditions": [],
+      "parts": [
+        "Какие согласования нужны для билетов и гостиницы на очное обучение?"
+      ]
+    },
+    "assessment": null,
+    "decisions": [],
+    "graph_configuration": null,
+    "graph_code_sha256": null,
+    "events": []
+  },
+  {
+    "run": "14b6a764-5014-488a-b4fc-04c6d1117097",
+    "kind": "empty",
+    "configuration": {
+      "first_search": "empty",
+      "same_intervention": true,
+      "profile": "config/experiment.env",
+      "source_commit": null,
+      "source_note": "Other empty probes ran during development before the fast path commit."
+    },
+    "mode": "agent",
+    "question": "Курс согласован HR. Какие согласования нужны для билетов и гостиницы на очное обучение?",
+    "question_id": null,
+    "expected": "Согласование HR не заменяет оформление командировки; условия поездки и расходов подтверждаются регламентами.",
+    "history": [],
+    "query": "Курс согласован HR. Какие согласования нужны для билетов и гостиницы на очное обучение?",
+    "answer": "В найденных фрагментах недостаточно сведений для ответа. Уточните правило у HR.",
+    "status": "refuse",
+    "seconds": 31.02801549999276,
+    "llm_calls": 3,
+    "searches": 1,
+    "reads": 0,
+    "stop_reason": "refuse",
+    "fallback": null,
+    "span_recall": null,
+    "sources": [],
+    "dialogue_state": {
+      "subject": "получатель",
+      "procedure": "согласование",
+      "requested_action": "получение согласований",
+      "active_conditions": [
+        {
+          "dimension": "предмет",
+          "value": "билеты и гостиница",
+          "user_message_index": 0
+        },
+        {
+          "dimension": "тип_действия",
+          "value": "очное обучение",
+          "user_message_index": 0
+        }
+      ],
+      "unresolved_conditions": [],
+      "superseded_conditions": [],
+      "parts": [
+        "Какие согласования нужны для билетов и гостиницы на очное обучение?"
+      ]
+    },
+    "assessment": null,
+    "decisions": [
+      {
+        "action": "search_policies",
+        "query": "Курс согласован HR. Какие согласования нужны для билетов и гостиницы на очное обучение?",
+        "clarification": ""
+      },
+      {
+        "action": "refuse",
+        "query": "",
+        "clarification": ""
+      }
+    ],
+    "graph_configuration": {
+      "MODEL_CONTEXT": "4096",
+      "MODEL_OUTPUT": "700",
+      "TOP_K": "8",
+      "CONTEXT_CHARS": "12000",
+      "MODEL_GPU_LAYERS": "99",
+      "EMBED_GPU_LAYERS": "0",
+      "temperature": 0,
+      "seed": 116,
+      "embedding_model": "embeddinggemma"
+    },
+    "graph_code_sha256": "3c2838a13beaa37b0f1cb0b427cf2f3b1cd2efa35caea782b5c8f337af384102",
+    "events": [
+      {
+        "node": "prepare",
+        "seconds": 1.600012183189392e-06,
+        "action": null,
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      },
+      {
+        "node": "plan",
+        "seconds": 10.538030999989132,
+        "action": "search_policies",
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      },
+      {
+        "node": "tool",
+        "seconds": 1.424902699989616,
+        "action": null,
+        "tool": "search_policies",
+        "arguments": {
+          "query": "Курс согласован HR. Какие согласования нужны для билетов и гостиницы на очное обучение?"
+        },
+        "blocked": null,
+        "new_chunks": 0,
+        "new_proofs": null,
+        "retrieval_state": "empty"
+      },
+      {
+        "node": "assess",
+        "seconds": 2.9199989512562752e-05,
+        "action": null,
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": 0,
+        "retrieval_state": "empty"
+      },
+      {
+        "node": "plan",
+        "seconds": 5.154286099990713,
+        "action": "refuse",
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      },
+      {
+        "node": "finalize",
+        "seconds": 0.0004822000046260655,
+        "action": null,
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      }
+    ]
+  },
+  {
+    "run": "ea566c4d-6da0-400a-ae4b-d815b2487a92",
+    "kind": "empty",
+    "configuration": {
+      "first_search": "empty",
+      "same_intervention": true,
+      "profile": "config/experiment.env",
+      "source_commit": null,
+      "source_note": "Other empty probes ran during development before the fast path commit."
+    },
+    "mode": "rag",
+    "question": "Какой лимит годовой компенсации обучения действует в 2026 году?",
+    "question_id": null,
+    "expected": "Действующая норма 18000, явная замена старого правила.",
+    "history": [],
+    "query": null,
+    "answer": "В базе знаний не найдено информации для ответа. Уточните вопрос или обратитесь к HR.",
+    "status": "refuse",
+    "seconds": 13.938511300002574,
+    "llm_calls": 1,
+    "searches": 1,
+    "reads": 0,
+    "stop_reason": null,
+    "fallback": null,
+    "span_recall": null,
+    "sources": [],
+    "dialogue_state": {
+      "subject": "лимит годовой компенсации обучения",
+      "procedure": "проверка лимитов компенсации обучения",
+      "requested_action": "определение лимита",
+      "active_conditions": [
+        {
+          "dimension": "год",
+          "value": "2026",
+          "user_message_index": 0
+        }
+      ],
+      "unresolved_conditions": [],
+      "superseded_conditions": [],
+      "parts": [
+        "Какой лимит годовой компенсации обучения действует в 2026 году?"
+      ]
+    },
+    "assessment": null,
+    "decisions": [],
+    "graph_configuration": null,
+    "graph_code_sha256": null,
+    "events": []
+  },
+  {
+    "run": "ea566c4d-6da0-400a-ae4b-d815b2487a92",
+    "kind": "empty",
+    "configuration": {
+      "first_search": "empty",
+      "same_intervention": true,
+      "profile": "config/experiment.env",
+      "source_commit": null,
+      "source_note": "Other empty probes ran during development before the fast path commit."
+    },
+    "mode": "agent",
+    "question": "Какой лимит годовой компенсации обучения действует в 2026 году?",
+    "question_id": null,
+    "expected": "Действующая норма 18000, явная замена старого правила.",
+    "history": [],
+    "query": "Какой лимит годовой компенсации обучения действует в 2026 году?",
+    "answer": "В найденных фрагментах недостаточно сведений для ответа. Уточните правило у HR.",
+    "status": "refuse",
+    "seconds": 30.076643699998385,
+    "llm_calls": 4,
+    "searches": 1,
+    "reads": 0,
+    "stop_reason": "refuse",
+    "fallback": null,
+    "span_recall": null,
+    "sources": [],
+    "dialogue_state": {
+      "subject": "лимит годовой компенсации обучения",
+      "procedure": "проверка лимитов компенсации обучения",
+      "requested_action": "определение лимита",
+      "active_conditions": [
+        {
+          "dimension": "год",
+          "value": "2026",
+          "user_message_index": 0
+        }
+      ],
+      "unresolved_conditions": [],
+      "superseded_conditions": [],
+      "parts": [
+        "Какой лимит годовой компенсации обучения действует в 2026 году?"
+      ]
+    },
+    "assessment": null,
+    "decisions": [
+      {
+        "action": "search_policies",
+        "query": "Какой лимит годовой компенсации обучения действует в 2026 году?",
+        "clarification": ""
+      },
+      {
+        "action": "search_policies",
+        "query": "Какой лимит годовой компенсации обучения действует в 2026 году?",
+        "clarification": ""
+      },
+      {
+        "action": "refuse",
+        "query": "",
+        "clarification": ""
+      }
+    ],
+    "graph_configuration": {
+      "MODEL_CONTEXT": "4096",
+      "MODEL_OUTPUT": "700",
+      "TOP_K": "8",
+      "CONTEXT_CHARS": "12000",
+      "MODEL_GPU_LAYERS": "99",
+      "EMBED_GPU_LAYERS": "0",
+      "temperature": 0,
+      "seed": 116,
+      "embedding_model": "embeddinggemma"
+    },
+    "graph_code_sha256": "3c2838a13beaa37b0f1cb0b427cf2f3b1cd2efa35caea782b5c8f337af384102",
+    "events": [
+      {
+        "node": "prepare",
+        "seconds": 1.3999961083754897e-06,
+        "action": null,
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      },
+      {
+        "node": "plan",
+        "seconds": 5.990500100000645,
+        "action": "search_policies",
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      },
+      {
+        "node": "tool",
+        "seconds": 1.3376069000078132,
+        "action": null,
+        "tool": "search_policies",
+        "arguments": {
+          "query": "Какой лимит годовой компенсации обучения действует в 2026 году?"
+        },
+        "blocked": null,
+        "new_chunks": 0,
+        "new_proofs": null,
+        "retrieval_state": "empty"
+      },
+      {
+        "node": "assess",
+        "seconds": 4.1400009649805725e-05,
+        "action": null,
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": 0,
+        "retrieval_state": "empty"
+      },
+      {
+        "node": "plan",
+        "seconds": 5.666338299997733,
+        "action": "search_policies",
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      },
+      {
+        "node": "tool",
+        "seconds": 3.12999909510836e-05,
+        "action": null,
+        "tool": "search_policies",
+        "arguments": {
+          "query": "Какой лимит годовой компенсации обучения действует в 2026 году?"
+        },
+        "blocked": "duplicate",
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      },
+      {
+        "node": "plan",
+        "seconds": 4.133386100002099,
+        "action": "refuse",
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      },
+      {
+        "node": "finalize",
+        "seconds": 0.0010857000015676022,
+        "action": null,
+        "tool": null,
+        "arguments": null,
+        "blocked": null,
+        "new_chunks": null,
+        "new_proofs": null,
+        "retrieval_state": null
+      }
+    ]
+  }
+]

@@ -6,6 +6,8 @@
 
 [Архитектура и ограничения агента](docs/agent-design.md) · [Фактические dev-результаты](docs/agent-results.md)
 
+[Аудит восстановления поиска и состояния диалога](docs/agent-v2-audit.md)
+
 ![LangGraph: реальный ответ и наблюдаемые события](docs/assets/agent-dialogue.png)
 
 ![Ответ текущего приложения](docs/assets/answer.png)

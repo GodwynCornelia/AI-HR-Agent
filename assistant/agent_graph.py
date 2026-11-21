@@ -27,6 +27,7 @@ refuse: остановиться, если подтверждений нет и 
 Не считай дополнительные поиски обязательными. Если найденного хватает — answer, без лишних вызовов.
 Пустой первый поиск не доказывает отсутствие нормы. При пустой/частичной выдаче можно искать недостающий аспект другими словами или читать контекст. assessment.missing и previous_tool_feedback указывают конкретный дефицит. Новые чанки без подходящего доказательства не означают успех.
 После пустой выдачи новый поиск должен менять ключевые термины или искать одну из частей вопроса. Не копируй resolved_question и не меняй только порядок слов.
+Запрос для отдельной части должен быть самостоятельным: назови предмет и процедуру вместо «его», «её», «это».
 resolved_question задаёт актуальную тему и условия; в хронологических условиях старое может быть заменено новым. Не возвращай устаревшие условия.
 suggested_clarification — предварительное предложение, не факт. Если current и история однозначно задают новый предмет, можешь сформулировать полный query и выполнить поиск; иначе уточни.
 При новом поиске используй missing из оценки: сохрани отрицания, программу, категорию, период и роли; не выдумывай исключение.
@@ -197,8 +198,12 @@ def run_agent(user,conversation,original,query,history,model,evaluation_date,*,d
                 search_ids.update(s['id'] for s in found)
                 new=[s for s in found if s['id'] not in seen_source_ids];seen_source_ids.update(s['id'] for s in found)
                 by_id={s['id']:s for s in [*state['sources'],*new]}
-                # Новая выдача получает контекст первой; стабильные ID не меняются.
-                ordered=[*new,*[s for s in by_id.values() if s['id'] not in {x['id'] for x in new}]]
+                # Сохраняем уже подтверждённые фрагменты при заполнении контекста новой выдачей.
+                confirmed={s['id'] for k,s in assessment_cache.get('proofs',{}).items()
+                           if k in assessment_cache.get('value',{}).get('proof_ids',[])}
+                incoming={s['id'] for s in new}
+                ordered=[*[s for s in by_id.values() if s['id'] in confirmed],*new,
+                         *[s for s in by_id.values() if s['id'] not in incoming|confirmed]]
                 docs=set();bounded=[]
                 for s in ordered:
                     if s['document_id'] not in docs and len(docs)>=max_documents:continue
