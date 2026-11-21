@@ -391,7 +391,8 @@ def ask(user, conversation_id, message, *, as_of=None):
             diagnostic['model_usage']={'llm_calls':getattr(model,'chat_calls',0) if isinstance(getattr(model,'chat_calls',None),int) else None,
                 'events':getattr(model,'chat_events',[]) if isinstance(getattr(model,'chat_events',None),list) else []}
         diagnostic['mode']=conversation.mode
-        turn.diagnostics = diagnostic
+        from .trace_utils import redact
+        turn.diagnostics = redact(diagnostic)
         turn.save()
         if conversation.title == 'Новый диалог':
             conversation.title = message[:120]

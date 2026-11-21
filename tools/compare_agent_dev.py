@@ -3,6 +3,7 @@ import argparse,hashlib,json,os,sys,time,uuid,subprocess,importlib.metadata
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent.parent;sys.path.insert(0,str(ROOT));os.environ.setdefault('DJANGO_SETTINGS_MODULE','hr_project.settings')
 import django;django.setup()
+import httpx
 from django.contrib.auth import get_user_model
 from assistant.models import Conversation,Document,Chunk
 from assistant.services import ask
@@ -28,6 +29,8 @@ config={'purpose':protocol['purpose'],'source_commit':commit,'langgraph':importl
  'model_context':os.getenv('MODEL_CONTEXT'),'model_output':os.getenv('MODEL_OUTPUT'),'top_k':os.getenv('TOP_K'),
  'corpus_manifest_sha256':hashlib.sha256((ROOT/'data/rgr_20261118/corpus_manifest.json').read_bytes()).hexdigest(),
  'protocol_sha256':hashlib.sha256((ROOT/'experiments/agent_dev/protocol.json').read_bytes()).hexdigest()}
+server=Ollama();tags=httpx.get(server.base+'/api/tags',timeout=15).json()
+config.update(ollama_version=httpx.get(server.base+'/api/version',timeout=15).json(),model_digests={m['name']:m['digest'] for m in tags.get('models',[]) if m['name'] in {server.model,server.embed_model,server.embed_model+':latest'}},requirements_lock_sha256=hashlib.sha256((ROOT/'requirements.lock.txt').read_bytes()).hexdigest(),initial_query_shared_with_rag=True)
 (directory/'manifest.json').write_text(json.dumps(config,ensure_ascii=False,indent=2),encoding='utf-8')
 warm=Ollama();warm.chat('Ответь одним словом: готов.',[{'role':'user','content':'Начало локальной технической проверки.'}],structured=False)
 (directory/'warmup.json').write_text(json.dumps(warm.last_chat_metadata,ensure_ascii=False),encoding='utf-8')
