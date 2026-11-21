@@ -9,7 +9,7 @@ class FinalChecksTests(SimpleTestCase):
             def fits(self,*args):return True
             def chat(self,*args,**kwargs):
                 self.calls+=1
-                return ({'finding':'Выбран фрагмент','proof_ids':['E1'],'sufficient':True,'missing':[],'clarification':''}
+                return ({'finding':'Выбран фрагмент','proof_ids':['E1'],'sufficient':True,'missing':[],'clarification':'','parts':[{'need':'Запрошенное значение','proof_ids':['E1'],'remaining':'covered'}]}
                         if self.calls==1 else {'status':'answer','claims':[{'text':text,'proof_ids':['E1']}],'message':'','conflict_reason':''})
         source={'id':'s','document_id':'d','title':'Расходы','location':'раздел','text':text}
         with patch('assistant.evidence.check_policy_relations',return_value=None):

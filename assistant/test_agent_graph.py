@@ -5,7 +5,7 @@ from django.contrib.auth import get_user_model
 import httpx
 from .models import Conversation,Document,Chunk
 from .agent_graph import run_agent,read_policy_fragment,preserve_search_focus
-from .grounded import retain_part_evidence
+from .grounded import retain_part_evidence,validate_part_coverage
 
 
 class FakeModel:
@@ -33,6 +33,14 @@ class FakeModel:
         raise AssertionError('Неожиданный вызов модели')
 
 class AgentGraphTests(TestCase):
+    def test_sufficient_without_part_evidence_cannot_unlock_full_answer(self):
+        fallback={'proof_ids':['E1'],'sufficient':True,'parts':[],'missing':[],'rejected_proof_ids':[]}
+        self.assertFalse(validate_part_coverage(fallback)['sufficient'])
+        checked={'proof_ids':['E1'],'sufficient':True,'parts':[{'need':'Подать заявку','proof_ids':['E1'],'remaining':'covered'}],
+                 'missing':[],'rejected_proof_ids':[]}
+        covered=validate_part_coverage(checked,['Подать заявку','Согласовать поездку'])
+        self.assertFalse(covered['sufficient'])
+        self.assertEqual(covered['missing'],['Согласовать поездку'])
     def test_followup_search_keeps_subject_and_missing_part(self):
         query=preserve_search_focus('Где проверить его имя?',{'subject':'наставник','procedure':'адаптация'},'Исходный вопрос')
         self.assertIn('наставник',query)

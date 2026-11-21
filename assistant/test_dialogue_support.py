@@ -92,7 +92,7 @@ class DialogueSupportTests(SimpleTestCase):
                 self.calls+=1
                 if self.calls==1:
                     self.packet=json.loads(messages[0]['content'])
-                    return {'finding':'Прямое правило о питании. '*20,'proof_ids':['E2'],'sufficient':True,'missing':[],'clarification':''}
+                    return {'finding':'Прямое правило о питании. '*20,'proof_ids':['E2'],'sufficient':True,'missing':[],'clarification':'','parts':[{'need':'Правило о питании','proof_ids':['E2'],'remaining':'covered'}]}
                 return {'status':'answer','claims':[{'text':'Для питания прикладывают чек.','proof_ids':['E2']}],'message':'','conflict_reason':''}
         source={'id':'s','document_id':'d','title':'Регламент','location':'раздел',
                 'text':'Для обучения создают заявку. Для питания прикладывают чек.'}
