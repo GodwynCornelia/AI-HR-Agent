@@ -14,9 +14,9 @@ action_correct: 0/1 по смыслу ответа/уточнения/отказ
 Если actions есть: tool_choice и tool_arguments 0/1 по необходимости инструментов и сохранению смысла/условий в аргументах; extra_calls_justified 0/1 по обоснованности дополнительных попыток. Без агентных действий null.
 Дополнительный поиск не обязан происходить; не требуй нескольких вызовов для простого вопроса. Повтор и отсутствие полезного прироста не объявляй улучшением.
 notes — краткие конкретные основания, указание недостающего факта или ошибки. Судья предварительный и некалиброванный, человеческие оценки не создавай.'''
-parser=argparse.ArgumentParser();parser.add_argument('answers',type=Path);args=parser.parse_args()
+parser=argparse.ArgumentParser();parser.add_argument('answers',type=Path);parser.add_argument('--protocol',type=Path);args=parser.parse_args()
 records=[json.loads(l) for l in args.answers.read_text(encoding='utf-8').splitlines()]
-questions={q['id']:q for q in json.loads((ROOT/'data/benchmark/questions.json').read_text(encoding='utf-8'))}
+questions={q['id']:q for q in (json.loads(args.protocol.read_text(encoding='utf-8'))['questions'] if args.protocol else json.loads((ROOT/'data/benchmark/questions.json').read_text(encoding='utf-8')))}
 out=args.answers.parent/'llm_assessment';out.mkdir(exist_ok=True)
 properties={'coverage':{'type':'number','minimum':0,'maximum':1},'critical_error':{'type':'integer','enum':[0,1]},
  **{k:{'type':['integer','null'],'enum':[0,1,2,None]} for k in ['grounding','citations']},'action_correct':{'type':'integer','enum':[0,1]},
