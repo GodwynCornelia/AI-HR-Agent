@@ -1,0 +1,267 @@
+{
+  "source_commit": "85dcb0f7fbc5023936a17b13fdcfec535c73b0bc",
+  "expected_rows": 70,
+  "saved_rows": 70,
+  "complete": true,
+  "modes": {
+    "rag": {
+      "rows": 35,
+      "p50_seconds": 43.41371799999615,
+      "p95_seconds": 72.95545700000216,
+      "statuses": {
+        "answer": 29,
+        "refuse": 5,
+        "conflict": 1
+      },
+      "searches": 35,
+      "reads": 0,
+      "llm_calls": {
+        "sum": 124,
+        "observed_rows": 35
+      },
+      "partial_answers": 5,
+      "stop_reasons": {
+        "linear": 35
+      },
+      "literal_context_coverage": {
+        "covered": 28,
+        "applicable": 31
+      },
+      "first_recall_at_8": {
+        "sum": 29.0,
+        "applicable": 31,
+        "mean": 0.9354838709677419
+      },
+      "literal_citation_match": {
+        "exact": 35,
+        "total": 35
+      },
+      "pool_evidence": {
+        "n": 31,
+        "positive_gain": 0,
+        "gain_sum": 0.0
+      },
+      "categories": {
+        "absent": {
+          "rows": 2,
+          "first_recall_sum": 0,
+          "first_recall_n": 0,
+          "full_context": 0,
+          "applicable_context": 0,
+          "statuses": {
+            "refuse": 1,
+            "answer": 1
+          }
+        },
+        "clarification": {
+          "rows": 1,
+          "first_recall_sum": 0,
+          "first_recall_n": 0,
+          "full_context": 0,
+          "applicable_context": 0,
+          "statuses": {
+            "answer": 1
+          }
+        },
+        "compound": {
+          "rows": 3,
+          "first_recall_sum": 2.0,
+          "first_recall_n": 3,
+          "full_context": 1,
+          "applicable_context": 3,
+          "statuses": {
+            "answer": 3
+          }
+        },
+        "conflict": {
+          "rows": 1,
+          "first_recall_sum": 1.0,
+          "first_recall_n": 1,
+          "full_context": 1,
+          "applicable_context": 1,
+          "statuses": {
+            "conflict": 1
+          }
+        },
+        "dialogue": {
+          "rows": 7,
+          "first_recall_sum": 5.0,
+          "first_recall_n": 6,
+          "full_context": 5,
+          "applicable_context": 6,
+          "statuses": {
+            "answer": 6,
+            "refuse": 1
+          }
+        },
+        "replacement": {
+          "rows": 1,
+          "first_recall_sum": 1.0,
+          "first_recall_n": 1,
+          "full_context": 1,
+          "applicable_context": 1,
+          "statuses": {
+            "answer": 1
+          }
+        },
+        "simple": {
+          "rows": 20,
+          "first_recall_sum": 20.0,
+          "first_recall_n": 20,
+          "full_context": 20,
+          "applicable_context": 20,
+          "statuses": {
+            "answer": 17,
+            "refuse": 3
+          }
+        }
+      }
+    },
+    "agent": {
+      "rows": 35,
+      "p50_seconds": 58.749268899991876,
+      "p95_seconds": 154.4906689999989,
+      "statuses": {
+        "answer": 29,
+        "refuse": 5,
+        "conflict": 1
+      },
+      "searches": 44,
+      "reads": 0,
+      "llm_calls": {
+        "sum": 196,
+        "observed_rows": 35
+      },
+      "partial_answers": 3,
+      "stop_reasons": {
+        "answer": 26,
+        "duplicate_tool_call": 7,
+        "refuse": 1,
+        "document_conflict": 1
+      },
+      "literal_context_coverage": {
+        "covered": 30,
+        "applicable": 31
+      },
+      "first_recall_at_8": {
+        "sum": 29.0,
+        "applicable": 31,
+        "mean": 0.9354838709677419
+      },
+      "literal_citation_match": {
+        "exact": 34,
+        "total": 34
+      },
+      "pool_evidence": {
+        "n": 31,
+        "positive_gain": 2,
+        "gain_sum": 1.5
+      },
+      "categories": {
+        "absent": {
+          "rows": 2,
+          "first_recall_sum": 0,
+          "first_recall_n": 0,
+          "full_context": 0,
+          "applicable_context": 0,
+          "statuses": {
+            "refuse": 1,
+            "answer": 1
+          }
+        },
+        "clarification": {
+          "rows": 1,
+          "first_recall_sum": 0,
+          "first_recall_n": 0,
+          "full_context": 0,
+          "applicable_context": 0,
+          "statuses": {
+            "answer": 1
+          }
+        },
+        "compound": {
+          "rows": 3,
+          "first_recall_sum": 2.0,
+          "first_recall_n": 3,
+          "full_context": 2,
+          "applicable_context": 3,
+          "statuses": {
+            "answer": 3
+          }
+        },
+        "conflict": {
+          "rows": 1,
+          "first_recall_sum": 1.0,
+          "first_recall_n": 1,
+          "full_context": 1,
+          "applicable_context": 1,
+          "statuses": {
+            "conflict": 1
+          }
+        },
+        "dialogue": {
+          "rows": 7,
+          "first_recall_sum": 5.0,
+          "first_recall_n": 6,
+          "full_context": 6,
+          "applicable_context": 6,
+          "statuses": {
+            "answer": 6,
+            "refuse": 1
+          }
+        },
+        "replacement": {
+          "rows": 1,
+          "first_recall_sum": 1.0,
+          "first_recall_n": 1,
+          "full_context": 1,
+          "applicable_context": 1,
+          "statuses": {
+            "answer": 1
+          }
+        },
+        "simple": {
+          "rows": 20,
+          "first_recall_sum": 20.0,
+          "first_recall_n": 20,
+          "full_context": 20,
+          "applicable_context": 20,
+          "statuses": {
+            "answer": 17,
+            "refuse": 3
+          }
+        }
+      }
+    }
+  },
+  "completed_pairs": 35,
+  "preliminary_llm": {
+    "rag": {
+      "attempted": 35,
+      "graded": 34,
+      "success": 22,
+      "critical_errors": 0,
+      "correct_actions": 32,
+      "recovery_candidates": {
+        "n": 3,
+        "qualified_ids": []
+      }
+    },
+    "agent": {
+      "attempted": 35,
+      "graded": 33,
+      "success": 20,
+      "critical_errors": 0,
+      "correct_actions": 28,
+      "recovery_candidates": {
+        "n": 3,
+        "qualified_ids": []
+      }
+    },
+    "paired_scenarios": {
+      "equal": 26,
+      "rag_better": 2,
+      "agent_better": 1
+    }
+  }
+}
