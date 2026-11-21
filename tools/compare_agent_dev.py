@@ -1,12 +1,14 @@
 """Последовательная dev-диагностика двух режимов, без передачи эталонов приложению."""
 import argparse,hashlib,json,os,sys,time,uuid,subprocess,importlib.metadata,platform,re
 from pathlib import Path
+from unittest.mock import patch
 ROOT=Path(__file__).resolve().parent.parent;sys.path.insert(0,str(ROOT));os.environ.setdefault('DJANGO_SETTINGS_MODULE','hr_project.settings')
 import django;django.setup()
 import httpx
 from django.contrib.auth import get_user_model
 from assistant.models import Conversation,Document,Chunk
 from assistant.services import ask
+from assistant import services
 from assistant.assessment import ResourceSampler
 from assistant.evaluation import retrieval_metrics,chunk_relevant
 from assistant.inference import Ollama
@@ -61,6 +63,7 @@ if args.frozen_final:
 warm=Ollama();warm.chat('Ответь одним словом: готов.',[{'role':'user','content':'Начало локальной технической проверки.'}],structured=False)
 (directory/'warmup.json').write_text(json.dumps(warm.last_chat_metadata,ensure_ascii=False),encoding='utf-8')
 conversations={};results=[]
+actual_retrieve=services.retrieve
 with (directory/'answers.jsonl').open('w',encoding='utf-8') as f:
  for index,q in enumerate(selected):
   for mode in (['rag','agent'] if index%2==0 else ['agent','rag']):
@@ -68,9 +71,16 @@ with (directory/'answers.jsonl').open('w',encoding='utf-8') as f:
    if key not in conversations:conversations[key]=Conversation.objects.create(owner=user,mode=mode,title='Dev comparison')
    sampler=ResourceSampler();sampler.start();start=time.perf_counter()
    busy_retries=0
+   ranked_searches=[]
+   def observe_search(query,model):
+    found=actual_retrieve(query,model)
+    ranked_searches.append({'query':query,'sources':found})
+    return found
    while True:
     try:
-     turn=ask(user,conversations[key].id,q['question'],as_of=q['evaluation_as_of']);break
+     with patch.object(services,'retrieve',side_effect=observe_search):
+      turn=ask(user,conversations[key].id,q['question'],as_of=q['evaluation_as_of'])
+     break
     except RuntimeError as exc:
      if 'занята' not in str(exc) or busy_retries>=10:raise
      busy_retries+=1;time.sleep(1)
@@ -82,6 +92,8 @@ with (directory/'answers.jsonl').open('w',encoding='utf-8') as f:
    refs=[{**ref,'sha256':hashes[ref['document']]} for ref in q.get('evidence',[])]
    candidates=Chunk.objects.select_related('document').filter(document__state='ready',document__sha256__in=[r['sha256'] for r in refs])
    relevant=sum(any(chunk_relevant({'document_id':str(c.document_id),'text':c.text},ref,documents) for ref in refs) for c in candidates)
+   row['ranked_searches']=ranked_searches
+   row['first_search_metrics']=retrieval_metrics(ranked_searches[0]['sources'] if ranked_searches else [],refs,documents,8,relevant)
    for name,sources in [('retrieved',turn.diagnostics.get('retrieved',[])),('provided',turn.diagnostics.get('provided_sources',[])),('cited',[{**s,'text':s['quote']} for s in row['result'].get('sources',[])])]:
     row[name+'_metrics']=retrieval_metrics(sources,refs,documents,len(sources),relevant)
    row['action_label_proxy']=turn.status in q.get('acceptable_statuses',[q['expected_status']])
