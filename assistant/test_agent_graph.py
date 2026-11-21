@@ -102,3 +102,12 @@ class AgentGraphTests(TestCase):
     def test_clarify_does_not_force_search(self):
         result,trace=self.run_graph(FakeModel([('clarify','Какой формат работы?')]))
         self.assertEqual(result['status'],'clarify');self.assertEqual(trace['agent']['searches'],0)
+    def test_hard_ambiguity_never_forces_search(self):
+        model=FakeModel([])
+        result,trace=self.run_graph(model,clarification='Какой вариант вы имеете в виду?',force_clarification=True)
+        self.assertEqual(result['status'],'clarify');self.assertEqual(model.chat_calls,0)
+    def test_model_can_recover_soft_clarification_with_search(self):
+        model=FakeModel([('search_policies','Как оформить заявку?'),('answer','')])
+        with patch('assistant.agent_graph.check_policy_relations',return_value=None),patch('assistant.grounded.check_policy_relations',return_value=None):
+            result,trace=run_agent(self.user,self.conversation,'А заявка?','',[],model,'2026-11-17',clarification='Что означает заявка?',search_tool=lambda q,m:[self.source(self.a)])
+        self.assertEqual(result['status'],'answer');self.assertEqual(trace['resolved_query'],'Как оформить заявку?')

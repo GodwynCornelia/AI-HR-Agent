@@ -35,7 +35,12 @@ class Rewrite(BaseModel):
 
 class StandaloneQuery(BaseModel):
     model_config=ConfigDict(extra='forbid')
-    query:str=Field(min_length=1,max_length=900)
+    query:str=Field(max_length=900)
+    clarification:str=Field(default='',max_length=350)
+    @model_validator(mode='after')
+    def has_action(self):
+        if not self.query.strip() and not self.clarification.strip():raise ValueError('Не задан вопрос или уточнение')
+        return self
 
 
 def grounded_schema(aliases):

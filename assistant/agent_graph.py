@@ -22,6 +22,7 @@ clarify: уточнить существенное неизвестное усл
 refuse: остановиться, если подтверждений нет и нового полезного поиска не видишь.
 Не считай дополнительные поиски обязательными. Если найденного хватает — answer, без лишних вызовов.
 resolved_question задаёт актуальную тему и условия; в хронологических условиях старое может быть заменено новым. Не возвращай устаревшие условия.
+suggested_clarification — предварительное предложение, не факт. Если current и история однозначно задают новый предмет, можешь сформулировать полный query и выполнить поиск; иначе уточни.
 При новом поиске используй missing из оценки: сохрани отрицания, программу, категорию, период и роли; не выдумывай исключение.
 Нельзя читать файлы, выполнять shell, обращаться к внешним сервисам, менять права или инструменты.
 Не давай скрытые рассуждения. Верни только action, query, fragment_id, clarification; неиспользуемые поля пустые.'''
@@ -54,6 +55,7 @@ class AgentState(TypedDict,total=False):
     assessment:dict
     stop_reason:str
     result:dict
+    suggested_clarification:str
 
 class TraceModel:
     def __init__(self,base):self.base=base;self.calls=[]
@@ -81,7 +83,7 @@ def read_policy_fragment(fragment_id,allowed):
     return {'id':str(row.id),'document_id':str(doc.id),'title':doc.title,'location':row.location,'ordinal':row.ordinal,
             'text':row.text,'scope':doc.scope,'effective_from':str(doc.effective_from or ''),'supersedes':str(doc.supersedes_id or '')}
 
-def run_agent(user,conversation,original,query,history,model,evaluation_date,*,clarification='',search_tool=None,read_tool=None):
+def run_agent(user,conversation,original,query,history,model,evaluation_date,*,clarification='',force_clarification=False,search_tool=None,read_tool=None):
     owned_conversation(user,conversation.id)
     started=time.monotonic();max_steps=max(1,min(8,int(os.getenv('AGENT_MAX_ACTIONS','8'))));max_searches=max(1,min(3,int(os.getenv('AGENT_MAX_SEARCHES','3'))))
     timeout=max(1,min(840,float(os.getenv('AGENT_TIMEOUT_SECONDS','600'))));deadline=started+timeout
@@ -95,7 +97,7 @@ def run_agent(user,conversation,original,query,history,model,evaluation_date,*,c
         state['events']=[*state['events'],{'node':name,'seconds':time.monotonic()-begin,**data}];latest=state.copy();return state
     def prepare(state):
         t=time.monotonic()
-        if clarification:state.update(result={'status':'clarify','answer':clarification,'sources':[],'conflict_reason':''},stop_reason='clarification_before_search')
+        if clarification and force_clarification:state.update(result={'status':'clarify','answer':clarification,'sources':[],'conflict_reason':''},stop_reason='clarification_before_search')
         return event(state,'prepare',t)
     def plan(state):
         t=time.monotonic()
@@ -104,7 +106,8 @@ def run_agent(user,conversation,original,query,history,model,evaluation_date,*,c
         if state['steps']>=max_steps:state['stop_reason']='action_budget';return event(state,'plan',t)
         state['steps']+=1
         previews=[{'id':s['id'],'title':s['title'],'text':s['text'] if s['id'] in state['expanded'] else s['text'][:240]} for s in state['sources']]
-        payload={'current':original,'resolved_question':query,'topic':state['topic'],'conditions_from_user':state['conditions'],
+        payload={'current':original,'resolved_question':state['query'],'topic':state['topic'],'conditions_from_user':state['conditions'],
+                 'suggested_clarification':state.get('suggested_clarification',''),
                  'queries':state['queries'],'results':previews,'assessment':{k:v for k,v in state.get('assessment',{}).items() if k!='proof_ids'},
                  'remaining_searches':max_searches-state['searches'],'remaining_actions':max_steps-state['steps']}
         allowed=['search_policies','clarify','refuse'] if not state['sources'] else ['search_policies','read_policy_fragment','answer','clarify','refuse']
@@ -131,6 +134,7 @@ def run_agent(user,conversation,original,query,history,model,evaluation_date,*,c
             if action=='search_policies':
                 if state['searches']>=max_searches:state['stop_reason']='search_budget';return event(state,'tool',t,tool=action,blocked='search_budget')
                 state['searches']+=1;state['queries'].append(d['query'])
+                if not state['query']:state['query']=d['query'];state['topic']=d['query']
                 found=search(d['query'],traced)
                 available={str(i) for i in Chunk.objects.filter(id__in=[s['id'] for s in found],document__state=Document.State.READY).values_list('id',flat=True)}
                 unavailable=[s['id'] for s in found if s['id'] not in available]
@@ -157,10 +161,10 @@ def run_agent(user,conversation,original,query,history,model,evaluation_date,*,c
     def evaluate(state):
         t=time.monotonic()
         try:
-            value,sources,proofs,documents=assess(traced,query,state['sources'],trace)
+            value,sources,proofs,documents=assess(traced,state['query'],state['sources'],trace)
             assessment_cache.update(sources=sources,proofs=proofs,value=value)
             state['assessment']=value
-            policy=check_policy_relations(traced,query,proofs,evaluation_date,trace)
+            policy=check_policy_relations(traced,state['query'],proofs,evaluation_date,trace)
             assessment_cache['policy_checked']=True
             if policy:state.update(result=policy,stop_reason='document_conflict' if policy['status']=='conflict' else 'document_scope_clarification')
         except Exception as exc:state['stop_reason']='timeout' if isinstance(exc,TimeoutError) or time.monotonic()>=deadline else 'assessment_unavailable';trace['assessment_error']=type(exc).__name__
@@ -171,7 +175,7 @@ def run_agent(user,conversation,original,query,history,model,evaluation_date,*,c
             value=assessment_cache.get('value',{'proof_ids':[],'sufficient':False,'missing':['подтверждения'],'clarification':''});proofs=assessment_cache.get('proofs',{})
             try:
                 if reason=='answer' and time.monotonic()<deadline:
-                    state['result']=compose(traced,query,assessment_cache.get('sources',[]),proofs,value,evaluation_date,trace,policy_checked=assessment_cache.get('policy_checked',False))
+                    state['result']=compose(traced,state['query'],assessment_cache.get('sources',[]),proofs,value,evaluation_date,trace,policy_checked=assessment_cache.get('policy_checked',False))
                 else:
                     chosen=[proofs[k] for k in value['proof_ids'] if k in proofs]
                     state['result']=quote_result(chosen,partial=True,missing=value.get('missing'))
@@ -179,7 +183,7 @@ def run_agent(user,conversation,original,query,history,model,evaluation_date,*,c
                         state['result']['answer']='Не удалось завершить проверку источников в пределах доступного бюджета или из-за технической ошибки. Это не означает отсутствия правила в базе. Повторите вопрос или обратитесь к HR.'
             except Exception as exc:
                 trace['finalization_error']=type(exc).__name__;state['result']=quote_result([proofs[k] for k in value['proof_ids'] if k in proofs],partial=True,missing=['завершение проверки ответа']);reason='timeout' if time.monotonic()>=deadline else 'finalization_unavailable'
-        state['result'],trace['final_mandatory_checks']=enforce(query,state['result'])
+        state['result'],trace['final_mandatory_checks']=enforce(state['query'] or original,state['result'])
         if reason=='answer' and state['result']['status']=='refuse':reason='final_guard_or_evidence_rejection'
         ids=[s['document_id'] for s in state['result'].get('sources',[])]
         active={str(i) for i in Document.objects.filter(id__in=ids,state=Document.State.READY).values_list('id',flat=True)}
@@ -192,7 +196,7 @@ def run_agent(user,conversation,original,query,history,model,evaluation_date,*,c
     graph.add_conditional_edges('plan',lambda s:'finalize' if s.get('stop_reason') else 'tool',{'finalize':'finalize','tool':'tool'})
     graph.add_conditional_edges('tool',lambda s:'finalize' if s.get('stop_reason') else 'assess',{'finalize':'finalize','assess':'assess'});graph.add_conditional_edges('assess',lambda s:'finalize' if s.get('stop_reason') else 'plan',{'finalize':'finalize','plan':'plan'});graph.add_edge('finalize',END)
     initial={'original':original,'query':query,'topic':query,'conditions':[h['question'] for h in history][-6:]+[original],
-             'sources':[],'queries':[],'expanded':[],'events':[],'steps':0,'searches':0}
+             'sources':[],'queries':[],'expanded':[],'events':[],'steps':0,'searches':0,'suggested_clarification':clarification}
     latest=initial.copy()
     try:state=graph.compile(name=VERSION).invoke(initial,config={'recursion_limit':max_steps*4+10,'callbacks':[]})
     except Exception as exc:
@@ -208,5 +212,5 @@ def run_agent(user,conversation,original,query,history,model,evaluation_date,*,c
     trace['agent']['code_version_sha256']=code.hexdigest()
     trace['agent']['configuration']={key:os.getenv(key,default) for key,default in [('MODEL_CONTEXT','4096'),('MODEL_OUTPUT','700'),('TOP_K','8'),('CONTEXT_CHARS','12000'),('MODEL_GPU_LAYERS','0'),('EMBED_GPU_LAYERS','0')]}
     trace['agent']['configuration'].update(temperature=0,seed=116,embedding_model=getattr(model,'embed_model',None))
-    trace.update(answer_generation_seconds=time.monotonic()-started,grounding_seconds=0.,retrieved=state['sources'])
+    trace.update(answer_generation_seconds=time.monotonic()-started,grounding_seconds=0.,retrieved=state['sources'],resolved_query=state['query'])
     return state['result'],trace

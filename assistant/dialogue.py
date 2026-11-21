@@ -28,8 +28,10 @@ def needs_reference_repair(current,query,status,history):
     if not history or unspecified_alternative(current):return False
     unchanged=query.strip().rstrip('?.!').lower()==current.strip().rstrip('?.!').lower()
     if re.match(r'^\s*(?:я\s+имею\s+в\s+виду|речь\s+о)\b',current,re.I) and (status=='clarify' or unchanged):return True
-    if status!='search':return False
-    deictic=bool(re.search(r'\b(?:этой|эта|этого|эту|такой|этот)\s+(?:сумм|вариант|результат|услов|срок)',query,re.I))
+    reference_text=current if status=='clarify' else query
+    deictic=bool(re.search(r'\b(?:этой|эта|этого|эту|такой|этот)\s+(?:сумм|вариант|результат|услов|срок)',reference_text,re.I))
+    named_words=[w for w in re.findall(r'[а-яё]{4,}',current.lower()) if w not in {'если','этого','этой','этот','тогда','такой','него','неё','вариант','другой','другие','условия'}]
+    if status=='clarify':return deictic or bool(re.match(r'^\s*а\s+',current,re.I) and named_words)
     elliptical=unchanged and bool(re.match(r'^\s*а\s+',query,re.I)) and len(query.split())<=14
     return deictic or elliptical
 
