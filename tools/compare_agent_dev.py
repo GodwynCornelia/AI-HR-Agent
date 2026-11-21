@@ -1,5 +1,5 @@
 """Последовательная dev-диагностика двух режимов, без передачи эталонов приложению."""
-import argparse,hashlib,json,os,sys,time,uuid,subprocess,importlib.metadata
+import argparse,hashlib,json,os,sys,time,uuid,subprocess,importlib.metadata,platform,re
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent.parent;sys.path.insert(0,str(ROOT));os.environ.setdefault('DJANGO_SETTINGS_MODULE','hr_project.settings')
 import django;django.setup()
@@ -28,6 +28,10 @@ if args.frozen_final:
  assert 30<=len({q.get('dialogue_id') or q['id'] for q in selected})<=40
  assert len({q['id'] for q in selected})==len(selected)
  assert all(q['split']=='portfolio_final' for q in selected)
+ normalize=lambda question: ' '.join(re.findall(r'\w+',question.casefold()))
+ historical={normalize(q['question']) for q in questions}
+ assert not any(normalize(q['question']) in historical for q in selected),'Exact historical question duplicate'
+ assert len({normalize(q['question']) for q in selected})==len(selected),'Exact duplicate within final set'
 corpus=json.loads((ROOT/'data/rgr_20261118/corpus_manifest.json').read_text(encoding='utf-8'));hashes={d['file']:d['sha256'] for d in corpus}
 documents={str(d.id):d.sha256 for d in Document.objects.filter(state='ready')}
 assert len(documents)==len(corpus) and set(documents.values())==set(hashes.values())
@@ -47,7 +51,12 @@ server=Ollama();tags=httpx.get(server.base+'/api/tags',timeout=15).json()
 config.update(ollama_version=httpx.get(server.base+'/api/version',timeout=15).json(),model_digests={m['name']:m['digest'] for m in tags.get('models',[]) if m['name'] in {server.model,server.embed_model,server.embed_model+':latest'}},requirements_lock_sha256=hashlib.sha256((ROOT/'requirements.lock.txt').read_bytes()).hexdigest(),initial_query_shared_with_rag=True)
 if args.frozen_final:
  config.update(purpose='portfolio_final',new_final_test=True,set_sha256=hashlib.sha256(frozen_bytes).hexdigest(),
-               scenarios=len({q.get('dialogue_id') or q['id'] for q in selected}),replies=len(selected))
+               scenarios=len({q.get('dialogue_id') or q['id'] for q in selected}),replies=len(selected),
+               hardware=frozen['hardware'],platform=platform.platform(),
+               effective_limits={k:os.getenv(k,v) for k,v in {
+                   'AGENT_MAX_SEARCHES':'3','AGENT_MAX_READS':'2','AGENT_MAX_ACTIONS':'8',
+                   'AGENT_TIMEOUT_SECONDS':'600','CONTEXT_CHARS':'12000','HISTORY_TURNS':'6',
+                   'HISTORY_CHARS':'4000'}.items()})
 (directory/'manifest.json').write_text(json.dumps(config,ensure_ascii=False,indent=2),encoding='utf-8')
 warm=Ollama();warm.chat('Ответь одним словом: готов.',[{'role':'user','content':'Начало локальной технической проверки.'}],structured=False)
 (directory/'warmup.json').write_text(json.dumps(warm.last_chat_metadata,ensure_ascii=False),encoding='utf-8')
