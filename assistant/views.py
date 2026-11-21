@@ -32,12 +32,15 @@ def index(request, conversation_id=None):
     for turn in turns:
         labels=[];searches=0
         for event in turn.diagnostics.get('agent',{}).get('events',[]):
+            if event.get('blocked'):labels.append('Повторный или недопустимый вызов пропущен');continue
+            if event.get('error'):labels.append('Инструмент завершился ошибкой');continue
             if event.get('tool')=='search_policies':
                 searches+=1;labels.append('Поиск источников' if searches==1 else 'Дополнительный поиск')
             elif event.get('tool')=='read_policy_fragment':labels.append('Чтение найденного фрагмента')
             elif event.get('node')=='assess':labels.append('Проверка найденных подтверждений')
             elif event.get('node')=='finalize':labels.append('Финальная проверка источников')
         turn.public_events=labels
+        turn.public_status={'answer':'Ответ с источниками','clarify':'Нужно уточнение','refuse':'Ответ не подтверждён','conflict':'Конфликт правил','error':'Техническая ошибка','pending':'Обработка'}.get(turn.status,turn.status)
     return render(request, 'assistant/chat.html', {'conversations': conversations, 'selected': selected, 'turns': turns})
 
 

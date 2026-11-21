@@ -32,6 +32,8 @@ DATABASES = {'default': {'ENGINE': 'django.db.backends.postgresql',
                         'PASSWORD': os.environ['POSTGRES_PASSWORD'],
                         'HOST': os.getenv('DB_HOST', '127.0.0.1'),
                         'PORT': os.getenv('DB_PORT', '5432')}}
+DATABASES['default']['OPTIONS']={'connect_timeout':max(1,int(os.getenv('DB_CONNECT_TIMEOUT','10'))),
+ 'options':'-c statement_timeout='+str(max(1000,int(os.getenv('DB_STATEMENT_TIMEOUT_MS','30000'))))+' -c lock_timeout=5000'}
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
@@ -49,6 +51,8 @@ LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/accounts/login/'
 SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_NAME = os.getenv('SESSION_COOKIE_NAME','sessionid')
+CSRF_COOKIE_NAME = os.getenv('CSRF_COOKIE_NAME','csrftoken')
 SESSION_COOKIE_SAMESITE = 'Lax'
 CSRF_COOKIE_SAMESITE = 'Lax'
 X_FRAME_OPTIONS = 'DENY'

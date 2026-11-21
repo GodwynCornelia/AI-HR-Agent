@@ -17,7 +17,7 @@ class FakeModel:
         if 'action' in properties:
             value=next(self.actions)
             if isinstance(value,Exception):raise value
-            return {'action':value[0],'query':value[1] if value[0]=='search_policies' else '',
+            return {'focus':'текущая процедура','action':value[0],'query':value[1] if value[0]=='search_policies' else '',
                     'fragment_id':value[1] if value[0]=='read_policy_fragment' else '',
                     'clarification':value[1] if value[0]=='clarify' else ''}
         if 'sufficient' in properties:
@@ -41,7 +41,7 @@ class AgentGraphTests(TestCase):
         return {'id':str(chunk.id),'document_id':str(self.doc.id),'title':self.doc.title,'text':chunk.text,'ordinal':chunk.ordinal,'location':chunk.location,'scope':'Все сотрудники','effective_from':'','supersedes':''}
     def run_graph(self,model,search=None,**kwargs):
         with patch('assistant.grounded.check_policy_relations',return_value=None):
-            return run_agent(self.user,self.conversation,'Как оформить заявку?','Как оформить заявку?',[],model,'2026-11-17',search_tool=search or (lambda q,m:[self.source(self.a)]),**kwargs)
+            return run_agent(self.user,self.conversation,'Как оформить заявку?','заявка',[],model,'2026-11-17',search_tool=search or (lambda q,m:[self.source(self.a)]),**kwargs)
     def test_direct_question_can_finish_after_one_search(self):
         result,trace=self.run_graph(FakeModel([('search_policies','заявка'),('answer','')]))
         self.assertEqual(result['status'],'answer');self.assertEqual(trace['agent']['searches'],1)
@@ -53,7 +53,7 @@ class AgentGraphTests(TestCase):
         self.assertEqual(trace['agent']['searches'],2);self.assertEqual(len(trace['agent']['evidence_ids']),2)
         self.assertEqual(result['status'],'answer')
     def test_duplicate_call_is_blocked_before_execution(self):
-        _,trace=self.run_graph(FakeModel([('search_policies','заявка'),('search_policies','заявка')],[False]))
+        _,trace=self.run_graph(FakeModel([('search_policies','заявка'),('search_policies','заявка'),('search_policies','заявка')],[False]))
         self.assertEqual(trace['agent']['stop_reason'],'duplicate_tool_call');self.assertEqual(trace['agent']['searches'],1)
     def test_search_budget(self):
         with patch.dict(os.environ,{'AGENT_MAX_SEARCHES':'1'}):

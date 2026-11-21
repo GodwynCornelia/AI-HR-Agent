@@ -35,6 +35,8 @@ class Rewrite(BaseModel):
 
 class StandaloneQuery(BaseModel):
     model_config=ConfigDict(extra='forbid')
+    subject:str
+    requested_action:str
     query:str=Field(max_length=900)
     clarification:str=Field(default='',max_length=350)
     @model_validator(mode='after')
