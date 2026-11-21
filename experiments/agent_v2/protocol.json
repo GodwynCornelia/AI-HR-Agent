@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "purpose": "development_diagnostics_not_final_test",
+  "baseline_commit": "f997bec080ebeb3a283ae7b95d2b0e3ecad42371",
+  "models_unchanged": true,
+  "modes": ["rag", "agent"],
+  "interventions": ["natural", "first_empty", "first_top1"],
+  "intervention_rule": "Only first search call affected, identically for both modes; never select by reference.",
+  "cases": [
+    {"id":"mentor","group":"onboarding","turns":["Кто назначает наставника и где посмотреть, кто это?"],"expected":"Руководитель команды до первого дня; имя в плане адаптации."},
+    {"id":"travel_learning","group":"training_travel","turns":["Курс согласован HR. Какие согласования нужны для билетов и гостиницы на очное обучение?"],"expected":"Согласование HR не заменяет оформление командировки; условия поездки и расходов подтверждаются регламентами."},
+    {"id":"equipment","group":"equipment_procedure","turns":["Как выдают рабочий ноутбук офисному сотруднику?","Теперь я работаю постоянно удалённо. Как меняется выдача?","Ноутбук сломался. Могу ли я отнести его в стороннюю мастерскую?"],"expected":"Формат заменяется; ремонт не смешивается с первоначальной выдачей; порядок по документам."},
+    {"id":"hotel","group":"workplace_travel","turns":["Оплачивают ли мне коворкинг?","Мой формат — постоянная удалённая работа, это место в моём городе.","А что с гостиницей в согласованной командировке?","Подходящее проживание стоит больше названного лимита. Как согласовать превышение?"],"expected":"Неизвестный формат уточнить; конфликт коворкинга с обеими нормами; гостиница — новая процедура; превышение — вопрос о гостинице, лимит перепроверить."},
+    {"id":"ambiguous","group":"unknown_variant","turns":["А другой вариант?"],"expected":"Уточнение, вариант не угадывать."},
+    {"id":"absent","group":"absent_detail","turns":["Какой телефон у страховой компании по нашему ДМС?"],"expected":"Номер не выдумывать; явно недостаточно найденных сведений, смежный текст не заменяет номер."},
+    {"id":"replacement","group":"effective_training","turns":["Какой лимит годовой компенсации обучения действует в 2026 году?"],"expected":"Действующая норма 18000, явная замена старого правила."},
+    {"id":"contradictory_user","group":"inconsistent_conditions","turns":["Я одновременно офисный сотрудник и постоянный удалённый по одному договору. Какое правило компенсации интернета ко мне применимо?"],"expected":"Уточнить несовместимые условия, формат не выбирать за пользователя."}
+  ],
+  "evaluation_only": "Expected fields, groups and IDs never passed into app/model tools. Questions only and each mode's own bounded history. Date 2026-11-21 fixed.",
+  "component_context_fixture": "Generic synthetic document with approval condition in ordinal+1; anchor allowlist, same document, deletion and reindex checks. Kept separate from natural retrieval."
+}

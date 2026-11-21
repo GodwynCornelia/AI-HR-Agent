@@ -63,9 +63,23 @@ class AgentGraphTests(TestCase):
         with patch.dict(os.environ,{'AGENT_MAX_ACTIONS':'1'}):
             _,trace=self.run_graph(FakeModel([('search_policies','заявка')]))
         self.assertEqual(trace['agent']['stop_reason'],'action_budget')
-    def test_no_new_evidence_stops_rewording_loop(self):
-        _,trace=self.run_graph(FakeModel([('search_policies','заявка'),('search_policies','иначе заявка')],[False]))
-        self.assertEqual(trace['agent']['stop_reason'],'no_new_evidence')
+    def test_same_sources_leave_another_strategy_available(self):
+        _,trace=self.run_graph(FakeModel([('search_policies','заявка'),('search_policies','иначе заявка'),('refuse','')],[False,False]))
+        self.assertEqual(trace['agent']['stop_reason'],'refuse');self.assertEqual(trace['agent']['searches'],2)
+    def test_empty_first_search_can_recover(self):
+        result,trace=self.run_graph(FakeModel([('search_policies','заявка'),('search_policies','документы заявки'),('answer','')]),lambda q,m:[] if q=='заявка' else [self.source(self.a)])
+        self.assertEqual(result['status'],'answer');self.assertEqual(trace['agent']['searches'],2)
+    def test_all_empty_searches_are_bounded(self):
+        result,trace=self.run_graph(FakeModel([('search_policies','заявка'),('search_policies','документы заявки'),('search_policies','ответственный за заявку')]),lambda q,m:[])
+        self.assertEqual(result['status'],'refuse');self.assertEqual(trace['agent']['searches'],3)
+        self.assertEqual(trace['agent']['stop_reason'],'no_progress_budget')
+    def test_cosmetic_query_repeat_not_executed(self):
+        _,trace=self.run_graph(FakeModel([('search_policies','заявка'),('search_policies','Подскажите, заявка!'),('refuse','')],[False]))
+        self.assertEqual(trace['agent']['searches'],1)
+    def test_search_failure_is_not_empty(self):
+        def broken(q,m):raise ConnectionError('search offline')
+        result,trace=self.run_graph(FakeModel([('search_policies','заявка')]),broken)
+        self.assertEqual(trace['agent']['stop_reason'],'tool_error');self.assertIn('технической',result['answer'])
     def test_read_only_seen_fragment(self):
         result,trace=self.run_graph(FakeModel([('search_policies','заявка'),('read_policy_fragment',str(self.a.id)),('answer','')]))
         self.assertEqual(result['status'],'answer');self.assertTrue(any(e.get('tool')=='read_policy_fragment' for e in trace['agent']['events']))
