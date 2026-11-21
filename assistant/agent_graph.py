@@ -153,7 +153,7 @@ def run_agent(user,conversation,original,query,history,model,evaluation_date,*,c
             else:
                 state['sources']=[full if s['id']==full['id'] else s for s in state['sources']];state['expanded'].append(full['id'])
             return event(state,'tool',t,tool=action,arguments={'fragment_id':d['fragment_id']},available=full is not None)
-        except Exception as exc:state['stop_reason']='timeout' if isinstance(exc,TimeoutError) else 'tool_error';trace['tool_error']=type(exc).__name__;return event(state,'tool',t,tool=action,error=type(exc).__name__)
+        except Exception as exc:state['stop_reason']='timeout' if isinstance(exc,TimeoutError) or time.monotonic()>=deadline else 'tool_error';trace['tool_error']=type(exc).__name__;return event(state,'tool',t,tool=action,arguments={'query' if action=='search_policies' else 'fragment_id':args},error=type(exc).__name__)
     def evaluate(state):
         t=time.monotonic()
         try:
@@ -163,7 +163,7 @@ def run_agent(user,conversation,original,query,history,model,evaluation_date,*,c
             policy=check_policy_relations(traced,query,proofs,evaluation_date,trace)
             assessment_cache['policy_checked']=True
             if policy:state.update(result=policy,stop_reason='document_conflict' if policy['status']=='conflict' else 'document_scope_clarification')
-        except Exception as exc:state['stop_reason']='assessment_unavailable';trace['assessment_error']=type(exc).__name__
+        except Exception as exc:state['stop_reason']='timeout' if isinstance(exc,TimeoutError) or time.monotonic()>=deadline else 'assessment_unavailable';trace['assessment_error']=type(exc).__name__
         return event(state,'assess',t,sufficient=state.get('assessment',{}).get('sufficient',False))
     def finish(state):
         t=time.monotonic();reason=state.get('stop_reason') or 'completed'
@@ -178,8 +178,9 @@ def run_agent(user,conversation,original,query,history,model,evaluation_date,*,c
                     if not chosen and reason not in {'refuse','no_new_evidence','completed'}:
                         state['result']['answer']='Не удалось завершить проверку источников в пределах доступного бюджета или из-за технической ошибки. Это не означает отсутствия правила в базе. Повторите вопрос или обратитесь к HR.'
             except Exception as exc:
-                trace['finalization_error']=type(exc).__name__;state['result']=quote_result([proofs[k] for k in value['proof_ids'] if k in proofs],partial=True,missing=['завершение проверки ответа']);reason='finalization_unavailable'
+                trace['finalization_error']=type(exc).__name__;state['result']=quote_result([proofs[k] for k in value['proof_ids'] if k in proofs],partial=True,missing=['завершение проверки ответа']);reason='timeout' if time.monotonic()>=deadline else 'finalization_unavailable'
         state['result'],trace['final_mandatory_checks']=enforce(query,state['result'])
+        if reason=='answer' and state['result']['status']=='refuse':reason='final_guard_or_evidence_rejection'
         ids=[s['document_id'] for s in state['result'].get('sources',[])]
         active={str(i) for i in Document.objects.filter(id__in=ids,state=Document.State.READY).values_list('id',flat=True)}
         if any(i not in active for i in ids):
@@ -202,5 +203,10 @@ def run_agent(user,conversation,original,query,history,model,evaluation_date,*,c
         'searches':state['searches'],'actions':state['steps'],'llm_calls_graph':len(traced.calls),'llm_calls':getattr(model,'chat_calls',len(traced.calls)),'llm_events':traced.calls,
         'stop_reason':state['stop_reason'],'seconds':time.monotonic()-started,'budgets':{'searches':max_searches,'actions':max_steps,'seconds':timeout},
         'evidence_ids':[s['id'] for s in state['sources']]}
+    code=hashlib.sha256()
+    for path in sorted(Path(__file__).parent.rglob('*.py')):code.update(path.name.encode()+path.read_bytes())
+    trace['agent']['code_version_sha256']=code.hexdigest()
+    trace['agent']['configuration']={key:os.getenv(key,default) for key,default in [('MODEL_CONTEXT','4096'),('MODEL_OUTPUT','700'),('TOP_K','8'),('CONTEXT_CHARS','12000'),('MODEL_GPU_LAYERS','0'),('EMBED_GPU_LAYERS','0')]}
+    trace['agent']['configuration'].update(temperature=0,seed=116,embedding_model=getattr(model,'embed_model',None))
     trace.update(answer_generation_seconds=time.monotonic()-started,grounding_seconds=0.,retrieved=state['sources'])
     return state['result'],trace

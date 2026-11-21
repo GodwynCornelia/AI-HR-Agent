@@ -56,7 +56,8 @@ class Ollama:
         return vectors
 
     def chat(self, system, messages, structured=True):
-        self.chat_calls+=1
+        self.last_raw_response=''
+        self.last_chat_metadata={}
         messages=[{**message,'content':protect_role_boundaries(message['content'])} for message in messages]
         if not self.fits(system, messages):
             raise ValueError('Вопрос и контекст превышают окно модели; сократите вопрос или историю.')
@@ -70,6 +71,7 @@ class Ollama:
             data['format'] = structured if isinstance(structured,dict) else 'json'
         self.last_request = data
         with httpx.Client(timeout=self.request_timeout(600)) as client:
+            self.chat_calls+=1
             response = client.post(self.base + '/api/chat', json=data)
             response.raise_for_status()
         data = response.json()

@@ -33,6 +33,11 @@ class Rewrite(BaseModel):
         return self
 
 
+class StandaloneQuery(BaseModel):
+    model_config=ConfigDict(extra='forbid')
+    query:str=Field(min_length=1,max_length=900)
+
+
 def grounded_schema(aliases):
     schema=GroundedReply.model_json_schema()
     schema['$defs']['Citation']['properties']['id']={'type':'string','enum':list(aliases)}
