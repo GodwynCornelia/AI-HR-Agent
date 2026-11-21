@@ -55,6 +55,8 @@ if args.corpus_manifest:
         for s in row['diagnostics'].get('retrieved',[]):
             pool[s['id']]=s
         row['pool_recall']=measure(list(pool.values()),len(pool))['recall_at_k']
+        cited=[{**s,'text':s['quote']} for s in row.get('result',{}).get('sources',[])]
+        row['cited_recall']=measure(cited,len(cited))['recall_at_k']
 
 def percentile(values, p):
     values = sorted(values)
@@ -121,9 +123,18 @@ if args.grades:
     out['preliminary_llm']={}
     for mode in ('rag','agent'):
         part=[g for g in grades if g['mode']==mode]
-        out['preliminary_llm'][mode]={'graded':len(part),'success':sum(success(g) for g in part),
+        available=[r for r in rows if r['mode']==mode]
+        failures={r['question_id'] for r in available if r['status']=='error'}
+        successful={g['question_id'] for g in part if success(g)}-failures
+        out['preliminary_llm'][mode]={'attempted':len(available),'graded':len(part),'success':len(successful),
                                     'critical_errors':sum(g['critical_error'] for g in part),
                                     'correct_actions':sum(g['action_correct'] for g in part)}
+        if args.corpus_manifest:
+            possible=[r for r in available if r['pool_recall'] is not None and r['first_search_metrics']['recall_at_k']<1]
+            recovered=[r['question_id'] for r in possible
+                       if r['pool_recall']>r['first_search_metrics']['recall_at_k'] and
+                       r['cited_recall']==1 and r['question_id'] in successful]
+            out['preliminary_llm'][mode]['recovery_candidates']={'n':len(possible),'qualified_ids':recovered}
     groups={}
     for q in questions.values():
         groups.setdefault(q['group_id'],[]).append(q['id'])
@@ -131,7 +142,8 @@ if args.grades:
     for ids in groups.values():
         if not all((i,m) in indexed for i in ids for m in ('rag','agent')):
             continue
-        a,b=(all(success(indexed[i,m]) for i in ids) for m in ('rag','agent'))
+        statuses={(r['question_id'],r['mode']):r['status'] for r in rows}
+        a,b=(all(success(indexed[i,m]) and statuses[i,m]!='error' for i in ids) for m in ('rag','agent'))
         deltas['agent_better' if b>a else 'rag_better' if a>b else 'equal']+=1
     out['preliminary_llm']['paired_scenarios']=dict(deltas)
 if args.check:
